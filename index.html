@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=34">
+    <link rel="stylesheet" href="style.css?v=35">
     <style>
         /* Compact Single Line Horizontal Scroll Container */
         .lang-bar {
@@ -69,8 +69,9 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Compact Single Line (38 Languages) -->
+        <!-- Language Switcher Bar - Compact Single Line (68 Languages) -->
         <div class="lang-bar notranslate">
+            <!-- Original 38 Languages -->
             <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
             <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
@@ -89,7 +90,6 @@
             <button class="lang-btn" onclick="switchLang('id', event)"><span class="flag-icon">🇮🇩</span> ID</button>
             <button class="lang-btn" onclick="switchLang('hi', event)"><span class="flag-icon">🇮🇳</span> हिन्दी</button>
             <button class="lang-btn" onclick="switchLang('bn', event)"><span class="flag-icon">🇧🇩</span> বাংলা</button>
-            <!-- Additional 20 Languages -->
             <button class="lang-btn" onclick="switchLang('nl', event)"><span class="flag-icon">🇳🇱</span> NL</button>
             <button class="lang-btn" onclick="switchLang('pl', event)"><span class="flag-icon">🇵🇱</span> PL</button>
             <button class="lang-btn" onclick="switchLang('el', event)"><span class="flag-icon">🇬🇷</span> ΕΛ</button>
@@ -110,6 +110,37 @@
             <button class="lang-btn" onclick="switchLang('km', event)"><span class="flag-icon">🇰🇭</span> ខ្មែរ</button>
             <button class="lang-btn" onclick="switchLang('lo', event)"><span class="flag-icon">🇱🇦</span> ລາວ</button>
             <button class="lang-btn" onclick="switchLang('he', event)"><span class="flag-icon">🇮🇱</span> עברית</button>
+            <!-- Additional 30 Languages -->
+            <button class="lang-btn" onclick="switchLang('af', event)"><span class="flag-icon">🇿🇦</span> AF</button>
+            <button class="lang-btn" onclick="switchLang('sq', event)"><span class="flag-icon">🇦🇱</span> SQ</button>
+            <button class="lang-btn" onclick="switchLang('am', event)"><span class="flag-icon">🇪🇹</span> AM</button>
+            <button class="lang-btn" onclick="switchLang('hy', event)"><span class="flag-icon">🇦🇲</span> HY</button>
+            <button class="lang-btn" onclick="switchLang('az', event)"><span class="flag-icon">🇦🇿</span> AZ</button>
+            <button class="lang-btn" onclick="switchLang('eu', event)"><span class="flag-icon">🇪🇸</span> EU</button>
+            <button class="lang-btn" onclick="switchLang('be', event)"><span class="flag-icon">🇧🇾</span> BE</button>
+            <button class="lang-btn" onclick="switchLang('bs', event)"><span class="flag-icon">🇧🇦</span> BS</button>
+            <button class="lang-btn" onclick="switchLang('bg', event)"><span class="flag-icon">🇧🇬</span> BG</button>
+            <button class="lang-btn" onclick="switchLang('ca', event)"><span class="flag-icon">🇪🇸</span> CA</button>
+            <button class="lang-btn" onclick="switchLang('hr', event)"><span class="flag-icon">🇭🇷</span> HR</button>
+            <button class="lang-btn" onclick="switchLang('eo', event)"><span class="flag-icon">🌐</span> EO</button>
+            <button class="lang-btn" onclick="switchLang('et', event)"><span class="flag-icon">🇪🇪</span> ET</button>
+            <button class="lang-btn" onclick="switchLang('gl', event)"><span class="flag-icon">🇪🇸</span> GL</button>
+            <button class="lang-btn" onclick="switchLang('ka', event)"><span class="flag-icon">🇬🇪</span> KA</button>
+            <button class="lang-btn" onclick="switchLang('gu', event)"><span class="flag-icon">🇮🇳</span> GU</button>
+            <button class="lang-btn" onclick="switchLang('ha', event)"><span class="flag-icon">🇳🇬</span> HA</button>
+            <button class="lang-btn" onclick="switchLang('is', event)"><span class="flag-icon">🇮🇸</span> IS</button>
+            <button class="lang-btn" onclick="switchLang('ga', event)"><span class="flag-icon">🇮🇪</span> GA</button>
+            <button class="lang-btn" onclick="switchLang('kn', event)"><span class="flag-icon">🇮🇳</span> KN</button>
+            <button class="lang-btn" onclick="switchLang('kk', event)"><span class="flag-icon">🇰🇿</span> KK</button>
+            <button class="lang-btn" onclick="switchLang('ky', event)"><span class="flag-icon">🇰🇬</span> KY</button>
+            <button class="lang-btn" onclick="switchLang('lv', event)"><span class="flag-icon">🇱🇻</span> LV</button>
+            <button class="lang-btn" onclick="switchLang('lt', event)"><span class="flag-icon">🇱🇹</span> LT</button>
+            <button class="lang-btn" onclick="switchLang('mk', event)"><span class="flag-icon">🇲🇰</span> MK</button>
+            <button class="lang-btn" onclick="switchLang('mg', event)"><span class="flag-icon">🇲🇬</span> MG</button>
+            <button class="lang-btn" onclick="switchLang('ceb', event)"><span class="flag-icon">🇵🇭</span> CEB</button>
+            <button class="lang-btn" onclick="switchLang('ku', event)"><span class="flag-icon">🇮🇶</span> KU</button>
+            <button class="lang-btn" onclick="switchLang('so', event)"><span class="flag-icon">🇸🇴</span> SO</button>
+            <button class="lang-btn" onclick="switchLang('zu', event)"><span class="flag-icon">🇿🇦</span> ZU</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -151,388 +182,552 @@
         </section>
     </main>
 
-    <!-- Language Translation Data Script (38 Languages) -->
+    <!-- Language Translation Data Script (68 Languages) -->
     <script>
         const translations = {
             en: {
-                title: "TRUTH & EQUALITY",
-                subtitle: "SOCIAL ENTERPRISE",
+                title: "TRUTH & EQUALITY", subtitle: "SOCIAL ENTERPRISE",
                 slogan: '" Only that which is accepted by every single human being as equal can truly be called Truth. "',
-                secTitle: "THE CORE PHILOSOPHY",
-                equation: "EQUALITY = TRUTH",
+                secTitle: "THE CORE PHILOSOPHY", equation: "EQUALITY = TRUTH",
                 quote: '" Only that which is accepted by every single human being as equal can truly be called Truth. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Home", services: "Services", workers: "Workers", shops: "Shops", blog: "Blog", about: "About Us", contact: "Contact" }
             },
             my: {
-                title: "အမှန်တရားနှင့် ညီမျှမှု",
-                subtitle: "လူမှုစီးပွားရေး လုပ်ငန်း",
+                title: "အမှန်တရားနှင့် ညီမျှမှု", subtitle: "လူမှုစီးပွားရေး လုပ်ငန်း",
                 slogan: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
-                secTitle: "အဓိက သဘောတရား ရင်းမြစ်",
-                equation: "ညီမျှမှု = အမှန်တရား",
+                secTitle: "အဓိက သဘောတရား ရင်းမြစ်", equation: "ညီမျှမှု = အမှန်တရား",
                 quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
                 font: "'Padauk', sans-serif",
                 nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
             },
             ar: {
-                title: "الحقيقة والمساواة",
-                subtitle: "المؤسسة الاجتماعية",
+                title: "الحقيقة والمساواة", subtitle: "المؤسسة الاجتماعية",
                 slogan: '" لا يُمكن أن يُسمى شيئًا حقًا إلا إذا قَبِله كل إنسانٍ على أنه عدلٌ وسواء. "',
-                secTitle: "الفلسفة الأساسية",
-                equation: "المساواة = الحقيقة",
+                secTitle: "الفلسفة الأساسية", equation: "المساواة = الحقيقة",
                 quote: '" لا يُمكن أن يُسمى شيئًا حقًا إلا إذا قَبِله كل إنسانٍ على أنه عدلٌ وسواء. "',
                 font: "'Amiri', serif",
                 nav: { home: "الرئيسية", services: "الخدمات", workers: "العمال", shops: "المتاجر", blog: "المدونة", about: "من نحن", contact: "اتصل بنا" }
             },
             th: {
-                title: "ความจริงและความเท่าเทียม",
-                subtitle: "วิสาหกิจเพื่อสังคม",
+                title: "ความจริงและความเท่าเทียม", subtitle: "วิสาหกิจเพื่อสังคม",
                 slogan: '“ สิ่งใดก็ตามที่มนุษย์ทุกคนยอมรับว่าเท่าเทียมกันอย่างแท้จริง สิ่งนั้นจึงจะเรียกว่าความจริงได้อย่างแท้จริง ”',
-                secTitle: "ปรัชญาหลัก",
-                equation: "ความเท่าเทียม = ความจริง",
+                secTitle: "ปรัชญาหลัก", equation: "ความเท่าเทียม = ความจริง",
                 quote: '“ สิ่งใดก็ตามที่มนุษย์ทุกคนยอมรับว่าเท่าเทียมกันอย่างแท้จริง สิ่งนั้นจึงจะเรียกว่าความจริงได้อย่างแท้จริง ”',
                 font: "'Noto Sans Thai', sans-serif",
                 nav: { home: "หน้าแรก", services: "บริการ", workers: "แรงงาน", shops: "ร้านค้า", blog: "บล็อก", about: "เกี่ยวกับเรา", contact: "ติดต่อ" }
             },
             ja: {
-                title: "真理と平等",
-                subtitle: "ソーシャル・エンタープライズ",
+                title: "真理と平等", subtitle: "ソーシャル・エンタープライズ",
                 slogan: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
-                secTitle: "基本理念",
-                equation: "平等 ＝ 真理",
+                secTitle: "基本理念", equation: "平等 ＝ 真理",
                 quote: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
                 font: "'Noto Sans JP', sans-serif",
                 nav: { home: "ホーム", services: "サービス", workers: "ワーカー", shops: "ショップ", blog: "ブログ", about: "概要", contact: "お問い合わせ" }
             },
             zh: {
-                title: "真理与平等",
-                subtitle: "社会企业",
+                title: "真理与平等", subtitle: "社会企业",
                 slogan: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
-                secTitle: "核心哲学",
-                equation: "平等 = 真理",
+                secTitle: "核心哲学", equation: "平等 = 真理",
                 quote: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
                 font: "'Noto Sans SC', sans-serif",
                 nav: { home: "首页", services: "服务", workers: "劳动者", shops: "商店", blog: "博客", about: "关于我们", contact: "联系" }
             },
             es: {
-                title: "VERDAD Y IGUALDAD",
-                subtitle: "EMPRESA SOCIAL",
+                title: "VERDAD Y IGUALDAD", subtitle: "EMPRESA SOCIAL",
                 slogan: '" Solo aquello que es aceptado por cada ser humano como igual puede ser llamado verdaderamente Verdad. "',
-                secTitle: "LA FILOSOFÍA CENTRAL",
-                equation: "IGUALDAD = VERDAD",
+                secTitle: "LA FILOSOFÍA CENTRAL", equation: "IGUALDAD = VERDAD",
                 quote: '" Solo aquello que es aceptado por cada ser humano como igual puede ser llamado verdaderamente Verdad. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Inicio", services: "Servicios", workers: "Trabajadores", shops: "Tiendas", blog: "Blog", about: "Nosotros", contact: "Contacto" }
             },
             fr: {
-                title: "VÉRITÉ ET ÉGALITÉ",
-                subtitle: "ENTREPRISE SOCIALE",
+                title: "VÉRITÉ ET ÉGALITÉ", subtitle: "ENTREPRISE SOCIALE",
                 slogan: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
-                secTitle: "LA PHILOSOPHIE CENTRALE",
-                equation: "ÉGALITÉ = VÉRITÉ",
+                secTitle: "LA PHILOSOPHIE CENTRALE", equation: "ÉGALITÉ = VÉRITÉ",
                 quote: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Accueil", services: "Services", workers: "Travailleurs", shops: "Boutiques", blog: "Blog", about: "À propos", contact: "Contact" }
             },
             ru: {
-                title: "ИСТИНА И РАВЕНСТВО",
-                subtitle: "СОЦИАЛЬНОЕ ПРЕДПРИЯТИЕ",
+                title: "ИСТИНА И РАВЕНСТВО", subtitle: "СОЦИАЛЬНОЕ ПРЕДПРИЯТИЕ",
                 slogan: '" Только то, что признано каждым человеком как равное, может поистине называться Истиной. "',
-                secTitle: "ОСНОВНАЯ ФИЛОСОФИЯ",
-                equation: "РАВЕНСТВО = ИСТИНА",
+                secTitle: "ОСНОВНАЯ ФИЛОСОФИЯ", equation: "РАВЕНСТВО = ИСТИНА",
                 quote: '" Только то, что признано каждым человеком как равное, может поистине называться Истиной. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Главная", services: "Услуги", workers: "Рабочие", shops: "Магазины", blog: "Блог", about: "О нас", contact: "Контакты" }
             },
             de: {
-                title: "WAHRHEIT UND GLEICHHEIT",
-                subtitle: "SOZIALUNTERNEHMEN",
+                title: "WAHRHEIT UND GLEICHHEIT", subtitle: "SOZIALUNTERNEHMEN",
                 slogan: '" Nur das, was von jedem einzelnen Menschen als gleich akzeptiert wird, kann wahrhaft Wahrheit genannt werden. "',
-                secTitle: "DIE KERNNPHILOSOPHIE",
-                equation: "GLEICHHEIT = WAHRHEIT",
+                secTitle: "DIE KERNPHILOSOPHIE", equation: "GLEICHHEIT = WAHRHEIT",
                 quote: '" Nur das, was von jedem einzelnen Menschen als gleich akzeptiert wird, kann wahrhaft Wahrheit genannt werden. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Startseite", services: "Dienste", workers: "Arbeiter", shops: "Geschäfte", blog: "Blog", about: "Über uns", contact: "Kontakt" }
             },
             ko: {
-                title: "진리와 평등",
-                subtitle: "소셜 엔터프라이즈",
+                title: "진리와 평등", subtitle: "소셜 엔터프라이즈",
                 slogan: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
-                secTitle: "핵심 철학",
-                equation: "평등 ＝ 진리",
+                secTitle: "핵심 철학", equation: "평등 ＝ 진리",
                 quote: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
                 font: "'Noto Sans KR', sans-serif",
                 nav: { home: "홈", services: "서비스", workers: "근로자", shops: "상점", blog: "블로그", about: "소개", contact: "문의" }
             },
             it: {
-                title: "VERITÀ E UGUAGLIANZA",
-                subtitle: "IMPRESA SOCIALE",
+                title: "VERITÀ E UGUAGLIANZA", subtitle: "IMPRESA SOCIALE",
                 slogan: '" Solo ciò che è accettato da ogni singolo essere umano come uguale può essere veramente chiamato Verità. "',
-                secTitle: "LA FILOSOFIA CENTRALE",
-                equation: "UGUAGLIANZA = VERITÀ",
+                secTitle: "LA FILOSOFIA CENTRALE", equation: "UGUAGLIANZA = VERITÀ",
                 quote: '" Solo ciò che è accettato da ogni singolo essere umano come uguale può essere veramente chiamato Verità. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Home", services: "Servizi", workers: "Lavoratori", shops: "Negozi", blog: "Blog", about: "Chi siamo", contact: "Contatti" }
             },
             pt: {
-                title: "VERDADE E IGUALDADE",
-                subtitle: "EMPRESA SOCIAL",
+                title: "VERDADE E IGUALDADE", subtitle: "EMPRESA SOCIAL",
                 slogan: '" Apenas aquilo que é aceito por cada ser humano como igual pode verdadeiramente ser chamado de Verdade. "',
-                secTitle: "A FILOSOFIA CENTRAL",
-                equation: "IGUALDADE = VERDADE",
+                secTitle: "A FILOSOFIA CENTRAL", equation: "IGUALDADE = VERDADE",
                 quote: '" Apenas aquilo que é aceito por cada ser humano como igual pode verdadeiramente ser chamado de Verdade. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Início", services: "Serviços", workers: "Trabalhadores", shops: "Lojas", blog: "Blog", about: "Sobre", contact: "Contato" }
             },
             tr: {
-                title: "HAKİKAT VE EŞİTLİK",
-                subtitle: "SOSYAL GİRİŞİM",
+                title: "HAKİKAT VE EŞİTLİK", subtitle: "SOSYAL GİRİŞİM",
                 slogan: '" Yalnızca her bir insan tarafından eşit olarak kabul edilen şey gerçekten Hakikat olarak adlandırılabilir. "',
-                secTitle: "TEMEL FELSEFE",
-                equation: "EŞİTLİK = HAKİKAT",
+                secTitle: "TEMEL FELSEFE", equation: "EŞİTLİK = HAKİKAT",
                 quote: '" Yalnızca her bir insan tarafından eşit olarak kabul edilen şey gerçekten Hakikat olarak adlandırılabilir. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Ana Sayfa", services: "Hizmetler", workers: "Çalışanlar", shops: "Mağazalar", blog: "Blog", about: "Hakkımızda", contact: "İletişim" }
             },
             vi: {
-                title: "CHÂN LÝ VÀ BÌNH ĐẲNG",
-                subtitle: "DOANH NGHIỆP XÃ HỘI",
+                title: "CHÂN LÝ VÀ BÌNH ĐẲNG", subtitle: "DOANH NGHIỆP XÃ HỘI",
                 slogan: '" Chỉ những gì được mọi con người chấp nhận là bình đẳng mới thực sự được gọi là Chân lý. "',
-                secTitle: "TRIẾT LÝ CỐT LÕI",
-                equation: "BÌNH ĐẲNG = CHÂN LÝ",
+                secTitle: "TRIẾT LÝ CỐT LÕI", equation: "BÌNH ĐẲNG = CHÂN LÝ",
                 quote: '" Chỉ những gì được mọi con người chấp nhận là bình đẳng mới thực sự được gọi là Chân lý. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Trang chủ", services: "Dịch vụ", workers: "Lao động", shops: "Cửa hàng", blog: "Bài viết", about: "Giới thiệu", contact: "Liên hệ" }
             },
             id: {
-                title: "KEBENARAN DAN KESETARAAN",
-                subtitle: "KEWIRAUSAHAAN SOSIAL",
+                title: "KEBENARAN DAN KESETARAAN", subtitle: "KEWIRAUSAHAAN SOSIAL",
                 slogan: '" Hanya apa yang diterima oleh setiap manusia sebagai setara yang benar-benar dapat disebut Kebenaran. "',
-                secTitle: "FILOSOFI UTAMA",
-                equation: "KESETARAAN = KEBENARAN",
+                secTitle: "FILOSOFI UTAMA", equation: "KESETARAAN = KEBENARAN",
                 quote: '" Hanya apa yang diterima oleh setiap manusia sebagai setara yang benar-benar dapat disebut Kebenaran. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Beranda", services: "Layanan", workers: "Pekerja", shops: "Toko", blog: "Blog", about: "Tentang", contact: "Kontak" }
             },
             hi: {
-                title: "सत्य और समानता",
-                subtitle: "सामाजिक उद्यम",
+                title: "सत्य और समानता", subtitle: "सामाजिक उद्यम",
                 slogan: '“ केवल वही जिसे हर एक मनुष्य द्वारा समान रूप से स्वीकार किया जाता है, वास्तव में सत्य कहा जा सकता है। ”',
-                secTitle: "मूल दर्शन",
-                equation: "समानता = सत्य",
+                secTitle: "मूल दर्शन", equation: "समानता = सत्य",
                 quote: '“ केवल वही जिसे हर एक मनुष्य द्वारा समान रूप से स्वीकार किया जाता है, वास्तव में सत्य कहा जा सकता है। ”',
                 font: "'Playfair Display', serif",
                 nav: { home: "होम", services: "सेवाएं", workers: "कर्मचारी", shops: "दुकानें", blog: "ब्लॉग", about: "हमारे बारे में", contact: "संपर्क" }
             },
             bn: {
-                title: "সত্য ও সমতা",
-                subtitle: "সামাজিক উদ্যোগ",
+                title: "সত্য ও সমতা", subtitle: "সামাজিক উদ্যোগ",
                 slogan: '“ কেবল সেটাই যা প্রতিটি মানুষ সমান বলে গ্রহণ করে, তাকেই সত্য বলা যেতে পারে। ”',
-                secTitle: "মূল দর্শন",
-                equation: "সমতা = সত্য",
+                secTitle: "মূল দর্শন", equation: "সমতা = সত্য",
                 quote: '“ কেবল সেটাই যা প্রতিটি মানুষ সমান বলে গ্রহণ করে, তাকেই সত্য বলা যেতে পারে। ”',
                 font: "'Playfair Display', serif",
                 nav: { home: "হোম", services: "সেবাসমূহ", workers: "কর্মী", shops: "দোকান", blog: "ব্লগ", about: "আমাদের সম্পর্কে", contact: "যোগাযোগ" }
             },
             nl: {
-                title: "WAARHEID EN GELIJKHEID",
-                subtitle: "SOCIALE ONDERNEMING",
+                title: "WAARHEID EN GELIJKHEID", subtitle: "SOCIALE ONDERNEMING",
                 slogan: '" Alleen dat wat door ieder mens als gelijke wordt geaccepteerd, kan waarlijk Waarheid worden genoemd. "',
-                secTitle: "DE KERNTFILOSOFIE",
-                equation: "GELIJKHEID = WAARHEID",
+                secTitle: "DE KERNTFILOSOFIE", equation: "GELIJKHEID = WAARHEID",
                 quote: '" Alleen dat wat door ieder mens als gelijke wordt geaccepteerd, kan waarlijk Waarheid worden genoemd. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Home", services: "Diensten", workers: "Werknemers", shops: "Winkels", blog: "Blog", about: "Over ons", contact: "Contact" }
             },
             pl: {
-                title: "PRAWDA I RÓWNOŚĆ",
-                subtitle: "PRZEDSIĘBIORSTWO SPOŁECZNE",
+                title: "PRAWDA I RÓWNOŚĆ", subtitle: "PRZEDSIĘBIORSTWO SPOŁECZNE",
                 slogan: '" Tylko to, co jest akceptowane przez każdego człowieka jako równe, może być prawdziwie nazwane Prawdą. "',
-                secTitle: "GŁÓWNA FILOZOFIA",
-                equation: "RÓWNOŚĆ = PRAWDA",
+                secTitle: "GŁÓWNA FILOZOFIA", equation: "RÓWNOŚĆ = PRAWDA",
                 quote: '" Tylko to, co jest akceptowane przez każdego człowieka jako równe, może być prawdziwie nazwane Prawdą. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Strona główna", services: "Usługi", workers: "Pracownicy", shops: "Sklepy", blog: "Blog", about: "O nas", contact: "Kontakt" }
             },
             el: {
-                title: "ΑΛΗΘΕΙΑ ΚΑΙ ΙΣΟΤΗΤΑ",
-                subtitle: "KOINΩΝΙΚΗ ΕΠΙΧΕΙΡΗΣΗ",
+                title: "ΑΛΗΘΕΙΑ ΚΑΙ ΙΣΟΤΗΤΑ", subtitle: "KOINΩΝΙΚΗ ΕΠΙΧΕΙΡΗΣΗ",
                 slogan: '" Μόνο αυτό που γίνεται αποδεκτό από κάθε άνθρωπο ως ίσο μπορεί αληθινά να ονομαστεί Αλήθεια. "',
-                secTitle: "Η BΑΣΙΚΗ ΦΙΛΟΣΟΦΙΑ",
-                equation: "ΙΣΟΤΗΤΑ = ΑΛΗΘΕΙΑ",
+                secTitle: "Η BΑΣΙΚΗ ΦΙΛΟΣΟΦΙΑ", equation: "ΙΣΟΤΗΤΑ = ΑΛΗΘΕΙΑ",
                 quote: '" Μόνο αυτό που γίνεται αποδεκτό από κάθε άνθρωπο ως ίσο μπορεί αληθινά να ονομαστεί Αλήθεια. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Αρχική", services: "Υπηρεσίες", workers: "Εργαζόμενοι", shops: "Καταστήματα", blog: "Blog", about: "Σχετικά", contact: "Επικοινωνία" }
             },
             cs: {
-                title: "PRAVDA A ROVNOST",
-                subtitle: "SOCIÁLNÍ PODNIK",
+                title: "PRAVDA A ROVNOST", subtitle: "SOCIÁLNÍ PODNIK",
                 slogan: '" Pouze to, co je každým člověkem přijímáno jako rovné, může být skutečně nazýváno Pravdou. "',
-                secTitle: "HLAVNÍ FILOZOFIE",
-                equation: "ROVNOST = PRAVDA",
+                secTitle: "HLAVNÍ FILOZofie", equation: "ROVNOST = PRAVDA",
                 quote: '" Pouze to, co je každým člověkem přijímáno jako rovné, může být skutečně nazýváno Pravdou. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Domů", services: "Služby", workers: "Pracovníci", shops: "Obchody", blog: "Blog", about: "O nás", contact: "Kontakt" }
             },
             sv: {
-                title: "SANNING OCH JÄMLIKHET",
-                subtitle: "SOCIALT FÖRETAG",
+                title: "SANNING OCH JÄMLIKHET", subtitle: "SOCIALT FÖRETAG",
                 slogan: '" Endast det som accepteras av varje enskild människa som jämlikt kan sanningenligt kallas Sanning. "',
-                secTitle: "KÄRNFILOSOFI",
-                equation: "JÄMLIKHET = SANNING",
+                secTitle: "KÄRNFILOSOFI", equation: "JÄMLIKHET = SANNING",
                 quote: '" Endast det som accepteras av varje enskild människa som jämlikt kan sanningenligt kallas Sanning. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Hem", services: "Tjänster", workers: "Arbetare", shops: "Butiker", blog: "Blogg", about: "Om oss", contact: "Kontakt" }
             },
             ro: {
-                title: "ADEVĂR ȘI EGALITATE",
-                subtitle: "ÎNTREPRINDERE SOCIALĂ",
+                title: "ADEVĂR ȘI EGALITATE", subtitle: "ÎNTREPRINDERE SOCIALĂ",
                 slogan: '" Doar ceea ce este acceptat de fiecare ființă umană ca fiind egal poate fi cu adevărat numit Adevăr. "',
-                secTitle: "FILOSOFIA PRINCIPALĂ",
-                equation: "EGALITATE = ADEVĂR",
+                secTitle: "FILOSOFIA PRINCIPALĂ", equation: "EGALITATE = ADEVĂR",
                 quote: '" Doar ceea ce este acceptat de fiecare ființă umană ca fiind egal poate fi cu adevărat numit Adevăr. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Acasă", services: "Servicii", workers: "Muncitori", shops: "Magazine", blog: "Blog", about: "Despre noi", contact: "Contact" }
             },
             hu: {
-                title: "IGAZSÁG ÉS EGYENLŐSÉG",
-                subtitle: "SZOCIÁLIS VÁLLALKOZÁS",
+                title: "IGAZSÁG ÉS EGYENLŐSÉG", subtitle: "SZOCIÁLIS VÁLLALKOZÁS",
                 slogan: '" Csak az nevezhető valóban Igazságnak, amit minden egyes ember egyenlőként fogad el. "',
-                secTitle: "A ALAPFILOZÓFIA",
-                equation: "EGYENLŐSÉG = IGAZSÁG",
+                secTitle: "A ALAPFILOZÓFIA", equation: "EGYENLŐSÉG = IGAZSÁG",
                 quote: '" Csak az nevezhető valóban Igazságnak, amit minden egyes ember egyenlőként fogad el. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Főoldal", services: "Szolgáltatások", workers: "Munkavállalók", shops: "Üzletek", blog: "Blog", about: "Rólunk", contact: "Kapcsolat" }
             },
             uk: {
-                title: "ІСТИНА ТА РІВНІСТЬ",
-                subtitle: "СОЦІАЛЬНЕ ПІДПРИЄМСТВО",
+                title: "ІСТИНА ТА РІВНІСТЬ", subtitle: "СОЦІАЛЬНЕ ПІДПРИЄМСТВО",
                 slogan: '" Тільки те, що визнається кожною людиною як рівне, може воістину називатися Істиною. "',
-                secTitle: "ОСНОВНА ФІЛОСОФІЯ",
-                equation: "РІВНІСТЬ = ІСТИНА",
+                secTitle: "ОСНОВНА ФІЛОСОФІЯ", equation: "РІВНІСТЬ = ІСТИНА",
                 quote: '" Тільки те, що визнається кожною людиною як рівне, може воістину називатися Істиною. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Головна", services: "Послуги", workers: "Працівники", shops: "Магазини", blog: "Блог", about: "Про нас", contact: "Контакти" }
             },
             da: {
-                title: "SANDHED OG LIGHED",
-                subtitle: "SOCIAL VIRKSOMHED",
+                title: "SANDHED OG LIGHED", subtitle: "SOCIAL VIRKSOMHED",
                 slogan: '" Kun det, der accepteres af ethvert menneske som lige, kan sandeligt kaldes Sandhed. "',
-                secTitle: "KERNEFILOSOFIEN",
-                equation: "LIGHED = SANDHED",
+                secTitle: "KERNEFILOSOFIEN", equation: "LIGHED = SANDHED",
                 quote: '" Kun det, der accepteres af ethvert menneske som lige, kan sandeligt kaldes Sandhed. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Hjem", services: "Tjenester", workers: "Arbejdere", shops: "Butikker", blog: "Blog", about: "Om os", contact: "Kontakt" }
             },
             fi: {
-                title: "TOTUUS JA TASA-ARVO",
-                subtitle: "SOSIAALINEN YRITYS",
+                title: "TOTUUS JA TASA-ARVO", subtitle: "SOSIAALINEN YRITYS",
                 slogan: '" Vain sitä, minkä jokainen ihminen hyväksyy tasa-arvoiseksi, voidaan todella kutsua Totuudeksi. "',
-                secTitle: "YDINFILOSOFIA",
-                equation: "TASA-ARVO = TOTUUS",
+                secTitle: "YDINFILOSOFIA", equation: "TASA-ARVO = TOTUUS",
                 quote: '" Vain sitä, minkä jokainen ihminen hyväksyy tasa-arvoiseksi, voidaan todella kutsua Totuudeksi. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Etusivu", services: "Palvelut", workers: "Työntekijät", shops: "Kaupat", blog: "Blogi", about: "Meistä", contact: "Yhteystiedot" }
             },
             no: {
-                title: "SANNHET OG LIKHET",
-                subtitle: "SOSIAL PRENSIP",
+                title: "SANNHET OG LIKHET", subtitle: "SOSIAL PRENSIP",
                 slogan: '" Bare det som aksepteres av hvert enkelt menneske som likt kan sannelig kalles Sannhet. "',
-                secTitle: "KJERNEFILOSOFIEN",
-                equation: "LIKHET = SANNHET",
+                secTitle: "KJERNEFILOSOFIEN", equation: "LIKHET = SANNHET",
                 quote: '" Bare det som aksepteres av hvert enkelt menneske som likt kan sannelig kalles Sannhet. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Hjem", services: "Tjenester", workers: "Arbeidere", shops: "Butikker", blog: "Blogg", about: "Om oss", contact: "Kontakt" }
             },
             ms: {
-                title: "KEBENARAN DAN KESAKSAMAAN",
-                subtitle: "PERUSAHAAN SOSIAL",
+                title: "KEBENARAN DAN KESAKSAMAAN", subtitle: "PERUSAHAAN SOSIAL",
                 slogan: '" Hanya apa yang diterima oleh setiap manusia sebagai saksama yang benar-benar boleh dipanggil Kebenaran. "',
-                secTitle: "FALSAFAH TERAS",
-                equation: "KESAKSAMAAN = KEBENARAN",
+                secTitle: "FALSAFAH TERAS", equation: "KESAKSAMAAN = KEBENARAN",
                 quote: '" Hanya apa yang diterima oleh setiap manusia sebagai saksama yang benar-benar boleh dipanggil Kebenaran. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Utama", services: "Perkhidmatan", workers: "Pekerja", shops: "Kedai", blog: "Blog", about: "Perihal", contact: "Hubungi" }
             },
             tl: {
-                title: "KATOTOHANAN AT KAPANTAYAN",
-                subtitle: "LIPUNANG NEGOSYO",
+                title: "KATOTOHANAN AT KAPANTAYAN", subtitle: "LIPUNANG NEGOSYO",
                 slogan: '" Tanging ang tinatanggap ng bawat tao bilang pantay ang tunay na matatawag na Katotohanan. "',
-                secTitle: "PANGUNAHING PILOSOPIYA",
-                equation: "KAPANTAYAN = KATOTOHANAN",
+                secTitle: "PANGUNAHING PILOSOPIYA", equation: "KAPANTAYAN = KATOTOHANAN",
                 quote: '" Tanging ang tinatanggap ng bawat tao bilang pantay ang tunay na matatawag na Katotohanan. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Tahanan", services: "Serbisyo", workers: "Manggagawa", shops: "Tindahan", blog: "Blog", about: "Tungkol", contact: "Kumpas" }
             },
             sw: {
-                title: "UKWELI NA USAWA",
-                subtitle: "SHIRIKA LA KIJAMII",
+                title: "UKWELI NA USAWA", subtitle: "SHIRIKA LA KIJAMII",
                 slogan: '" Ni kile tu kinachokubaliwa na kila mwanadamu kama sawa kinachoweza kuitwa Ukweli kwa dhati. "',
-                secTitle: "FALSAFA KUU",
-                equation: "USAWA = UKWELI",
+                secTitle: "FALSAFA KUU", equation: "USAWA = UKWELI",
                 quote: '" Ni kile tu kinachokubaliwa na kila mwanadamu kama sawa kinachoweza kuitwa Ukweli kwa dhati. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Mwanzo", services: "Huduma", workers: "Wafanyakazi", shops: "Maduka", blog: "Blogu", about: "Kuhusu", contact: "Wasiliana" }
             },
             fa: {
-                title: "حقیقت و برابری",
-                subtitle: "شرکت اجتماعی",
+                title: "حقیقت و برابری", subtitle: "شرکت اجتماعی",
                 slogan: '" تنها آنچه توسط تک تک انسان‌ها به عنوان برابر پذیرفته شود، واقعاً می‌تواند حقیقت نامیده شود. "',
-                secTitle: "فلسفه اصلی",
-                equation: "برابری = حقیقت",
+                secTitle: "فلسفه اصلی", equation: "برابری = حقیقت",
                 quote: '" تنها آنچه توسط تک تک انسان‌ها به عنوان برابر پذیرفته شود، واقعاً می‌تواند حقیقت نامیده شود. "',
                 font: "'Amiri', serif",
                 nav: { home: "خانه", services: "خدمات", workers: "کارگران", shops: "فروشگاه‌ها", blog: "وبلاگ", about: "درباره ما", contact: "تماس" }
             },
             ur: {
-                title: "سچائی اور مساوات",
-                subtitle: "سماجی ادارہ",
+                title: "سچائی اور مساوات", subtitle: "سماجی ادارہ",
                 slogan: '" صرف وہی جسے ہر ایک انسان برابر تسلیم کرے سچے معنوں میں سچائی کہلا سکتا ہے۔ "',
-                secTitle: "بنیادی فلسفہ",
-                equation: "مساوات = سچائی",
+                secTitle: "بنیادی فلسفہ", equation: "مساوات = سچائی",
                 quote: '" صرف وہی جسے ہر ایک انسان برابر تسلیم کرے سچے معنوں میں سچائی کہلا سکتا ہے۔ "',
                 font: "'Amiri', serif",
                 nav: { home: "ہوم", services: "خدمات", workers: "کارکنان", shops: "دکانیں", blog: "بلاگ", about: "ہمارے بارے میں", contact: "رابطہ" }
             },
             ta: {
-                title: "உண்மை மற்றும் சமத்துவம்",
-                subtitle: "சமூக நிறுவனம்",
+                title: "உண்மை மற்றும் சமத்துவம்", subtitle: "சமூக நிறுவனம்",
                 slogan: '“ ஒவ்வொரு மனிதனாலும் சமமாக ஏற்றுக்கொள்ளப்படுவது மட்டுமே உண்மையிலேயே உண்மை என்று அழைக்கப்பட முடியும். ”',
-                secTitle: "முதன்மை தத்துவம்",
-                equation: "சமத்துவம் = உண்மை",
+                secTitle: "முதன்மை தத்துவம்", equation: "சமத்துவம் = உண்மை",
                 quote: '“ ஒவ்வொரு மனிதனாலும் சமமாக ஏற்றுக்கொள்ளப்படுவது மட்டுமே உண்மையிலேயே உண்மை என்று அழைக்கப்பட முடியும். ”',
                 font: "'Playfair Display', serif",
                 nav: { home: "முகப்பு", services: "சேவைகள்", workers: "பணியாளர்கள்", shops: "கடைகள்", blog: "பதிவு", about: "எங்களைப் பற்றி", contact: "தொடர்பு" }
             },
             km: {
-                title: "ការពិត និង សមភាព",
-                subtitle: "សហគ្រាសសង្គម",
+                title: "ការពិត និង សមភាព", subtitle: "សហគ្រាសសង្គម",
                 slogan: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ។ ”',
-                secTitle: "ទស្សនវិជ្ជាស្នូល",
-                equation: "សមភាព = ការពិត",
-                quote: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ。 ”',
+                secTitle: "ទស្សនវិជ្ជាស្នូល", equation: "សមភាព = ការពិត",
+                quote: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ। ”',
                 font: "'Noto Sans Khmer', sans-serif",
                 nav: { home: "ទំព័រដើម", services: "សេវាកម្ម", workers: "កម្មករ", shops: "ហាង", blog: "ប្លុក", about: "អំពីយើង", contact: "ទំនាក់ទំនង" }
             },
             lo: {
-                title: "ຄວາມຈິງ ແລະ ຄວາມເທົ່າທຽມ",
-                subtitle: "ວິສາຫະກິດເພື່ອສັງຄົມ",
+                title: "ຄວາມຈິງ ແລະ ຄວາມເທົ່າທຽມ", subtitle: "ວິສາຫະກິດເພື່ອສັງຄົມ",
                 slogan: '“ ມີແຕ່ສິ່ງທີ່ມະນຸດທຸກຄົນຍອມຮັບວ່າເທົ່າທຽມກັນຢ່າງແທ້ຈິງ ເທົ່ານັ້ນທີ່ສາມາດຮ້ອງວ່າ ຄວາມຈິງ ຢ່າງແທ້ຈິງ. ”',
-                secTitle: "ປັດຊະຍາຫຼັກ",
-                equation: "ຄວາມເທົ່າທຽມ = ຄວາມຈິງ",
+                secTitle: "ປັດຊະຍາຫຼັກ", equation: "ຄວາມເທົ່າທຽມ = ຄວາມຈິງ",
                 quote: '“ ມີແຕ່ສິ່ງທີ່ມະນຸດທຸກຄົນຍອມຮັບວ່າເທົ່າທຽມກັນຢ່າງແທ້ຈິງ ເທົ່ານັ້ນທີ່ສາມາດຮ້ອງວ່າ ຄວາມຈິງ ຢ່າງແທ້ຈິງ. ”',
                 font: "'Noto Sans Lao', sans-serif",
                 nav: { home: "ໜ້າຫຼັກ", services: "ບໍລິການ", workers: "ຄົນງານ", shops: "ຮ້ານຄ້າ", blog: "ບລັອກ", about: "ກ່ຽວກັບພວກເຮົາ", contact: "ຕິດຕໍ່" }
             },
             he: {
-                title: "אמת ושוויוניות",
-                subtitle: "מיזם חברתי",
+                title: "אמת ושוויוניות", subtitle: "מיזם חברתי",
                 slogan: '" רק מה שמתקבל על ידי כל בן אנוש כאיש שווה יכול להיקרא באמת אמת. "',
-                secTitle: "הפילוסופיה המרכזית",
-                equation: "שוויוניות = אמת",
+                secTitle: "הפילוסופיה המרכזית", equation: "שוויוניות = אמת",
                 quote: '" רק מה שמתקבל על ידי כל בן אנוש כאיש שווה יכול להיקרא באמת אמת. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "בית", services: "שירותים", workers: "עובדים", shops: "חנויות", blog: "בלוג", about: "עלינו", contact: "צור קשר" }
+            },
+            af: {
+                title: "WAARHEID EN GELYKHEID", subtitle: "SOSIALE ONDERNEMING",
+                slogan: '" Slegs dit wat deur elke mens as gelyk aanvaar word, kan waarlik Waarheid genoem word. "',
+                secTitle: "DIE KERNFILOSOFIE", equation: "GELYKHEID = WAARHEID",
+                quote: '" Slegs dit wat deur elke mens as gelyk aanvaar word, kan waarlik Waarheid genoem word. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Tuis", services: "Dienste", workers: "Werkers", shops: "Winkels", blog: "Blog", about: "Oor ons", contact: "Kontak" }
+            },
+            sq: {
+                title: "VËRTETËSI DHE BARAZI", subtitle: "NDËRMARRJE SOCIALE",
+                slogan: '" Vetëm ajo që pranohet nga çdo qenie njerëzore si e barabartë mund të quhet me të vërtetë e vërtetë. "',
+                secTitle: "FILOZOFIA KRYESORE", equation: "BARAZI = VËRTETËSI",
+                quote: '" Vetëm ajo që pranohet nga çdo qenie njerëzore si e barabartë mund të quhet me të vërtetë e vërtetë. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Kryefaqja", services: "Shërbimet", workers: "Punëtorët", shops: "Dyqanet", blog: "Blog", about: "Rreth nesh", contact: "Kontakt" }
+            },
+            am: {
+                title: "እውነት እና እኩልነት", subtitle: "ማህበራዊ ኢንተርፕራይዝ",
+                slogan: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
+                secTitle: "ዋናው ፍልስፍና", equation: "እኩልነት = እውነት",
+                quote: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
+                font: "'Playfair Display', serif",
+                nav: { home: "መነሻ", services: "አገልግሎቶች", workers: "ሰራተኞች", shops: "ሱቆች", blog: "ብሎግ", about: "ስለ እኛ", contact: "ግንኙነት" }
+            },
+            hy: {
+                title: "ՃՇՄԱՐՏՈՒԹՅՈՒՆ ԵՎ ՀԱՎԱՍԱՐՈՒԹՅՈՒՆ", subtitle: "ՍՈՑԻԱԼԱԿԱՆ ՁԵՌՆԱՐԿՈՒԹՅՈՒՆ",
+                slogan: '" Միայն այն, ինչ ընդունվում է յուրաքանչյուր մարդու կողմից որպես հավասար, կարող է իրոք կոչվել Ճշմարտություն: "',
+                secTitle: "ՀԻՄՆԱԿԱՆ ՓԻԼԻՍՈՓԱՅՈՒԹՅՈՒՆ", equation: "ՀԱՎԱՍԱՐՈՒԹՅՈՒՆ = ՃՇՄԱՐՏՈՒԹՅՈՒՆ",
+                quote: '" Միայն այն, ինչ ընդունվում է յուրաքանչյուր մարդու կողմից որպես հավասար, կարող է իրոք կոչվել Ճշմարտություն: "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Գլխավոր", services: "Ծառայություններ", workers: "Աշխատողներ", shops: "Խանութներ", blog: "Բլոգ", about: "Մեր մասին", contact: "Կապ" }
+            },
+            az: {
+                title: "HƏQİQƏT VƏ BƏRABƏRLİK", subtitle: "SOSİAL MÜƏSSİSƏ",
+                slogan: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
+                secTitle: "ƏSAS FƏLSƏFƏ", equation: "BƏRABƏRLİK = HƏQİQƏT",
+                quote: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Ana Səhifə", services: "Xidmətlər", workers: "İşçilər", shops: "Mağazalar", blog: "Bloq", about: "Haqqımızda", contact: "Əlaqə" }
+            },
+            eu: {
+                title: "EGIA ETA BERDINTASUNA", subtitle: "GIZARTE ENPRESA",
+                slogan: '" Gizaki bakar bakoitzak berdin gisa onartzen duena bakarrik dei daiteke egiaz egia. "',
+                secTitle: "OINARRIZKO FILOSOFIA", equation: "BERDINTASUNA = EGIA",
+                quote: '" Gizaki bakar bakoitzak berdin gisa onartzen duena bakarrik dei daiteke egiaz egia. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Hasiera", services: "Zerbitzuak", workers: "Langileak", shops: "Dendak", blog: "Bloga", about: "Guri buruz", contact: "Kontaktua" }
+            },
+            be: {
+                title: "ПРАЎДА І РԱЎНАПРАЎЕ", subtitle: "САЦЫЯЛЬНАЕ ПРЫДПРЫЕМСТВА",
+                slogan: '" Толькі тое, што прызнаецца кожным чалавекам як роўнае, можа сапраўды называцца Праўдай. "',
+                secTitle: "АСНОЎНАЯ ФІЛАСОФІЯ", equation: "РԱЎНАПРАЎЕ = ПРАЎДА",
+                quote: '" Толькі тое, што прызнаецца кожным чалавекам як роўнае, можа сапраўды называцца Праўдай. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Галоўная", services: "Паслугі", workers: "Рабочыя", shops: "Магазины", blog: "Блог", about: "Пра нас", contact: "Кантакты" }
+            },
+            bs: {
+                title: "ISTINA I JEDNAKOST", subtitle: "SOCIJALNO PREDUZEĆE",
+                slogan: '" Samo ono što svaki čovjek prihvati kao jednako može se zaista nazvati Istinom. "',
+                secTitle: "GLAVNA FILOZOFIJA", equation: "JEDNAKOST = ISTINA",
+                quote: '" Samo ono što svaki čovjek prihvati kao jednako može se zaista nazvati Istinom. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Početna", services: "Usluge", workers: "Radnici", shops: "Prodavnice", blog: "Blog", about: "O nama", contact: "Kontakt" }
+            },
+            bg: {
+                title: "ИСТИНА И РАВЕНСТВО", subtitle: "СОЦИАЛНО ПРЕДПРИЯТИЕ",
+                slogan: '" Само това, което се приема от всяко човешко същество като равно, може наистина да се нарече Истина. "',
+                secTitle: "ОСНОВНА ФИЛОСОФИЯ", equation: "РАВЕНСТВО = ИСТИНА",
+                quote: '" Само това, което се приема от всяко човешко същество като равно, може наистина да се нарече Истина. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Начало", services: "Услуги", workers: "Работещи", shops: "Магазини", blog: "Блог", about: "За нас", contact: "Контакт" }
+            },
+            ca: {
+                title: "VERITAT I IGUALTAT", subtitle: "EMPRESA SOCIAL",
+                slogan: '" Només allò que és acceptat per cada ésser humà com a igual pot ser anomenat veritat. "',
+                secTitle: "LA FILOSOFIA CENTRAL", equation: "IGUALTAT = VERITAT",
+                quote: '" Només allò que és acceptat per cada ésser humà com a igual pot ser anomenat veritat. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Inici", services: "Serveis", workers: "Treballadors", shops: "Botigues", blog: "Blog", about: "Sobre nosaltres", contact: "Contacte" }
+            },
+            hr: {
+                title: "ISTINA I JEDNAKOST", subtitle: "DRUŠTVENO PODUZEĆE",
+                slogan: '" Samo ono što svaki čovjek prihvati kao jednako može se doista nazvati Istinom. "',
+                secTitle: "GLAVNA FILOZOFIJA", equation: "JEDNAKOST = ISTINA",
+                quote: '" Samo ono što svaki čovjek prihvati kao jednako može se doista nazvati Istinom. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Naslovnica", services: "Usluge", workers: "Radnici", shops: "Trgovine", blog: "Blog", about: "O nama", contact: "Kontakt" }
+            },
+            eo: {
+                title: "VERO KAJ EGALECO", subtitle: "SOCIA ENTERPRIZO",
+                slogan: '" Nur tio, kion ĉiu homa estaĵo akceptas kiel egalan, povas vere nomiĝi Vero. "',
+                secTitle: "LA KRNA FILOZOFIO", equation: "EGALECO = VERO",
+                quote: '" Nur tio, kion ĉiu homa estaĵo akceptas kiel egalan, povas vere nomiĝi Vero. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Hejmo", services: "Servoj", workers: "Laboristoj", shops: "Butikoj", blog: "Blogo", about: "Pri ni", contact: "Kontakto" }
+            },
+            et: {
+                title: "TÕDE JA VÕRDSUS", subtitle: "SOTSIAALNE ETTEVÕTE",
+                slogan: '" Ainult seda, mida iga inimene aktsepteerib võrdsemana, saab tõeliselt nimetada Tõeks. "',
+                secTitle: "PÕHIFILOSOOFIA", equation: "VÕRDSUS = TÕDE",
+                quote: '" Ainult seda, mida iga inimene aktsepteerib võrdsemana, saab tõeliselt nimetada Tõeks. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Avaleht", services: "Teenused", workers: "Töötajad", shops: "Poed", blog: "Blogi", about: "Meist", contact: "Kontakt" }
+            },
+            gl: {
+                title: "VERDADE E IGUALDADE", subtitle: "EMPRESA SOCIAL",
+                slogan: '" Só aquilo que é aceptado por cada ser humano como igual pode ser chamado verdadeiramente Verdade. "',
+                secTitle: "A FILOSOFÍA CENTRAL", equation: "IGUALDADE = VERDADE",
+                quote: '" Só aquilo que é aceptado por cada ser humano como igual pode ser chamado verdadeiramente Verdade. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Inicio", services: "Servizos", workers: "Traballadores", shops: "Tendas", blog: "Blog", about: "Sobre nós", contact: "Contacto" }
+            },
+            ka: {
+                title: "ჭეშმარიტება და თანასწორობა", subtitle: "სოციალური საწარმო",
+                slogan: '" მხოლოდ ის, რასაც თითოეული ადამიანი თანასწორად აღიარებს, შეიძლება ჭეშმარიტებად იწოდოს. "',
+                secTitle: "ძირითადი ფილოსოფია", equation: "თანასწორობა = ჭეშმარიტება",
+                quote: '" მხოლოდ ის, რასაც თითოეული ადამიანი თანასწორად აღიარებს, შეიძლება ჭეშმარიტებად იწოდოს. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "მთავარი", services: "სერვისები", workers: "მუშები", shops: "მაღაზიები", blog: "ბლოგი", about: "ჩვენ შესახებ", contact: "კონტაქტი" }
+            },
+            gu: {
+                title: "સત્ય અને સમાનતા", subtitle: "સામાજિક એન્ટરપ્રાઇઝ",
+                slogan: '“ ફક્ત તે જ જેને દરેક મનુષ્ય દ્વારા સમાન તરીકે સ્વીકારવામાં આવે છે તેને સાચા અર્થમાં સત્ય કહી શકાય. ”',
+                secTitle: "મુખ્ય દર્શન", equation: "સમાનતા = સત્ય",
+                quote: '“ ફક્ત તે જ જેને દરેક મનુષ્ય દ્વારા સમાન તરીકે સ્વીકારવામાં આવે છે તેને સાચા અર્થમાં સત્ય કહી શકાય. ”',
+                font: "'Playfair Display', serif",
+                nav: { home: "હોમ", services: "સેવાઓ", workers: "કામદારો", shops: "દુકાનો", blog: "બ્લોગ", about: "અમારા વિશે", contact: "સંપર્ક" }
+            },
+            ha: {
+                title: "GASKIYA DA DAIDAITO", subtitle: "KAMFANIN ZAMANTAKWA",
+                slogan: '" Abin kawai da kowane mutum ya yarda da shi a matsayin daidai ana iya kiran sa Gaskiya ta gaske. "',
+                secTitle: "BABBAR FALSAFA", equation: "DAIDAITO = GASKIYA",
+                quote: '" Abin kawai da kowane mutum ya yarda da shi a matsayin daidai ana iya kiran sa Gaskiya ta gaske. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Gida", services: "Ayyuka", workers: "Ma\'aikata", shops: "Shago", blog: "Shafi", about: "Game da mu", contact: "Tuntuɓi" }
+            },
+            is: {
+                title: "SANNLEIKI OG JAFNRÉTTI", subtitle: "FÉLAGSLEGT FYRIRTÆKI",
+                slogan: '" Aðeins það sem hver einasti maður viðurkennir sem jafnt er hægt að kalla sannleika. "',
+                secTitle: "KJARNAHEIMSPEKI", equation: "JAFNRÉTTI = SANNLEIKI",
+                quote: '" Aðeins það sem hver einasti maður viðurkennir sem jafnt er hægt að kalla sannleika. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Heim", services: "Þjónusta", workers: "Starfsmenn", shops: "Verslanir", blog: "Blogg", about: "Um okkur", contact: "Hafa samband" }
+            },
+            ga: {
+                title: "FÍRINNE AGUS COMHANNAS", subtitle: "FIONTAR SÓISIALTA",
+                slogan: '" Níl ach an méid a nglacann gach duine leis mar chothrom le chéile a thabhairt Fírinne air go fírinneach. "',
+                secTitle: "AN PHOILISEACH LÁIR", equation: "COMHANNAS = FÍRINNE",
+                quote: '" Níl ach an méid a nglacann gach duine leis mar chothrom le chéile a thabhairt Fírinne air go fírinneach. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Baile", services: "Seirbhísí", workers: "Oibrithe", shops: "Siopaí", blog: "Blag", about: "Fúinn", contact: "Déan teagmháil" }
+            },
+            kn: {
+                title: "ಸತ್ಯ ಮತ್ತು ಸಮಾನತೆ", subtitle: "ಸಾಮಾಜಿಕ ಉದ್ಯಮ",
+                slogan: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
+                secTitle: "ಮುಖ್ಯ ತತ್ವಶಾಸ್ತ್ರ", equation: "ಸಮಾನತೆ = ಸತ್ಯ",
+                quote: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
+                font: "'Playfair Display', serif",
+                nav: { home: "ಮುಖಪುಟ", services: "ಸೇವೆಗಳು", workers: "ಕೆಲಸಗಾರರು", shops: "ಅಂಗಡಿಗಳು", blog: "ಬ್ಲಾಗ್", about: "ನಮ್ಮ ಬಗ್ಗೆ", contact: "ಸಂಪರ್ಕ" }
+            },
+            kk: {
+                title: "ШЫНДЫҚ ЖӘНЕ ТЕҢДІК", subtitle: "ӘЛЕУМЕТТІК КӘСІПОРЫН",
+                slogan: '" Әрбір адам тең деп қабылдаған нәрсе ғана шын мәнінде Шындық деп атала алады. "',
+                secTitle: "НЕГІЗГІ ФИЛОСОФИЯ", equation: "ТЕҢДІК = ШЫНДЫҚ",
+                quote: '" Әрбір адам тең деп қабылдаған нәрсе ғана шын мәнінде Шындық деп атала алады. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Басты бет", services: "Қызметтер", workers: "Жұмысшылар", shops: "Дүкендер", blog: "Блог", about: "Біз туралы", contact: "Байланыс" }
+            },
+            ky: {
+                title: "ЧЫНДЫК ЖАНА ТЕҢДИК", subtitle: "СОЦИАЛДЫК ИШКЕРЛИК",
+                slogan: '" Ар бир адам тарабынан тең катары кабыл алынган нерсе гана чыныгында Чындык деп атала алат. "',
+                secTitle: "НЕГИЗГИ ФИЛОСОФИЯ", equation: "ТЕҢДИК = ЧЫНДЫК",
+                quote: '" Ар бир адам тарабынан тең катары кабыл алынган нерсе гана чыныгында Чындык деп атала алат. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Башкы", services: "Кызматтар", workers: "Кызматкерлер", shops: "Дүкөндөр", blog: "Блог", about: "Биз жөнүндө", contact: "Байланыш" }
+            },
+            lv: {
+                title: "PATIESĪBA UN LĪDZĪBA", subtitle: "SOCIĀLAIS UŅĒMUMS",
+                slogan: '" Tikai to, ko katrs cilvēks pieņem kā vienlīdzīgu, var patiesi saukt par Patiesību. "',
+                secTitle: "PAMATFILOZOFIJA", equation: "LĪDZĪBA = PATIESĪBA",
+                quote: '" Tikai to, ko katrs cilvēks pieņem kā vienlīdzīgu, var patiesi saukt par Patiesību. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Sākums", services: "Pakalpojumi", workers: "Strādnieki", shops: "Veikali", blog: "Blogs", about: "Par mums", contact: "Kontakti" }
+            },
+            lt: {
+                title: "TIESA IR LYGYBĖ", subtitle: "SOCIALINĖ ĮMONĖ",
+                slogan: '" Tik tai, kas priimta kiekvieno žmogaus kaip lygu, gali būti tikrai vadinama Tiesa. "',
+                secTitle: "PAGRINDINĖ FILOSOFIJA", equation: "LYGYBĖ = TIESA",
+                quote: '" Tik tai, kas priimta kiekvieno žmogaus kaip lygu, gali būti tikrai vadinama Tiesa. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Pradžia", services: "Paslaugos", workers: "Darbuotojai", shops: "Parduotuvės", blog: "Tinklaraštis", about: "Apie mus", contact: "Kontaktai" }
+            },
+            mk: {
+                title: "ВИСТИНА И ЕДНАКВОСТ", subtitle: "СОЦИЈАЛНО ПРЕТПРИЈАТИЕ",
+                slogan: '" Само она што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
+                secTitle: "ГЛАВНА ФИЛОЗОФИЈА", equation: "ЕДНАКВОСТ = ВИСТИНА",
+                quote: '" Само она што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Дома", services: "Услуги", workers: "Работници", shops: "Продавници", blog: "Блог", about: "За нас", contact: "Контакт" }
+            },
+            mg: {
+                title: "MARINA SY FITOVIA", subtitle: "ORINASA SOSIALY",
+                slogan: '" Izay eken\'ny olombelona tsirairay ho mitovy ihany no azo antsoina hoe Marina. "',
+                secTitle: "FILÔZÔFIA FOTO-KEVITRA", equation: "FITOVIA = MARINA",
+                quote: '" Izay eken\'ny olombelona tsirairay ho mitovy ihany no azo antsoina hoe Marina. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Fandraisana", services: "Serivisy", workers: "Mpiasa", shops: "Fivarotana", blog: "Bilaogy", about: "Momba anay", contact: "Fifandraisana" }
+            },
+            ceb: {
+                title: "KAMATUORAN UG KAGAHINUMDUM", subtitle: "SOSYAL NGA NEGOSYO",
+                slogan: '" Kadtong gidawat sa matag tawo ingon nga patas ang tinuod nga matawag nga Kamatuoran. "',
+                secTitle: "ANG PANGUNANG PILOSOPIYA", equation: "PATS = KAMATUORAN",
+                quote: '" Kadtong gidawat sa matag tawo ingon nga patas ang tinuod nga matawag nga Kamatuoran. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Panimalay", services: "Serbisyo", workers: "Mga Trabahante", shops: "Mga Tindahan", blog: "Blog", about: "Bahin Kanamo", contact: "Kontaka" }
+            },
+            ku: {
+                title: "RASTÎ Û WENYAR", subtitle: "KARGIRÎYA CIVAKÎ",
+                slogan: '" Tenê tiştê ku ji hêla her mirovekî ve wekî yeksan tê qebûlkirin dikare bi rastî were gotin Rastî. "',
+                secTitle: "FELSEFEYA BINGEHÎN", equation: "YEXSANÎ = RASTÎ",
+                quote: '" Tenê tiştê ku ji hêla her mirovekî ve wekî yeksan tê qebûlkirin dikare bi rastî were gotin Rastî. "',
+                font: "'Amiri', serif",
+                nav: { home: "Serê Rûpelê", services: "Xizmet", workers: "Karker", shops: "Firotgeh", blog: "Blog", about: "Di Derbarê Me", contact: "Têkilî" }
+            },
+            so: {
+                title: "RUNTA IYO SIMNAANTA", subtitle: "HAY’AD BULSHO",
+                slogan: '" Kaliya waxa ay qof kasta oo binu-aadigi ahi u aqoonsado mid siman ayaa si dhab ah loogu yeeri karaa Run. "',
+                secTitle: "FALSAFADA AASAASIGA AH", equation: "SIMNAANTA = RUNTA",
+                quote: '" Kaliya waxa ay qof kasta oo binu-aadigi ahi u aqoonsado mid siman ayaa si dhab ah loogu yeeri karaa Run. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Bogga Hore", services: "Adeegyada", workers: "Shaqaalaha", shops: "Dukaanada", blog: "Baloogga", about: "Nagu Saabsan", contact: "La Xiriir" }
+            },
+            zu: {
+                title: "IQINISO NOKULINGANA", subtitle: "IBHIZINISI LOMPHAKATHI",
+                slogan: '" Yilokho kuphela okwamukelwa yibo bonke abantu njengokulinganayo okungabizwa ngeqiniso. "',
+                secTitle: "IFILOSOFI EYINHLOKO", equation: "UKULINGANA = IQINISO",
+                quote: '" Yilokho kuphela okwamukelwa yibo bonke abantu njengokulinganayo okungabizwa ngeqiniso. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Ikhaya", services: "Izinsizakalo", workers: "Abasebenzi", shops: "Izitolo", blog: "Ibhulogi", about: "Mayelana Nathi", contact: "Xhumana" }
             }
         };
 
