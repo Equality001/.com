@@ -10,15 +10,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
     <header class="top-header">
         <!-- Translate Button & Popover Container -->
         <div class="translate-popup-wrapper">
             <button class="translate-trigger-btn" onclick="toggleTranslateMenu()">🌐 Translate</button>
+            
+            <!-- Custom Language Popup Menu with Flags -->
             <div id="custom_translate_menu" class="translate-dropdown-menu">
-                <div id="google_translate_element"></div>
+                <div class="lang-grid">
+                    <button onclick="translatePage('my')">🇲🇲 မြန်မာ</button>
+                    <button onclick="translatePage('en')">🇬🇧 English</button>
+                    <button onclick="translatePage('th')">🇹🇭 ไทย</button>
+                    <button onclick="translatePage('zh-CN')">🇨🇳 中文</button>
+                    <button onclick="translatePage('ja')">🇯🇵 日本語</button>
+                    <button onclick="translatePage('ko')">🇰🇷 한국어</button>
+                    <button onclick="translatePage('fr')">🇫🇷 Français</button>
+                    <button onclick="translatePage('de')">🇩🇪 Deutsch</button>
+                    <button onclick="translatePage('es')">🇪🇸 Español</button>
+                    <button onclick="translatePage('ru')">🇷🇺 Русский</button>
+                    <button onclick="translatePage('ar')">🇸🇦 العربية</button>
+                    <button onclick="translatePage('hi')">🇮🇳 हिन्दी</button>
+                    <button onclick="translatePage('pt')">🇵🇹 Português</button>
+                    <button onclick="translatePage('it')">🇮🇹 Italiano</button>
+                    <button onclick="translatePage('vi')">🇻🇳 Tiếng Việt</button>
+                    <button onclick="translatePage('id')">🇮🇩 Bahasa Indonesia</button>
+                    <button onclick="translatePage('ms')">🇲🇾 Bahasa Melayu</button>
+                    <button onclick="translatePage('tl')">🇵🇭 Tagalog</button>
+                    <button onclick="translatePage('tr')">🇹🇷 Türkçe</button>
+                    <button onclick="translatePage('nl')">🇳🇱 Nederlands</button>
+                    <button onclick="translatePage('pl')">🇵🇱 Polski</button>
+                    <button onclick="translatePage('sv')">🇸🇪 Svenska</button>
+                    <button onclick="translatePage('no')">🇳🇴 Norsk</button>
+                    <button onclick="translatePage('da')">🇩🇰 Dansk</button>
+                    <button onclick="translatePage('fi')">🇫🇮 Suomi</button>
+                    <button onclick="translatePage('el')">🇬🇷 Ελληνικά</button>
+                    <button onclick="translatePage('he')">🇮🇱 עברית</button>
+                    <button onclick="translatePage('uk')">🇺🇦 Українська</button>
+                    <button onclick="translatePage('cs')">🇨🇿 Čeština</button>
+                    <button onclick="translatePage('ro')">🇷🇴 Română</button>
+                    <button onclick="translatePage('hu')">🇭🇺 Magyar</button>
+                    <button onclick="translatePage('bg')">🇧🇬 Български</button>
+                    <button onclick="translatePage('sk')">🇸🇰 Slovenčina</button>
+                    <button onclick="translatePage('hr')">🇭🇷 Hrvatski</button>
+                    <button onclick="translatePage('sr')">🇷🇸 Српски</button>
+                    <button onclick="translatePage('fa')">🇮🇷 فارسی</button>
+                    <button onclick="translatePage('ur')">🇵🇰 اردو</button>
+                    <button onclick="translatePage('bn')">🇧🇩 বাংলা</button>
+                    <button onclick="translatePage('ta')">🇮🇳 தமிழ்</button>
+                    <button onclick="translatePage('te')">🇮🇳 తెలుగు</button>
+                    <button onclick="translatePage('kn')">🇮🇳 ಕನ್ನಡ</button>
+
+                    <!-- Google Full Fallback Dropdown inside Popup -->
+                    <div class="google-select-wrapper">
+                        <span>နောက်ထပ် ဘာသာစကားများ - </span>
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -44,7 +94,7 @@
         <p>ညီတူညီမျှ လူမှုစီးပွားရေး ပလက်ဖောင်းမှ လှိုက်လှဲစွာ ကြိုဆိုပါသည်။</p>
     </main>
 
-    <!-- Google Translate Script -->
+    <!-- Google Translate Integration Script -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -60,6 +110,15 @@
             } else {
                 menu.style.display = 'block';
             }
+        }
+
+        function translatePage(langCode) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            }
+            document.getElementById('custom_translate_menu').style.display = 'none';
         }
 
         // Close dropdown when clicking outside
