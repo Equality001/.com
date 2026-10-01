@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=37">
+    <link rel="stylesheet" href="style.css?v=38">
     <style>
         /* Compact Single Line Horizontal Scroll Container */
-        .lang-bar {
+        .lang-bar, .continent-bar {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -21,10 +21,17 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            padding: 6px 10px 14px 10px;
+            padding: 6px 10px;
             gap: 5px;
             width: 100%;
             box-sizing: border-box;
+        }
+
+        .continent-bar {
+            justify-content: center;
+            background: rgba(10, 9, 7, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 8px 10px;
         }
 
         /* Scaled down button */
@@ -45,6 +52,11 @@
             flex-shrink: 0;
         }
 
+        .continent-btn {
+            border-color: #f39c12;
+            color: #f39c12;
+        }
+
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
@@ -58,10 +70,10 @@
         }
 
         /* Hide scrollbar */
-        .lang-bar::-webkit-scrollbar {
+        .lang-bar::-webkit-scrollbar, .continent-bar::-webkit-scrollbar {
             display: none;
         }
-        .lang-bar {
+        .lang-bar, .continent-bar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -69,6 +81,17 @@
 </head>
 <body>
     <header class="top-header">
+        <!-- 7 Continents Bar (Placed Above Language Bar) -->
+        <div class="continent-bar notranslate">
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Asia')"><span class="flag-icon">🌏</span> အာရှ</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Africa')"><span class="flag-icon">🌍</span> အာဖရိက</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: North America')"><span class="flag-icon">🌎</span> မြောက်အမေရိက</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: South America')"><span class="flag-icon">🌎</span> တောင်အမေရိက</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Antarctica')"><span class="flag-icon">🇦🇶</span> အန္တာတိက</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Europe')"><span class="flag-icon">🇪🇺</span> ဥရောပ</button>
+            <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Australia/Oceania')"><span class="flag-icon">🇦🇺</span> ဩစတြေးလျ / အိုရှန်းနီးယား</button>
+        </div>
+
         <!-- Language Switcher Bar - Compact Single Line (128 Languages) -->
         <div class="lang-bar notranslate">
             <!-- Major Global Languages -->
@@ -170,7 +193,6 @@
             <button class="lang-btn" onclick="switchLang('or', event)"><span class="flag-icon">🇮🇳</span> OR</button>
             <button class="lang-btn" onclick="switchLang('ml', event)"><span class="flag-icon">🇮🇳</span> ML</button>
             <button class="lang-btn" onclick="switchLang('mr', event)"><span class="flag-icon">🇮🇳</span> MR</button>
-            <!-- Extended Global Languages -->
             <button class="lang-btn" onclick="switchLang('am_ext', event)"><span class="flag-icon">🌐</span> AMH</button>
             <button class="lang-btn" onclick="switchLang('bm', event)"><span class="flag-icon">🇲🇱</span> BM</button>
             <button class="lang-btn" onclick="switchLang('co', event)"><span class="flag-icon">🇫🇷</span> CO</button>
@@ -212,7 +234,6 @@
     </header>
 
     <main style="max-width: 850px; margin: 40px auto; padding: 0 20px; text-align: center;">
-        <!-- Core Philosophy Section -->
         <section class="notranslate" style="background-color: #14120e; border: 1px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
             <h2 style="color: #d4af37; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px;" id="sec-title">THE CORE PHILOSOPHY</h2>
             
@@ -230,7 +251,6 @@
         </section>
     </main>
 
-    <!-- Language Translation Data Script (128 Languages) -->
     <script>
         const translations = {
             en: {
@@ -819,9 +839,9 @@
             },
             st: {
                 title: "NTSHA LE HO LEBOLLA", subtitle: "KHETHO EA SECHABA",
-                slogan: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka 'nete. "',
+                slogan: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka \'nete. "',
                 secTitle: "FILOSOFI E KHOLO", equation: "HO LEBOLLA = NNETE",
-                quote: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka 'nete. "',
+                quote: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka \'nete. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Lehae", services: "Litšebeletso", workers: "Bakoetlisi", shops: "Mabenkele", blog: "Blog", about: "Ka rona", contact: "Ikopanye" }
             },
@@ -941,7 +961,7 @@
                 title: "ҲАҚИҚАТ ВА БАРОБАРӢ", subtitle: "КОРХОНАИ ИҶТИМОӢ",
                 slogan: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
                 secTitle: "ФИЛОСОФИЯИ АСОСӢ", equation: "БАРОБАРӢ = ҲАҚИҚАТ",
-                quote: '" Танҳо он чизе, ki аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
+                quote: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Асосӣ", services: "Хизматрасониҳо", workers: "Коргарон", shops: "Дӯконҳо", blog: "Блог", about: "Дар бораи мо", contact: "Тамос" }
             },
@@ -1185,8 +1205,7 @@
             document.getElementById('nav-about').innerText = data.nav.about;
             document.getElementById('nav-contact').innerText = data.nav.contact;
 
-            // Highlight Active Button
-            const buttons = document.querySelectorAll('.lang-btn');
+            const buttons = document.querySelectorAll('.lang-bar .lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             if (e && e.target) {
                 const btn = e.target.closest('.lang-btn');
