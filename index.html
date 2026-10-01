@@ -7,10 +7,10 @@
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@700&family=Noto+Serif+JP:wght@700&family=Noto+Serif+KR:wght@700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+Thai:wght@700&family=Noto+Sans+Khmer:wght@700&family=Noto+Sans+Lao:wght@700&family=Playfair+Display:wght@700&family=Padauk:wght@700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=45">
+    <link rel="stylesheet" href="style.css?v=46">
     <style>
         html {
             scroll-behavior: smooth;
@@ -106,15 +106,34 @@
             scrollbar-width: none;
         }
 
-        /* Single line title and subtitle styling */
+        /* Enhanced single line header title container with larger text and glowing bold styling */
         .header-title-container {
             display: flex;
             justify-content: center;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 15px 0 5px 0;
+            gap: 15px;
+            margin: 20px 0 8px 0;
             padding: 0 10px;
+        }
+
+        .main-title-style {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin: 0;
+            color: #ffd700;
+            text-shadow: 0 3px 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(0,0,0,0.9);
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .sub-title-style {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
     </style>
 </head>
@@ -168,8 +187,8 @@
         </div>
 
         <div class="header-title-container">
-            <h1 style="font-size: 26px; letter-spacing: 2px; margin: 0;" id="main-title">TRUTH & EQUALITY</h1>
-            <span style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: 1.5px; font-weight: 600;" id="sub-title">SOCIAL ENTERPRISE</span>
+            <h1 class="main-title-style" id="main-title">TRUTH & EQUALITY</h1>
+            <span class="sub-title-style" id="sub-title">SOCIAL ENTERPRISE</span>
         </div>
         
         <div class="slogan-container">
@@ -251,7 +270,7 @@
                 secTitle: "基本理念 — 調和と永遠の真理の光", equation: "平等 ＝ 真理",
                 quote: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
                 bgImg: "url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80')",
-                font: "'Noto Sans JP', sans-serif",
+                font: "'Noto Serif JP', serif",
                 nav: { home: "ホーム", services: "サービス", workers: "ワーカー", shops: "ショップ", blog: "ブログ", about: "概要", contact: "お問い合わせ" }
             },
             zh: {
@@ -260,7 +279,7 @@
                 secTitle: "核心哲学 — 和谐共生的宇宙大道", equation: "平等 = 真理",
                 quote: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
                 bgImg: "url('https://images.unsplash.com/photo-1508873696983-2df5c920ac1c?auto=format&fit=crop&w=1200&q=80')",
-                font: "'Noto Sans SC', sans-serif",
+                font: "'Noto Serif SC', serif",
                 nav: { home: "首页", services: "服务", workers: "劳动者", shops: "商店", blog: "博客", about: "关于我们", contact: "联系" }
             },
             es: {
@@ -305,7 +324,7 @@
                 secTitle: "핵심 철학 — 평화와 존엄의 여명", equation: "평등 ＝ 진리",
                 quote: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
                 bgImg: "url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80')",
-                font: "'Noto Sans KR', sans-serif",
+                font: "'Noto Serif KR', serif",
                 nav: { home: "홈", services: "서비스", workers: "근로자", shops: "상점", blog: "블로그", about: "소개", contact: "문의" }
             },
             it: {
@@ -544,9 +563,9 @@
             },
             he: {
                 title: "אמת ושוויוניות", subtitle: "מיזם חברתי",
-                slogan: '" רק מה שמתקבל על ידי כל בן אנוש כשוויון יכול להיקרא באמת אמת. "',
+                slogan: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 secTitle: "הפילוסופיה המרכזית — אופק האור והאחדות", equation: "שוויוניות = אמת",
-                quote: '" רק מה שמתקבל על ידי כל בן אנוש כשוויון יכול להיקרא באמת אמת. "',
+                quote: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 bgImg: "url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80')",
                 font: "'Playfair Display', serif",
                 nav: { home: "בית", services: "שירותים", workers: "עובדים", shops: "חנויות", blog: "בלוג", about: "עלינו", contact: "צור קשר" }
@@ -572,7 +591,10 @@
             const data = translations[lang];
             if (!data) return;
 
-            document.getElementById('main-title').innerText = data.title;
+            const mainTitleElem = document.getElementById('main-title');
+            mainTitleElem.innerText = data.title;
+            mainTitleElem.style.fontFamily = lang === 'my' ? "'Padauk', sans-serif" : (lang === 'ar' || lang === 'fa' || lang === 'ur' ? "'Amiri', serif" : "'Cinzel Decorative', serif");
+            
             document.getElementById('sub-title').innerText = data.subtitle;
             document.getElementById('slogan-text').innerText = data.slogan;
             document.getElementById('sec-title').innerText = data.secTitle;
