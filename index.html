@@ -10,10 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@700&family=Noto+Serif+JP:wght@700&family=Noto+Serif+KR:wght@700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+Thai:wght@700&family=Noto+Sans+Khmer:wght@700&family=Noto+Sans+Lao:wght@700&family=Playfair+Display:wght@700&family=Padauk:wght@700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=46">
+    <link rel="stylesheet" href="style.css?v=47">
     <style>
         html {
             scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0a08;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Compact Single Line Horizontal Scroll Container */
@@ -25,8 +33,8 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            padding: 6px 10px;
-            gap: 5px;
+            padding: 8px 10px;
+            gap: 6px;
             width: 100%;
             box-sizing: border-box;
         }
@@ -35,7 +43,7 @@
         .search-container {
             display: flex;
             justify-content: center;
-            padding: 10px;
+            padding: 8px 10px;
             background: rgba(10, 9, 7, 0.95);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: sticky;
@@ -47,11 +55,11 @@
             background: rgba(20, 18, 14, 0.9);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 13px;
             width: 100%;
-            max-width: 320px;
+            max-width: 350px;
             outline: none;
             text-align: center;
             transition: all 0.3s ease;
@@ -67,18 +75,18 @@
             box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
         }
 
-        /* Scaled down button */
+        /* Language Button Style */
         .lang-btn {
             background: rgba(20, 18, 14, 0.85);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 3px 7px;
+            padding: 4px 8px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
             display: inline-flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             transition: all 0.2s ease;
             box-shadow: 0 1px 3px rgba(0,0,0,0.5);
             white-space: nowrap;
@@ -93,7 +101,7 @@
         }
 
         .flag-icon {
-            font-size: 11px;
+            font-size: 12px;
             line-height: 1;
         }
 
@@ -106,7 +114,14 @@
             scrollbar-width: none;
         }
 
-        /* Enhanced single line header title container with larger text and glowing bold styling */
+        /* Header title container */
+        .top-header {
+            text-align: center;
+            padding: 10px 0 20px 0;
+            background: #0b0a08;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
         .header-title-container {
             display: flex;
             justify-content: center;
@@ -114,7 +129,7 @@
             flex-wrap: wrap;
             gap: 15px;
             margin: 20px 0 8px 0;
-            padding: 0 10px;
+            padding: 0 15px;
         }
 
         .main-title-style {
@@ -134,6 +149,81 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+        }
+
+        .slogan-container {
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+
+        #nav-bar {
+            font-size: 14px;
+            color: #d4af37;
+            margin-top: 10px;
+        }
+
+        #nav-bar a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 4px;
+            transition: color 0.2s;
+        }
+
+        #nav-bar a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        /* --- MOBILE RESPONSIVE OPTIMIZATION (ဖုန်းစکرینအတွက် သီးသန့်အရွယ်အစားညှိရန်) --- */
+        @media screen and (max-width: 768px) {
+            .header-title-container {
+                flex-direction: column;
+                gap: 5px;
+                margin: 15px 0 5px 0;
+            }
+
+            .main-title-style {
+                font-size: 26px !important;
+                letter-spacing: 1.5px;
+            }
+
+            .sub-title-style {
+                font-size: 14px !important;
+                letter-spacing: 1px;
+            }
+
+            .slogan-en {
+                font-size: 13px !important;
+                line-height: 1.5;
+            }
+
+            #nav-bar {
+                font-size: 12px;
+                padding: 0 10px;
+                line-height: 1.8;
+            }
+
+            main {
+                margin: 20px 10px !important;
+                padding: 0 10px !important;
+            }
+
+            #core-philosophy {
+                padding: 25px 15px !important;
+            }
+
+            #sec-title {
+                font-size: 16px !important;
+                margin-bottom: 15px !important;
+            }
+
+            #equation-text {
+                font-size: 20px !important;
+            }
+
+            #philosophy-quote {
+                font-size: 14px !important;
+            }
         }
     </style>
 </head>
@@ -563,7 +653,7 @@
             },
             he: {
                 title: "אמת ושוויוניות", subtitle: "מיזם חברתי",
-                slogan: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
+                slogan: '" רק מה שמתקבל על ידי כל בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 secTitle: "הפילוסופיה המרכזית — אופק האור והאחדות", equation: "שוויוניות = אמת",
                 quote: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 bgImg: "url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80')",
