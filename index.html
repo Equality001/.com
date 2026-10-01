@@ -7,56 +7,57 @@
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=32">
+    <link rel="stylesheet" href="style.css?v=33">
     <style>
-        /* Single Line Horizontal Scroll Container */
+        /* Compact Single Line Horizontal Scroll Container */
         .lang-bar {
             display: flex;
             flex-direction: row;
-            justify-content: flex-start; /* Start from left for smooth scrolling */
+            justify-content: flex-start;
             align-items: center;
-            flex-wrap: nowrap; /* Strictly single line, no wrapping */
-            overflow-x: auto; /* Enable horizontal scrolling */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS/Android */
-            padding: 8px 15px 18px 15px;
-            gap: 8px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 6px 10px 14px 10px;
+            gap: 5px;
             width: 100%;
             box-sizing: border-box;
         }
 
+        /* Scaled down button (~1/3 smaller) */
         .lang-btn {
             background: rgba(20, 18, 14, 0.85);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 3px 7px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 10px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            white-space: nowrap; /* Keep button content in one line */
-            flex-shrink: 0; /* Prevent buttons from shrinking */
+            gap: 3px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
             font-weight: bold;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
 
         .flag-icon {
-            font-size: 14px;
+            font-size: 11px;
             line-height: 1;
         }
 
-        /* Hide scrollbar for clean premium UI */
+        /* Hide scrollbar */
         .lang-bar::-webkit-scrollbar {
             display: none;
         }
@@ -68,7 +69,7 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Single Line Horizontal Scroll -->
+        <!-- Language Switcher Bar - Compact Single Line (18 Languages) -->
         <div class="lang-bar notranslate">
             <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
@@ -78,6 +79,16 @@
             <button class="lang-btn" onclick="switchLang('zh', event)"><span class="flag-icon">🇨🇳</span> 中文</button>
             <button class="lang-btn" onclick="switchLang('es', event)"><span class="flag-icon">🇪🇸</span> ES</button>
             <button class="lang-btn" onclick="switchLang('fr', event)"><span class="flag-icon">🇫🇷</span> FR</button>
+            <button class="lang-btn" onclick="switchLang('ru', event)"><span class="flag-icon">🇷🇺</span> RU</button>
+            <button class="lang-btn" onclick="switchLang('de', event)"><span class="flag-icon">🇩🇪</span> DE</button>
+            <button class="lang-btn" onclick="switchLang('ko', event)"><span class="flag-icon">🇰🇷</span> 한국어</button>
+            <button class="lang-btn" onclick="switchLang('it', event)"><span class="flag-icon">🇮🇹</span> IT</button>
+            <button class="lang-btn" onclick="switchLang('pt', event)"><span class="flag-icon">🇵🇹</span> PT</button>
+            <button class="lang-btn" onclick="switchLang('tr', event)"><span class="flag-icon">🇹🇷</span> TR</button>
+            <button class="lang-btn" onclick="switchLang('vi', event)"><span class="flag-icon">🇻🇳</span> VI</button>
+            <button class="lang-btn" onclick="switchLang('id', event)"><span class="flag-icon">🇮🇩</span> ID</button>
+            <button class="lang-btn" onclick="switchLang('hi', event)"><span class="flag-icon">🇮🇳</span> हिन्दी</button>
+            <button class="lang-btn" onclick="switchLang('bn', event)"><span class="flag-icon">🇧🇩</span> বাংলা</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -119,7 +130,7 @@
         </section>
     </main>
 
-    <!-- Language Translation Data Script -->
+    <!-- Language Translation Data Script (18 Languages) -->
     <script>
         const translations = {
             en: {
@@ -201,6 +212,106 @@
                 quote: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Accueil", services: "Services", workers: "Travailleurs", shops: "Boutiques", blog: "Blog", about: "À propos", contact: "Contact" }
+            },
+            ru: {
+                title: "ИСТИНА И РАВЕНСТВО",
+                subtitle: "СОЦИАЛЬНОЕ ПРЕДПРИЯТИЕ",
+                slogan: '" Только то, что признано каждым человеком как равное, может поистине называться Истиной. "',
+                secTitle: "ОСНОВНАЯ ФИЛОСОФИЯ",
+                equation: "РАВЕНСТВО = ИСТИНА",
+                quote: '" Только то, что признано каждым человеком как равное, может поистине называться Истиной. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Главная", services: "Услуги", workers: "Рабочие", shops: "Магазины", blog: "Блог", about: "О нас", contact: "Контакты" }
+            },
+            de: {
+                title: "WAHRHEIT UND GLEICHHEIT",
+                subtitle: "SOZIALUNTERNEHMEN",
+                slogan: '" Nur das, was von jedem einzelnen Menschen als gleich akzeptiert wird, kann wahrhaft Wahrheit genannt werden. "',
+                secTitle: "DIE KERNNPHILOSOPHIE",
+                equation: "GLEICHHEIT = WAHRHEIT",
+                quote: '" Nur das, was von jedem einzelnen Menschen als gleich akzeptiert wird, kann wahrhaft Wahrheit genannt werden. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Startseite", services: "Dienste", workers: "Arbeiter", shops: "Geschäfte", blog: "Blog", about: "Über uns", contact: "Kontakt" }
+            },
+            ko: {
+                title: "진리와 평등",
+                subtitle: "소셜 엔터프라이즈",
+                slogan: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
+                secTitle: "핵심 철학",
+                equation: "평등 ＝ 진리",
+                quote: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
+                font: "'Noto Sans KR', sans-serif",
+                nav: { home: "홈", services: "서비스", workers: "근로자", shops: "상점", blog: "블로그", about: "소개", contact: "문의" }
+            },
+            it: {
+                title: "VERITÀ E UGUAGLIANZA",
+                subtitle: "IMPRESA SOCIALE",
+                slogan: '" Solo ciò che è accettato da ogni singolo essere umano come uguale può essere veramente chiamato Verità. "',
+                secTitle: "LA FILOSOFIA CENTRALE",
+                equation: "UGUAGLIANZA = VERITÀ",
+                quote: '" Solo ciò che è accettato da ogni singolo essere umano come uguale può essere veramente chiamato Verità. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Home", services: "Servizi", workers: "Lavoratori", shops: "Negozi", blog: "Blog", about: "Chi siamo", contact: "Contatti" }
+            },
+            pt: {
+                title: "VERDADE E IGUALDADE",
+                subtitle: "EMPRESA SOCIAL",
+                slogan: '" Apenas aquilo que é aceito por cada ser humano como igual pode verdadeiramente ser chamado de Verdade. "',
+                secTitle: "A FILOSOFIA CENTRAL",
+                equation: "IGUALDADE = VERDADE",
+                quote: '" Apenas aquilo que é aceito por cada ser humano como igual pode verdadeiramente ser chamado de Verdade. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Início", services: "Serviços", workers: "Trabalhadores", shops: "Lojas", blog: "Blog", about: "Sobre", contact: "Contato" }
+            },
+            tr: {
+                title: "HAKİKAT VE EŞİTLİK",
+                subtitle: "SOSYAL GİRİŞİM",
+                slogan: '" Yalnızca her bir insan tarafından eşit olarak kabul edilen şey gerçekten Hakikat olarak adlandırılabilir. "',
+                secTitle: "TEMEL FELSEFE",
+                equation: "EŞİTLİK = HAKİKAT",
+                quote: '" Yalnızca her bir insan द्वारा eşit olarak kabul edilen şey gerçekten Hakikat olarak adlandırılabilir. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Ana Sayfa", services: "Hizmetler", workers: "Çalışanlar", shops: "Mağazalar", blog: "Blog", about: "Hakkımızda", contact: "İletişim" }
+            },
+            vi: {
+                title: "CHÂN LÝ VÀ BÌNH ĐẲNG",
+                subtitle: "DOANH NGHIỆP XÃ HỘI",
+                slogan: '" Chỉ những gì được mọi con người chấp nhận là bình đẳng mới thực sự được gọi là Chân lý. "',
+                secTitle: "TRIẾT LÝ CỐT LÕI",
+                equation: "BÌNH ĐẲNG = CHÂN LÝ",
+                quote: '" Chỉ những gì được mọi con người chấp nhận là bình đẳng mới thực sự được gọi là Chân lý. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Trang chủ", services: "Dịch vụ", workers: "Lao động", shops: "Cửa hàng", blog: "Bài viết", about: "Giới thiệu", contact: "Liên hệ" }
+            },
+            id: {
+                title: "KEBENARAN DAN KESETARAAN",
+                subtitle: "KEWIRAUSAHAAN SOSIAL",
+                slogan: '" Hanya apa yang diterima oleh setiap manusia sebagai setara yang benar-benar dapat disebut Kebenaran. "',
+                secTitle: "FILOSOFI UTAMA",
+                equation: "KESETARAAN = KEBENARAN",
+                quote: '" Hanya apa yang diterima oleh setiap manusia sebagai setara yang benar-benar dapat disebut Kebenaran. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Beranda", services: "Layanan", workers: "Pekerja", shops: "Toko", blog: "Blog", about: "Tentang", contact: "Kontak" }
+            },
+            hi: {
+                title: "सत्य और समानता",
+                subtitle: "सामाजिक उद्यम",
+                slogan: '“ केवल वही जिसे हर एक मनुष्य द्वारा समान रूप से स्वीकार किया जाता है, वास्तव में सत्य कहा जा सकता है। ”',
+                secTitle: "मूल दर्शन",
+                equation: "समानता = सत्य",
+                quote: '“ केवल वही जिसे हर एक मनुष्य द्वारा समान रूप से स्वीकार किया जाता है, वास्तव में सत्य कहा जा सकता है। ”',
+                font: "'Playfair Display', serif",
+                nav: { home: "होम", services: "सेवाएं", workers: "कर्मचारी", shops: "दुकानें", blog: "ब्लॉग", about: "हमारे बारे में", contact: "संपर्क" }
+            },
+            bn: {
+                title: "সত্য ও সমতা",
+                subtitle: "সামাজিক উদ্যোগ",
+                slogan: '“ কেবল সেটাই যা প্রতিটি মানুষ সমান বলে গ্রহণ করে, তাকেই সত্য বলা যেতে পারে। ”',
+                secTitle: "মূল দর্শন",
+                equation: "সমতা = সত্য",
+                quote: '“ কেবল সেটাই যা প্রতিটি মানুষ সমান বলে গ্রহণ করে, তাকেই সত্য বলা যেতে পারে। ”',
+                font: "'Playfair Display', serif",
+                nav: { home: "হোম", services: "সেবাসমূহ", workers: "কর্মী", shops: "দোকান", blog: "ব্লগ", about: "আমাদের সম্পর্কে", contact: "যোগাযোগ" }
             }
         };
 
