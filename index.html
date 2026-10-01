@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=36">
+    <link rel="stylesheet" href="style.css?v=37">
     <style>
         /* Compact Single Line Horizontal Scroll Container */
         .lang-bar {
@@ -69,9 +69,9 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Compact Single Line (98 Languages) -->
+        <!-- Language Switcher Bar - Compact Single Line (128 Languages) -->
         <div class="lang-bar notranslate">
-            <!-- Previous 68 Languages -->
+            <!-- Major Global Languages -->
             <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
             <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
@@ -140,7 +140,6 @@
             <button class="lang-btn" onclick="switchLang('ku', event)"><span class="flag-icon">🇮🇶</span> KU</button>
             <button class="lang-btn" onclick="switchLang('so', event)"><span class="flag-icon">🇸🇴</span> SO</button>
             <button class="lang-btn" onclick="switchLang('zu', event)"><span class="flag-icon">🇿🇦</span> ZU</button>
-            <!-- Additional 30 Languages -->
             <button class="lang-btn" onclick="switchLang('su', event)"><span class="flag-icon">🇮🇩</span> SU</button>
             <button class="lang-btn" onclick="switchLang('yo', event)"><span class="flag-icon">🇳🇬</span> YO</button>
             <button class="lang-btn" onclick="switchLang('ig', event)"><span class="flag-icon">🇳🇬</span> IG</button>
@@ -171,6 +170,25 @@
             <button class="lang-btn" onclick="switchLang('or', event)"><span class="flag-icon">🇮🇳</span> OR</button>
             <button class="lang-btn" onclick="switchLang('ml', event)"><span class="flag-icon">🇮🇳</span> ML</button>
             <button class="lang-btn" onclick="switchLang('mr', event)"><span class="flag-icon">🇮🇳</span> MR</button>
+            <!-- Extended Global Languages -->
+            <button class="lang-btn" onclick="switchLang('am_ext', event)"><span class="flag-icon">🌐</span> AMH</button>
+            <button class="lang-btn" onclick="switchLang('bm', event)"><span class="flag-icon">🇲🇱</span> BM</button>
+            <button class="lang-btn" onclick="switchLang('co', event)"><span class="flag-icon">🇫🇷</span> CO</button>
+            <button class="lang-btn" onclick="switchLang('fy', event)"><span class="flag-icon">🇳🇱</span> FY</button>
+            <button class="lang-btn" onclick="switchLang('ht', event)"><span class="flag-icon">🇭🇹</span> HT</button>
+            <button class="lang-btn" onclick="switchLang('haw', event)"><span class="flag-icon">🇺🇸</span> HAW</button>
+            <button class="lang-btn" onclick="switchLang('hmn', event)"><span class="flag-icon">🌐</span> HMN</button>
+            <button class="lang-btn" onclick="switchLang('jw', event)"><span class="flag-icon">🇮🇩</span> JW</button>
+            <button class="lang-btn" onclick="switchLang('kn_ext', event)"><span class="flag-icon">🇮🇳</span> KAN</button>
+            <button class="lang-btn" onclick="switchLang('la_ext', event)"><span class="flag-icon">🇻🇦</span> LAT</button>
+            <button class="lang-btn" onclick="switchLang('mi_ext', event)"><span class="flag-icon">🇳🇿</span> MRI</button>
+            <button class="lang-btn" onclick="switchLang('my_ext', event)"><span class="flag-icon">🇲🇲</span> MYA</button>
+            <button class="lang-btn" onclick="switchLang('om', event)"><span class="flag-icon">🇪🇹</span> OM</button>
+            <button class="lang-btn" onclick="switchLang('qu', event)"><span class="flag-icon">🇵🇪</span> QU</button>
+            <button class="lang-btn" onclick="switchLang('sm', event)"><span class="flag-icon">🇼🇸</span> SM</button>
+            <button class="lang-btn" onclick="switchLang('sn_ext', event)"><span class="flag-icon">🇿🇼</span> SNA</button>
+            <button class="lang-btn" onclick="switchLang('ug', event)"><span class="flag-icon">🇨🇳</span> UG</button>
+            <button class="lang-btn" onclick="switchLang('yi_ext', event)"><span class="flag-icon">🇮🇱</span> YID</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -212,7 +230,7 @@
         </section>
     </main>
 
-    <!-- Language Translation Data Script (98 Languages) -->
+    <!-- Language Translation Data Script (128 Languages) -->
     <script>
         const translations = {
             en: {
@@ -897,9 +915,9 @@
             },
             sd: {
                 title: "سچ ۽ برابري", subtitle: "سماجي ادارو",
-                slogan: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي، سچ سڏجي سگهي ٿو. "',
+                slogan: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي, سچ سڏجي سگهي ٿو. "',
                 secTitle: "بنيادي فلسفو", equation: "برابري = سچ",
-                quote: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي، سچ سڏجي سگهي ٿو. "',
+                quote: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي, سچ سڏجي سگهي ٿو. "',
                 font: "'Amiri', serif",
                 nav: { home: "هوم", services: "خدمتون", workers: "ڪم ڪندڙ", shops: "دڪانون", blog: "بلاگ", about: "اسان بابت", contact: "رابطو" }
             },
@@ -923,7 +941,7 @@
                 title: "ҲАҚИҚАТ ВА БАРОБАРӢ", subtitle: "КОРХОНАИ ИҶТИМОӢ",
                 slogan: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
                 secTitle: "ФИЛОСОФИЯИ АСОСӢ", equation: "БАРОБАРӢ = ҲАҚИҚАТ",
-                quote: '" Танҳо он чизе, ки аз ҷониби ҳар ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
+                quote: '" Танҳо он чизе, ki аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "Асосӣ", services: "Хизматрасониҳо", workers: "Коргарон", shops: "Дӯконҳо", blog: "Блог", about: "Дар бораи мо", contact: "Тамос" }
             },
@@ -998,6 +1016,150 @@
                 quote: '" केवळ तीच गोष्ट जी प्रत्येक मानवाद्वारे समान म्हणून स्वीकारली जाते, तिलाच खऱ्या अर्थाने सत्य म्हटले जाऊ शकते. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "मुख्यपृष्ठ", services: "सेवा", workers: "कामगार", shops: "दुकाने", blog: "ब्लॉग", about: "आमच्याबद्दल", contact: "संपर्क" }
+            },
+            am_ext: {
+                title: "እውነት እና እኩልነት", subtitle: "ማህበራዊ ኢንተርፕራይዝ",
+                slogan: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
+                secTitle: "ዋናው ፍልስፍና", equation: "እኩልነት = እውነት",
+                quote: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
+                font: "'Playfair Display', serif",
+                nav: { home: "መነሻ", services: "አገልግሎቶች", workers: "ሰራተኞች", shops: "ሱቆች", blog: "ብሎግ", about: "ስለ እኛ", contact: "ግንኙነት" }
+            },
+            bm: {
+                title: "TIYA NI KAN KASAN", subtitle: "KAFA SOSYALI",
+                slogan: '" Fura min bɛ sɔrɔ adamaden kelen-kelen bɛɛ fɛ walasa ka kɛ kelen ye, o de bɛ fɔ ko Tiya ye. "',
+                secTitle: "FILOSOFI BA", equation: "KASAN = TIYA",
+                quote: '" Fura min bɛ sɔrɔ adamaden kelen-kelen bɛɛ fɛ walasa ka kɛ kelen ye, o de bɛ fɔ ko Tiya ye. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "So", services: "Baara", workers: "Baarakɛlaw", shops: "Sitorow", blog: "Blog", about: "An ka kuma", contact: "Wara" }
+            },
+            co: {
+                title: "VERITÀ È UGUALITÀ", subtitle: "IMPRESA CUSCIENZA",
+                slogan: '" Solu ciò chì hè accettatu da ogni umanu cum\'è uguale pò esse veramente chjamatu Verità. "',
+                secTitle: "A FILUSUFIA PRINCIPALE", equation: "UGUALITÀ = VERITÀ",
+                quote: '" Solu ciò chì hè accettatu da ogni umanu cum\'è uguale pò esse veramente chjamatu Verità. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Accumenciu", services: "Servizii", workers: "Operaghji", shops: "Boutiques", blog: "Blog", about: "À propositu", contact: "Cuntattu" }
+            },
+            fy: {
+                title: "WAARHEID EN GELIKENS", subtitle: "SOSJAAL BEDRIUW",
+                slogan: '" Allinne dat wat troch elk minske as gelyk akseptearre wurdt, kin wier wês Wierheid neamd wurde. "',
+                secTitle: "DE KERNFILOSOOFY", equation: "GELIKENS = WAARHEID",
+                quote: '" Allinne dat wat troch elk minske as gelyk akseptearre wurdt, kin wier wês Wierheid neamd wurde. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Hiem", services: "Tsjinsten", workers: "Wurkers", shops: "Winkels", blog: "Blog", about: "Oer ús", contact: "Kontakt" }
+            },
+            ht: {
+                title: "VERITE AK EGALITE", subtitle: "ANTREPRIZ SOSYAL",
+                slogan: '" Son aseptab pa chak moun kòm egal ki ka vrèman rele Verite. "',
+                secTitle: "FILOZOFI SANTRAL LA", equation: "EGALITE = VERITE",
+                quote: '" Son aseptab pa chak moun kòm egal ki ka vrèman rele Verite. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Akèy", services: "Sèvis", workers: "Travayè", shops: "Boutik", blog: "Blog", about: "Konsènan nou", contact: "Kontak" }
+            },
+            haw: {
+                title: "KA ʻOIAʻIʻO A ME KE KULANA LIKOLIKO", subtitle: "HUI KAIAULU",
+                slogan: '" ʻO ka mea wale nō i ʻae ʻia e kānaka apau he kaulike ke kapa ʻia ʻo ia ka ʻOiaʻiʻo. "',
+                secTitle: "KA MANAʻO NUI", equation: "KULANA LIKOLIKO = KA ʻOIAʻIʻO",
+                quote: '" ʻO ka mea wale nō i ʻae ʻia e kānaka apau he kaulike ke kapa ʻia ʻo ia ka ʻOiaʻiʻo. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Kahi Hoʻomaka", services: "Lawelawe", workers: "Poʻe Hana", shops: "Halekuai", blog: "Pūnaewele", about: "No Mākou", contact: "Kāhea" }
+            },
+            hmn: {
+                title: "QHOV TSEEB THIAB SIAB TSO", subtitle: "LUS KEV KOOM UA",
+                slogan: '" Tsuas yog qhov uas txhua tus neeg lees paub tias sib luag thiaj hu ua Qhov Tseeb tiag. "',
+                secTitle: "LUS TSEEM CEEB", equation: "SIAB TSO = QHOV TSEEB",
+                quote: '" Tsuas yog qhov uas txhua tus neeg lees paub tias sib luag thiaj hu ua Qhov Tseeb tiag. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Tsev", services: "Kev Pab", workers: "Cov Neeg Ua Haujlwm", shops: "Khw Muag", blog: "Phau ntawv", about: "Hais Txog Peb", contact: "Tiv Tauj" }
+            },
+            jw: {
+                title: "KABENERAN LAN KASARIKAN", subtitle: "PERUSAHAAN SOSIAL",
+                slogan: '" Nam mung sing ditampa dening saben manungsa minangka padha sing bener-bener bisa diarani Kebenaran. "',
+                secTitle: "FILOSOFI UTAMA", equation: "KASARIKAN = KABENERAN",
+                quote: '" Nam mung sing ditampa dening saben manungsa minangka padha sing bener-bener bisa diarani Kebenaran. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Ngarep", services: "Layanan", workers: "Pagawe", shops: "Toko", blog: "Blog", about: "Babagan Kita", contact: "Kontak" }
+            },
+            kn_ext: {
+                title: "ಸತ್ಯ ಮತ್ತು ಸಮಾನತೆ", subtitle: "ಸಾಮಾಜಿಕ ಸಂಸ್ಥೆ",
+                slogan: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
+                secTitle: "ಮುಖ್ಯ ತತ್ವಶಾಸ್ತ್ರ", equation: "ಸಮಾನತೆ = ಸತ್ಯ",
+                quote: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
+                font: "'Playfair Display', serif",
+                nav: { home: "ಮುಖಪುಟ", services: "ಸೇವೆಗಳು", workers: "ಕೆಲಸಗಾರರು", shops: "ಅಂಗಡಿಗಳು", blog: "ಬ್ಲಾಗ್", about: "ನಮ್ಮ ಬಗ್ಗೆ", contact: "ಸಂಪರ್ಕ" }
+            },
+            la_ext: {
+                title: "VERITAS ET AEQUALITAS", subtitle: "SOCIETAS SOCIALIS",
+                slogan: '" Solum id quod ab unoquoque homine aequum accipitur vere Veritas dici potest. "',
+                secTitle: "PHILOSOPHIA CENTRALIS", equation: "AEQUALITAS = VERITAS",
+                quote: '" Solum id quod ab unoquoque homine aequum accipitur vere Veritas dici potest. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Domus", services: "Servitia", workers: "Operarii", shops: "Tabernae", blog: "Blog", about: "De Nobis", contact: "Contactus" }
+            },
+            mi_ext: {
+                title: "TE TIKA ME TE RITE", subtitle: "PĀTAKA HAPORI",
+                slogan: '" Ko te mea anake e whakaaetia ana e te tangata katoa hei ritenga, koia tonu te mea e kīia ana he Tika. "',
+                secTitle: "TE AHUREI MATUA", equation: "RITE = TIKA",
+                quote: '" Ko te mea anake e whakaaetia ana e te tangata katoa hei ritenga, koia tonu te mea e kīia ana he Tika. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Kāinga", services: "Ratonga", workers: "Kaimahi", shops: "Toa", blog: "Blog", about: "Mō Mātou", contact: "Whakapā" }
+            },
+            my_ext: {
+                title: "အမှန်တရားနှင့် ညီမျှမှု", subtitle: "လူမှုစီးပွားရေး လုပ်ငန်း",
+                slogan: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
+                secTitle: "အဓိက သဘောတရား ရင်းမြစ်", equation: "ညီမျှမှု = အမှန်တရား",
+                quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
+                font: "'Padauk', sans-serif",
+                nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
+            },
+            om: {
+                title: "DHUGAA FI WALQIXXUMMAA", subtitle: "DHAAABBATA HAWAASAA",
+                slogan: '" Wanti nama hundaan akka walqixaatti fudhatame qofa dhugaa jedhamee waamuu danda\'ama. "',
+                secTitle: "FILOZOOFII GURGUDDOO", equation: "WALQIXXUMMAA = DHUGAA",
+                quote: '" Wanti nama hundaan akka walqixaatti fudhatame qofa dhugaa jedhamee waamuu danda\'ama. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Fuula Dura", services: "Tajaajila", workers: "Hojjettoota", shops: "Kaardii", blog: "Oduu", about: "Waa\'ee Keenya", contact: "Quunnami" }
+            },
+            qu: {
+                title: "CHIQAQ KAY PASAQ", subtitle: "RUNA KAWSAY",
+                slogan: '" Mayqin runapas kañalla kasqanta chaskisqanmi chiqaq kayqa kanman. "',
+                secTitle: "HUNTA YUYAY", equation: "KAFALLA = CHIQAQ",
+                quote: '" Mayqin runapas kañalla kasqanta chaskisqanmi chiqaq kayqa kanman. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Qallariy", services: "Yanapaykuna", workers: "Llank'aqkuna", shops: "Qhatukuna", blog: "Willay", about: "Ñuqanchikmanta", contact: "Tupanakuq" }
+            },
+            sm: {
+                title: "UPU MONI MA LE TUTUSA", subtitle: "FAALAVALAVA FAAPOTOPOTOINA",
+                slogan: '" Na o le mea e taliaina e tagata uma lava e tutusa e mafai ona valaau moni o le Upu Moni. "',
+                secTitle: "O LE FESILI AUTU", equation: "TUTUSA = UPU MONI",
+                quote: '" Na o le mea e taliaina e tagata uma lava e tutusa e mafai ona valaau moni o le Upu Moni. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Amata", services: "Auaunaga", workers: "Tagata faigaluega", shops: "Faleoloa", blog: "Blogs", about: "Ae Faatatau ia i Matou", contact: "Faʻafesoʻotaʻi" }
+            },
+            sn_ext: {
+                title: "CHOKAZA NEKUTIRANGA", subtitle: "BHIZINISI REREVERO",
+                slogan: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
+                secTitle: "UZIVA HURU", equation: "KUTIRANGA = CHOKWADI",
+                quote: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Kumba", services: "Mabasa", workers: "Vashandi", shops: "Zvitoro", blog: "Buroku", about: "Nezvedu", contact: "Bata" }
+            },
+            ug: {
+                title: "HÄQIQÄT WÄ TÄNGXIMLIK", subtitle: "IJTIMOIY KORXONA",
+                slogan: '" Pätkchü har bir insan täripidin täng dëp qobul qilingan närsägina häqiqät dëp atalishi mumkin. "',
+                secTitle: "ASASIY PËLWÄ", equation: "TÄNGXIMLIK = HÄQIQÄT",
+                quote: '" Pätkchü har bir insan täripidin täng dëp qobul qilingan närsägina häqiqät dëp atalishi mumkin. "',
+                font: "'Amiri', serif",
+                nav: { home: "Bash Bët", services: "Mäximlär", workers: "Işçilär", shops: "Dükanlar", blog: "Blog", about: "Biz Toğrisida", contact: "Alaqä" }
+            },
+            yi_ext: {
+                title: "אמת און גלייכקייט", subtitle: "סאציאלע אונטערנעמונג",
+                slogan: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
+                secTitle: "דער הויפּט פילאָסאָפֿיע", equation: "גלייכקייט = אמת",
+                quote: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
+                font: "'Amiri', serif",
+                nav: { home: "היים", services: "דינסטן", workers: "אַרבעטער", shops: "שעפֿער", blog: "בלאָג", about: "וועגן אונדז", contact: "קאָנטאַקט" }
             }
         };
 
