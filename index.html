@@ -3,81 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equality Platform</title>
+    <title>Equality Platform - ညီတူညီမျှ</title>
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
     <header class="top-header">
-        <!-- Translate Dropdown Box with Flags -->
-        <div class="translate-bar">
-            <span class="translate-label">🌐 Translate:</span>
-            <select id="custom_lang_select" onchange="applyTranslation(this.value)">
-                <option value="">Select Language</option>
-                <option value="my">🇲🇲 မြန်မာ</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="th">🇹🇭 ไทย</option>
-                <option value="zh-CN">🇨🇳 中文</option>
-                <option value="ja">🇯🇵 日本語</option>
-                <option value="ko">🇰🇷 한국어</option>
-                <option value="fr">🇫🇷 Français</option>
-                <option value="de">🇩🇪 Deutsch</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="ar">🇸🇦 العربية</option>
-            </select>
-        </div>
-
-        <!-- Hidden Google Translate Element -->
-        <div id="google_translate_element" style="display:none;"></div>
-
-        <h1 class="single-line-title">🇬🇧 Equality 🇲🇲 ညီတူညီမျှ 🇹🇭 ความเท่าเทียม</h1>
+        <h1 class="single-line-title">ညီတူညီမျှ (Equality)</h1>
         
         <div class="slogan-container">
             <p class="slogan-my">" မတူကွဲပြားမှုများစွာ ရှိသော်လည်း၊ လူသားဆန်မှုဖြင့် အတူတကွ ပေါင်းစည်းရင်း — ငြိမ်းချမ်းမှု၊ ဂုဏ်သိက္ခာနှင့် ပျော်ရွှင်မှုတို့ဖြင့် လူတိုင်း ရှင်သန်နိုင်မည့် ကမ္ဘာကြီးကို အတူတကွ ဖန်တီးကြစို့။ "</p>
-            <p class="slogan-en">" Different in who we are, united in what we share — our humanity. Together, let’s build a world where everyone can live with peace, dignity, and happiness. "</p>
-            <p class="slogan-th">" แม้จะแตกต่างในตัวตน แต่หลอมรวมเป็นหนึ่งด้วยความเป็นมนุษย์ มาร่วมกันสร้างโลกที่ทุกคนได้อยู่อย่างมีความสุข มีสันติภาพ และมีศักดิ์ศรี "</p>
         </div>
 
         <nav>
-            <a href="index.html">Home</a> | 
-            <a href="services.html">Services</a> | 
-            <a href="workers.html">Workers</a> | 
-            <a href="shops.html">Shops</a> | 
-            <a href="blog.html">Blog</a> | 
-            <a href="about.html">About</a> | 
-            <a href="contact.html">Contact</a>
+            <a href="index.html">ပင်မစာမျက်နှာ</a> | 
+            <a href="services.html">ဝန်ဆောင်မှုများ</a> | 
+            <a href="workers.html">လုပ်သားများ</a> | 
+            <a href="shops.html">ဆိုင်များ</a> | 
+            <a href="blog.html">ဆောင်းပါးများ</a> | 
+            <a href="about.html">ကျွန်ုပ်တို့အကြောင်း</a> | 
+            <a href="contact.html">ဆက်သွယ်ရန်</a>
         </nav>
     </header>
 
     <main style="text-align: center; padding: 40px 20px;">
-        <h1 style="color: #d4af37;">Welcome to My Page</h1>
-        <p>This is the official Home Page.</p>
+        <h1 style="color: #d4af37;">ကြိုဆိုပါသည်</h1>
+        <p>ညီတူညီမျှ လူမှုစီးပွားရေး ပလက်ဖောင်းမှ လှိုက်လှဲစွာ ကြိုဆိုပါသည်။</p>
     </main>
-
-    <!-- Google Translate Integration Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-
-        function applyTranslation(langCode) {
-            if (!langCode) return;
-            var select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = langCode;
-                select.dispatchEvent(new Event('change'));
-            }
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
