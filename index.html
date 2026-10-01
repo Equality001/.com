@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="style.css?v=30">
     <style>
         /* Single Row Container styling */
         .lang-bar {
@@ -18,29 +18,39 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap; /* Prevent wrapping to next line */
-            overflow-x: auto; /* Allow smooth horizontal scroll on very small screens */
-            padding: 5px 0 15px 0;
-            gap: 6px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 8px 0 18px 0;
+            gap: 8px;
             white-space: nowrap;
         }
 
         .lang-btn {
-            background: transparent;
+            background: rgba(20, 18, 14, 0.8);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 6px 12px;
-            border-radius: 4px;
+            padding: 6px 14px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             transition: all 0.3s ease;
             flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
             font-weight: bold;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .flag-icon {
+            font-size: 15px;
+            line-height: 1;
         }
 
         /* Hide scrollbar for clean UI */
@@ -55,16 +65,16 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Single Line -->
+        <!-- Language Switcher Bar - Single Line with Framed Flags -->
         <div class="lang-bar notranslate">
-            <button class="lang-btn active" onclick="switchLang('en', event)">English</button>
-            <button class="lang-btn" onclick="switchLang('my', event)">မြန်မာ</button>
-            <button class="lang-btn" onclick="switchLang('ar', event)">العربية</button>
-            <button class="lang-btn" onclick="switchLang('th', event)">ไทย</button>
-            <button class="lang-btn" onclick="switchLang('ja', event)">日本語</button>
-            <button class="lang-btn" onclick="switchLang('zh', event)">中文</button>
-            <button class="lang-btn" onclick="switchLang('es', event)">Español</button>
-            <button class="lang-btn" onclick="switchLang('fr', event)">Français</button>
+            <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> English</button>
+            <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
+            <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
+            <button class="lang-btn" onclick="switchLang('th', event)"><span class="flag-icon">🇹🇭</span> ไทย</button>
+            <button class="lang-btn" onclick="switchLang('ja', event)"><span class="flag-icon">🇯🇵</span> 日本語</button>
+            <button class="lang-btn" onclick="switchLang('zh', event)"><span class="flag-icon">🇨🇳</span> 中文</button>
+            <button class="lang-btn" onclick="switchLang('es', event)"><span class="flag-icon">🇪🇸</span> Español</button>
+            <button class="lang-btn" onclick="switchLang('fr', event)"><span class="flag-icon">🇫🇷</span> Français</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -217,7 +227,8 @@
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             if (e && e.target) {
-                e.target.classList.add('active');
+                const btn = e.target.closest('.lang-btn');
+                if (btn) btn.classList.add('active');
             }
         }
     </script>
