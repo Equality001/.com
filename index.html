@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=43">
+    <link rel="stylesheet" href="style.css?v=44">
     <style>
         html {
             scroll-behavior: smooth;
@@ -177,17 +177,17 @@
     </header>
 
     <main style="max-width: 850px; margin: 40px auto; padding: 0 20px; text-align: center;">
-        <section id="core-philosophy" class="notranslate" style="background: linear-gradient(135deg, rgba(20,18,14,0.95), rgba(40,30,15,0.9)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover; border: 1px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-            <h2 style="color: #d4af37; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px;" id="sec-title">THE CORE PHILOSOPHY — UNIVERSAL HORIZON</h2>
+        <section id="core-philosophy" class="notranslate" style="background: linear-gradient(135deg, rgba(30, 20, 10, 0.85), rgba(70, 45, 15, 0.75)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover; border: 2px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 25px rgba(212,175,55,0.4);">
+            <h2 style="color: #ffd700; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);" id="sec-title">THE CORE PHILOSOPHY — UNIVERSAL HORIZON</h2>
             
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; margin: 0;" id="equation-text">EQUALITY = TRUTH</h3>
+                <h3 style="color: #ffd700; font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);" id="equation-text">EQUALITY = TRUTH</h3>
             </div>
 
-            <div style="width: 60px; height: 1px; background: #d4af37; margin: 20px auto;"></div>
+            <div style="width: 60px; height: 2px; background: #ffd700; margin: 20px auto; box-shadow: 0 0 8px #ffd700;"></div>
 
             <div style="margin-bottom: 10px;">
-                <p style="font-size: 18px; line-height: 1.8; color: #ffffff; font-weight: 500; margin: 0;" id="philosophy-quote">
+                <p style="font-size: 18px; line-height: 1.8; color: #ffffff; font-weight: 600; margin: 0; text-shadow: 0 1px 3px rgba(0,0,0,0.9);" id="philosophy-quote">
                     " Only that which is accepted by every single human being as equal can truly be called Truth. "
                 </p>
             </div>
@@ -569,9 +569,9 @@
             quoteElem.innerText = data.quote;
             quoteElem.style.fontFamily = data.font;
 
-            // Update Philosophy Section background image to match cultural vibe
+            // Update Philosophy Section background image with enhanced dual gradient tone
             const philosophySec = document.getElementById('core-philosophy');
-            philosophySec.style.background = `linear-gradient(135deg, rgba(20,18,14,0.95), rgba(40,30,15,0.9)), ${data.bgImg} center/cover`;
+            philosophySec.style.background = `linear-gradient(135deg, rgba(30, 20, 10, 0.85), rgba(70, 45, 15, 0.75)), ${data.bgImg} center/cover`;
 
             document.getElementById('nav-home').innerText = data.nav.home;
             document.getElementById('nav-services').innerText = data.nav.services;
