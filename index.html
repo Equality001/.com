@@ -10,71 +10,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="style.css?v=31">
     <style>
-        /* Single Row Container styling */
+        /* Mobile responsive wrapping container */
         .lang-bar {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding: 8px 0 18px 0;
-            gap: 8px;
-            white-space: nowrap;
+            flex-wrap: wrap; /* Wrap buttons on smaller screens so all flags are visible */
+            padding: 8px 10px 18px 10px;
+            gap: 6px;
+            max-width: 100%;
         }
 
         .lang-btn {
-            background: rgba(20, 18, 14, 0.8);
+            background: rgba(20, 18, 14, 0.85);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 6px 14px;
+            padding: 5px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             transition: all 0.3s ease;
-            flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            white-space: nowrap;
         }
 
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
             font-weight: bold;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
         }
 
         .flag-icon {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1;
         }
 
-        /* Hide scrollbar for clean UI */
-        .lang-bar::-webkit-scrollbar {
-            display: none;
-        }
-        .lang-bar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        @media (max-width: 480px) {
+            .lang-bar {
+                gap: 5px;
+                padding: 5px 5px 15px 5px;
+            }
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+            .flag-icon {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Single Line with Framed Flags -->
+        <!-- Language Switcher Bar - Mobile Responsive Auto Wrap -->
         <div class="lang-bar notranslate">
-            <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> English</button>
+            <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
             <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
             <button class="lang-btn" onclick="switchLang('th', event)"><span class="flag-icon">🇹🇭</span> ไทย</button>
             <button class="lang-btn" onclick="switchLang('ja', event)"><span class="flag-icon">🇯🇵</span> 日本語</button>
             <button class="lang-btn" onclick="switchLang('zh', event)"><span class="flag-icon">🇨🇳</span> 中文</button>
-            <button class="lang-btn" onclick="switchLang('es', event)"><span class="flag-icon">🇪🇸</span> Español</button>
-            <button class="lang-btn" onclick="switchLang('fr', event)"><span class="flag-icon">🇫🇷</span> Français</button>
+            <button class="lang-btn" onclick="switchLang('es', event)"><span class="flag-icon">🇪🇸</span> ES</button>
+            <button class="lang-btn" onclick="switchLang('fr', event)"><span class="flag-icon">🇫🇷</span> FR</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
