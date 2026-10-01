@@ -1,35 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Padauk:wght@400;700&family=Sarabun:wght@400;700&display=swap');
 
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Poppins', 'Noto Sans Myanmar', 'Noto Sans Thai', sans-serif;
+    background-color: #0f0d0b;
+    color: #e6d7c3;
+    font-family: 'Padauk', 'Sarabun', serif;
     margin: 0;
     padding: 0;
 }
 
 .top-header {
-    background-color: #000000;
+    background-color: #1a1612;
     padding: 25px 15px;
     text-align: center;
-    border-bottom: 2px solid #d9381e;
+    border-bottom: 3px double #c5a059;
 }
 
 .single-line-title {
-    color: #d9381e;
-    font-size: 24px;
+    font-family: 'Cinzel', 'Padauk', 'Sarabun', serif;
+    color: #c5a059;
+    font-size: 26px;
     font-weight: 700;
     white-space: nowrap;
     overflow-x: auto;
     margin: 10px 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .sub-title {
-    color: #cccccc;
+    color: #b8a898;
     font-size: 15px;
     margin-top: 10px;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 nav {
@@ -37,12 +39,12 @@ nav {
 }
 
 nav a {
-    color: #ff9999;
+    color: #d4af37;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
     margin: 0 8px;
     font-size: 16px;
-    transition: color 0.3s;
+    letter-spacing: 0.5px;
 }
 
 nav a:hover {
