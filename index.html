@@ -10,34 +10,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=31">
+    <link rel="stylesheet" href="style.css?v=32">
     <style>
-        /* Mobile responsive wrapping container */
+        /* Single Line Horizontal Scroll Container */
         .lang-bar {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: flex-start; /* Start from left for smooth scrolling */
             align-items: center;
-            flex-wrap: wrap; /* Wrap buttons on smaller screens so all flags are visible */
-            padding: 8px 10px 18px 10px;
-            gap: 6px;
-            max-width: 100%;
+            flex-wrap: nowrap; /* Strictly single line, no wrapping */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS/Android */
+            padding: 8px 15px 18px 15px;
+            gap: 8px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .lang-btn {
             background: rgba(20, 18, 14, 0.85);
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 12px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            white-space: nowrap;
+            white-space: nowrap; /* Keep button content in one line */
+            flex-shrink: 0; /* Prevent buttons from shrinking */
         }
 
         .lang-btn:hover, .lang-btn.active {
@@ -52,24 +56,19 @@
             line-height: 1;
         }
 
-        @media (max-width: 480px) {
-            .lang-bar {
-                gap: 5px;
-                padding: 5px 5px 15px 5px;
-            }
-            .lang-btn {
-                padding: 4px 8px;
-                font-size: 11px;
-            }
-            .flag-icon {
-                font-size: 13px;
-            }
+        /* Hide scrollbar for clean premium UI */
+        .lang-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .lang-bar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar - Mobile Responsive Auto Wrap -->
+        <!-- Language Switcher Bar - Single Line Horizontal Scroll -->
         <div class="lang-bar notranslate">
             <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
