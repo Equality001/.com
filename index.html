@@ -7,59 +7,194 @@
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=28">
+    <link rel="stylesheet" href="style.css?v=29">
+    <style>
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 5px 12px;
+            margin: 3px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background-color: #d4af37;
+            color: #0b0a08;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header class="top-header">
-        <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;">TRUTH & EQUALITY</h1>
-        <p style="color: #d4af37; font-family: 'Cinzel', serif; letter-spacing: 2px; margin-top: 5px; font-weight: 600;">SOCIAL ENTERPRISE</p>
+        <!-- Language Switcher Bar -->
+        <div style="margin-bottom: 15px; text-align: center;" class="notranslate">
+            <button class="lang-btn active" onclick="switchLang('en')">English</button>
+            <button class="lang-btn" onclick="switchLang('my')">မြန်မာ</button>
+            <button class="lang-btn" onclick="switchLang('ar')">العربية</button>
+            <button class="lang-btn" onclick="switchLang('th')">ไทย</button>
+            <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
+            <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+            <button class="lang-btn" onclick="switchLang('es')">Español</button>
+            <button class="lang-btn" onclick="switchLang('fr')">Français</button>
+        </div>
+
+        <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
+        <p style="color: #d4af37; font-family: 'Cinzel', serif; letter-spacing: 2px; margin-top: 5px; font-weight: 600;" id="sub-title">SOCIAL ENTERPRISE</p>
         
         <div class="slogan-container">
-            <p class="slogan-en" style="font-family: 'Padauk', sans-serif; font-size: 16px; color: #d4af37;">
-                " လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "
+            <p class="slogan-en" style="font-size: 16px; color: #d4af37;" id="slogan-text">
+                " Only that which is accepted by every single human being as equal can truly be called Truth. "
             </p>
         </div>
 
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="services.html">Services</a> | 
-            <a href="workers.html">Workers</a> | 
-            <a href="shops.html">Shops</a> | 
-            <a href="blog.html">Blog</a> | 
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact</a>
+        <nav id="nav-bar">
+            <a href="index.html" id="nav-home">Home</a> | 
+            <a href="services.html" id="nav-services">Services</a> | 
+            <a href="workers.html" id="nav-workers">Workers</a> | 
+            <a href="shops.html" id="nav-shops">Shops</a> | 
+            <a href="blog.html" id="nav-blog">Blog</a> | 
+            <a href="about.html" id="nav-about">About Us</a> | 
+            <a href="contact.html" id="nav-contact">Contact</a>
         </nav>
     </header>
 
     <main style="max-width: 850px; margin: 40px auto; padding: 0 20px; text-align: center;">
         <!-- Core Philosophy Section -->
         <section class="notranslate" style="background-color: #14120e; border: 1px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-            <h2 style="color: #d4af37; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px;">THE CORE PHILOSOPHY</h2>
+            <h2 style="color: #d4af37; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px;" id="sec-title">THE CORE PHILOSOPHY</h2>
             
-            <!-- Main Equation Header -->
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; margin: 0;">EQUALITY = TRUTH</h3>
-            </div>
-
-            <!-- Primary English Statement -->
-            <div style="margin-bottom: 20px;">
-                <p style="font-size: 18px; line-height: 1.8; color: #f0e6d2; font-family: 'Playfair Display', serif; font-style: italic; margin: 0;">
-                    " Only that which is accepted by every single human being as equal can truly be called Truth. "
-                </p>
+                <h3 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; margin: 0;" id="equation-text">EQUALITY = TRUTH</h3>
             </div>
 
             <div style="width: 60px; height: 1px; background: #d4af37; margin: 20px auto;"></div>
 
-            <!-- Myanmar Statement -->
             <div style="margin-bottom: 10px;">
-                <p style="font-size: 16px; line-height: 1.9; color: #ffffff; font-family: 'Padauk', sans-serif; font-weight: 700; margin: 0;">
-                    " လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "
+                <p style="font-size: 18px; line-height: 1.8; color: #ffffff; font-weight: 500; margin: 0;" id="philosophy-quote">
+                    " Only that which is accepted by every single human being as equal can truly be called Truth. "
                 </p>
             </div>
         </section>
     </main>
+
+    <!-- Language Translation Data Script -->
+    <script>
+        const translations = {
+            en: {
+                title: "TRUTH & EQUALITY",
+                subtitle: "SOCIAL ENTERPRISE",
+                slogan: '" Only that which is accepted by every single human being as equal can truly be called Truth. "',
+                secTitle: "THE CORE PHILOSOPHY",
+                equation: "EQUALITY = TRUTH",
+                quote: '" Only that which is accepted by every single human being as equal can truly be called Truth. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Home", services: "Services", workers: "Workers", shops: "Shops", blog: "Blog", about: "About Us", contact: "Contact" }
+            },
+            my: {
+                title: "အမှန်တရားနှင့် ညီမျှမှု",
+                subtitle: "လူမှုစီးပွားရေး လုပ်ငန်း",
+                slogan: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
+                secTitle: "အဓိက သဘောတရား ရင်းမြစ်",
+                equation: "ညီမျှမှု = အမှန်တရား",
+                quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
+                font: "'Padauk', sans-serif",
+                nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
+            },
+            ar: {
+                title: "الحقيقة والمساواة",
+                subtitle: "المؤسسة الاجتماعية",
+                slogan: '" لا يُمكن أن يُسمى شيئًا حقًا إلا إذا قَبِله كل إنسانٍ على أنه عدلٌ وسواء. "',
+                secTitle: "الفلسفة الأساسية",
+                equation: "المساواة = الحقيقة",
+                quote: '" لا يُمكن أن يُسمى شيئًا حقًا إلا إذا قَبِله كل إنسانٍ على أنه عدلٌ وسواء. "',
+                font: "'Amiri', serif",
+                nav: { home: "الرئيسية", services: "الخدمات", workers: "العمال", shops: "المتاجر", blog: "المدونة", about: "من نحن", contact: "اتصل بنا" }
+            },
+            th: {
+                title: "ความจริงและความเท่าเทียม",
+                subtitle: "วิสาหกิจเพื่อสังคม",
+                slogan: '“ สิ่งใดก็ตามที่มนุษย์ทุกคนยอมรับว่าเท่าเทียมกันอย่างแท้จริง สิ่งนั้นจึงจะเรียกว่าความจริงได้อย่างแท้จริง ”',
+                secTitle: "ปรัชญาหลัก",
+                equation: "ความเท่าเทียม = ความจริง",
+                quote: '“ สิ่งใดก็ตามที่มนุษย์ทุกคนยอมรับว่าเท่าเทียมกันอย่างแท้จริง สิ่งนั้นจึงจะเรียกว่าความจริงได้อย่างแท้จริง ”',
+                font: "'Noto Sans Thai', sans-serif",
+                nav: { home: "หน้าแรก", services: "บริการ", workers: "แรงงาน", shops: "ร้านค้า", blog: "บล็อก", about: "เกี่ยวกับเรา", contact: "ติดต่อ" }
+            },
+            ja: {
+                title: "真理と平等",
+                subtitle: "ソーシャル・エンタープライズ",
+                slogan: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
+                secTitle: "基本理念",
+                equation: "平等 ＝ 真理",
+                quote: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
+                font: "'Noto Sans JP', sans-serif",
+                nav: { home: "ホーム", services: "サービス", workers: "ワーカー", shops: "ショップ", blog: "ブログ", about: "概要", contact: "お問い合わせ" }
+            },
+            zh: {
+                title: "真理与平等",
+                subtitle: "社会企业",
+                slogan: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
+                secTitle: "核心哲学",
+                equation: "平等 = 真理",
+                quote: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
+                font: "'Noto Sans SC', sans-serif",
+                nav: { home: "首页", services: "服务", workers: "劳动者", shops: "商店", blog: "博客", about: "关于我们", contact: "联系" }
+            },
+            es: {
+                title: "VERDAD Y IGUALDAD",
+                subtitle: "EMPRESA SOCIAL",
+                slogan: '" Solo aquello que es aceptado por cada ser humano como igual puede ser llamado verdaderamente Verdad. "',
+                secTitle: "LA FILOSOFÍA CENTRAL",
+                equation: "IGUALDAD = VERDAD",
+                quote: '" Solo aquello que es aceptado por cada ser humano como igual puede ser llamado verdaderamente Verdad. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Inicio", services: "Servicios", workers: "Trabajadores", shops: "Tiendas", blog: "Blog", about: "Nosotros", contact: "Contacto" }
+            },
+            fr: {
+                title: "VÉRITÉ ET ÉGALITÉ",
+                subtitle: "ENTREPRISE SOCIALE",
+                slogan: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
+                secTitle: "LA PHILOSOPHIE CENTRALE",
+                equation: "ÉGALITÉ = VÉRITÉ",
+                quote: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
+                font: "'Playfair Display', serif",
+                nav: { home: "Accueil", services: "Services", workers: "Travailleurs", shops: "Boutiques", blog: "Blog", about: "À propos", contact: "Contact" }
+            }
+        };
+
+        function switchLang(lang) {
+            const data = translations[lang];
+            if (!data) return;
+
+            document.getElementById('main-title').innerText = data.title;
+            document.getElementById('sub-title').innerText = data.subtitle;
+            document.getElementById('slogan-text').innerText = data.slogan;
+            document.getElementById('sec-title').innerText = data.secTitle;
+            document.getElementById('equation-text').innerText = data.equation;
+            
+            const quoteElem = document.getElementById('philosophy-quote');
+            quoteElem.innerText = data.quote;
+            quoteElem.style.fontFamily = data.font;
+
+            document.getElementById('nav-home').innerText = data.nav.home;
+            document.getElementById('nav-services').innerText = data.nav.services;
+            document.getElementById('nav-workers').innerText = data.nav.workers;
+            document.getElementById('nav-shops').innerText = data.nav.shops;
+            document.getElementById('nav-blog').innerText = data.nav.blog;
+            document.getElementById('nav-about').innerText = data.nav.about;
+            document.getElementById('nav-contact').innerText = data.nav.contact;
+
+            // Highlight Active Button
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
