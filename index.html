@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=41">
+    <link rel="stylesheet" href="style.css?v=42">
     <style>
         html {
             scroll-behavior: smooth;
         }
 
         /* Compact Single Line Horizontal Scroll Container */
-        .lang-bar, .continent-bar {
+        .lang-bar {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -31,14 +31,40 @@
             box-sizing: border-box;
         }
 
-        .continent-bar {
+        /* Search Box Container */
+        .search-container {
+            display: flex;
             justify-content: center;
+            padding: 10px;
             background: rgba(10, 9, 7, 0.95);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 8px 10px;
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        .lang-search-input {
+            background: rgba(20, 18, 14, 0.9);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            width: 100%;
+            max-width: 320px;
+            outline: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .lang-search-input::placeholder {
+            color: rgba(212, 175, 55, 0.6);
+        }
+
+        .lang-search-input:focus {
+            border-color: #f39c12;
+            box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
         }
 
         /* Scaled down button */
@@ -59,11 +85,6 @@
             flex-shrink: 0;
         }
 
-        .continent-btn {
-            border-color: #f39c12;
-            color: #f39c12;
-        }
-
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
@@ -77,10 +98,10 @@
         }
 
         /* Hide scrollbar */
-        .lang-bar::-webkit-scrollbar, .continent-bar::-webkit-scrollbar {
+        .lang-bar::-webkit-scrollbar {
             display: none;
         }
-        .lang-bar, .continent-bar {
+        .lang-bar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -88,126 +109,51 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- 7 Continents Bar -->
+        <!-- Search Bar for Languages -->
+        <div class="search-container notranslate">
+            <input type="text" id="langSearchInput" class="lang-search-input" placeholder="🔍 Search language / ဘာသာစကားရှာရန်..." onkeyup="filterLanguages()">
+        </div>
 
         <!-- Language Switcher Bar -->
-        <div class="lang-bar notranslate">
-            <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
-            <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
-            <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
-            <button class="lang-btn" onclick="switchLang('th', event)"><span class="flag-icon">🇹🇭</span> ไทย</button>
-            <button class="lang-btn" onclick="switchLang('ja', event)"><span class="flag-icon">🇯🇵</span> 日本語</button>
-            <button class="lang-btn" onclick="switchLang('zh', event)"><span class="flag-icon">🇨🇳</span> 中文</button>
-            <button class="lang-btn" onclick="switchLang('es', event)"><span class="flag-icon">🇪🇸</span> ES</button>
-            <button class="lang-btn" onclick="switchLang('fr', event)"><span class="flag-icon">🇫🇷</span> FR</button>
-            <button class="lang-btn" onclick="switchLang('ru', event)"><span class="flag-icon">🇷🇺</span> RU</button>
-            <button class="lang-btn" onclick="switchLang('de', event)"><span class="flag-icon">🇩🇪</span> DE</button>
-            <button class="lang-btn" onclick="switchLang('ko', event)"><span class="flag-icon">🇰🇷</span> 한국어</button>
-            <button class="lang-btn" onclick="switchLang('it', event)"><span class="flag-icon">🇮🇹</span> IT</button>
-            <button class="lang-btn" onclick="switchLang('pt', event)"><span class="flag-icon">🇵🇹</span> PT</button>
-            <button class="lang-btn" onclick="switchLang('tr', event)"><span class="flag-icon">🇹🇷</span> TR</button>
-            <button class="lang-btn" onclick="switchLang('vi', event)"><span class="flag-icon">🇻🇳</span> VI</button>
-            <button class="lang-btn" onclick="switchLang('id', event)"><span class="flag-icon">🇮🇩</span> ID</button>
-            <button class="lang-btn" onclick="switchLang('hi', event)"><span class="flag-icon">🇮🇳</span> हिन्दी</button>
-            <button class="lang-btn" onclick="switchLang('bn', event)"><span class="flag-icon">🇧🇩</span> বাংলা</button>
-            <button class="lang-btn" onclick="switchLang('nl', event)"><span class="flag-icon">🇳🇱</span> NL</button>
-            <button class="lang-btn" onclick="switchLang('pl', event)"><span class="flag-icon">🇵🇱</span> PL</button>
-            <button class="lang-btn" onclick="switchLang('el', event)"><span class="flag-icon">🇬🇷</span> ΕΛ</button>
-            <button class="lang-btn" onclick="switchLang('cs', event)"><span class="flag-icon">🇨🇿</span> CS</button>
-            <button class="lang-btn" onclick="switchLang('sv', event)"><span class="flag-icon">🇸🇪</span> SV</button>
-            <button class="lang-btn" onclick="switchLang('ro', event)"><span class="flag-icon">🇷🇴</span> RO</button>
-            <button class="lang-btn" onclick="switchLang('hu', event)"><span class="flag-icon">🇭🇺</span> HU</button>
-            <button class="lang-btn" onclick="switchLang('uk', event)"><span class="flag-icon">🇺🇦</span> UA</button>
-            <button class="lang-btn" onclick="switchLang('da', event)"><span class="flag-icon">🇩🇰</span> DA</button>
-            <button class="lang-btn" onclick="switchLang('fi', event)"><span class="flag-icon">🇫🇮</span> FI</button>
-            <button class="lang-btn" onclick="switchLang('no', event)"><span class="flag-icon">🇳🇴</span> NO</button>
-            <button class="lang-btn" onclick="switchLang('ms', event)"><span class="flag-icon">🇲🇾</span> MS</button>
-            <button class="lang-btn" onclick="switchLang('tl', event)"><span class="flag-icon">🇵🇭</span> TL</button>
-            <button class="lang-btn" onclick="switchLang('sw', event)"><span class="flag-icon">🇰🇪</span> SW</button>
-            <button class="lang-btn" onclick="switchLang('fa', event)"><span class="flag-icon">🇮🇷</span> فارسی</button>
-            <button class="lang-btn" onclick="switchLang('ur', event)"><span class="flag-icon">🇵🇰</span> اردو</button>
-            <button class="lang-btn" onclick="switchLang('ta', event)"><span class="flag-icon">🇮🇳</span> தமிழ்</button>
-            <button class="lang-btn" onclick="switchLang('km', event)"><span class="flag-icon">🇰🇭</span> ខ្មែរ</button>
-            <button class="lang-btn" onclick="switchLang('lo', event)"><span class="flag-icon">🇱🇦</span> ລາວ</button>
-            <button class="lang-btn" onclick="switchLang('he', event)"><span class="flag-icon">🇮🇱</span> עברית</button>
-            <button class="lang-btn" onclick="switchLang('af', event)"><span class="flag-icon">🇿🇦</span> AF</button>
-            <button class="lang-btn" onclick="switchLang('sq', event)"><span class="flag-icon">🇦🇱</span> SQ</button>
-            <button class="lang-btn" onclick="switchLang('am', event)"><span class="flag-icon">🇪🇹</span> AM</button>
-            <button class="lang-btn" onclick="switchLang('hy', event)"><span class="flag-icon">🇦🇲</span> HY</button>
-            <button class="lang-btn" onclick="switchLang('az', event)"><span class="flag-icon">🇦🇿</span> AZ</button>
-            <button class="lang-btn" onclick="switchLang('eu', event)"><span class="flag-icon">🇪🇸</span> EU</button>
-            <button class="lang-btn" onclick="switchLang('be', event)"><span class="flag-icon">🇧🇾</span> BE</button>
-            <button class="lang-btn" onclick="switchLang('bs', event)"><span class="flag-icon">🇧🇦</span> BS</button>
-            <button class="lang-btn" onclick="switchLang('bg', event)"><span class="flag-icon">🇧🇬</span> BG</button>
-            <button class="lang-btn" onclick="switchLang('ca', event)"><span class="flag-icon">🇪🇸</span> CA</button>
-            <button class="lang-btn" onclick="switchLang('hr', event)"><span class="flag-icon">🇭🇷</span> HR</button>
-            <button class="lang-btn" onclick="switchLang('eo', event)"><span class="flag-icon">🌐</span> EO</button>
-            <button class="lang-btn" onclick="switchLang('et', event)"><span class="flag-icon">🇪🇪</span> ET</button>
-            <button class="lang-btn" onclick="switchLang('gl', event)"><span class="flag-icon">🇪🇸</span> GL</button>
-            <button class="lang-btn" onclick="switchLang('ka', event)"><span class="flag-icon">🇬🇪</span> KA</button>
-            <button class="lang-btn" onclick="switchLang('gu', event)"><span class="flag-icon">🇮🇳</span> GU</button>
-            <button class="lang-btn" onclick="switchLang('ha', event)"><span class="flag-icon">🇳🇬</span> HA</button>
-            <button class="lang-btn" onclick="switchLang('is', event)"><span class="flag-icon">🇮🇸</span> IS</button>
-            <button class="lang-btn" onclick="switchLang('ga', event)"><span class="flag-icon">🇮🇪</span> GA</button>
-            <button class="lang-btn" onclick="switchLang('kn', event)"><span class="flag-icon">🇮🇳</span> KN</button>
-            <button class="lang-btn" onclick="switchLang('kk', event)"><span class="flag-icon">🇰🇿</span> KK</button>
-            <button class="lang-btn" onclick="switchLang('ky', event)"><span class="flag-icon">🇰🇬</span> KY</button>
-            <button class="lang-btn" onclick="switchLang('lv', event)"><span class="flag-icon">🇱🇻</span> LV</button>
-            <button class="lang-btn" onclick="switchLang('lt', event)"><span class="flag-icon">🇱🇹</span> LT</button>
-            <button class="lang-btn" onclick="switchLang('mk', event)"><span class="flag-icon">🇲🇰</span> MK</button>
-            <button class="lang-btn" onclick="switchLang('mg', event)"><span class="flag-icon">🇲🇬</span> MG</button>
-            <button class="lang-btn" onclick="switchLang('ceb', event)"><span class="flag-icon">🇵🇭</span> CEB</button>
-            <button class="lang-btn" onclick="switchLang('ku', event)"><span class="flag-icon">🇮🇶</span> KU</button>
-            <button class="lang-btn" onclick="switchLang('so', event)"><span class="flag-icon">🇸🇴</span> SO</button>
-            <button class="lang-btn" onclick="switchLang('zu', event)"><span class="flag-icon">🇿🇦</span> ZU</button>
-            <button class="lang-btn" onclick="switchLang('su', event)"><span class="flag-icon">🇮🇩</span> SU</button>
-            <button class="lang-btn" onclick="switchLang('yo', event)"><span class="flag-icon">🇳🇬</span> YO</button>
-            <button class="lang-btn" onclick="switchLang('ig', event)"><span class="flag-icon">🇳🇬</span> IG</button>
-            <button class="lang-btn" onclick="switchLang('ny', event)"><span class="flag-icon">🇲🇼</span> NY</button>
-            <button class="lang-btn" onclick="switchLang('sn', event)"><span class="flag-icon">🇿🇼</span> SN</button>
-            <button class="lang-btn" onclick="switchLang('st', event)"><span class="flag-icon">🇱🇸</span> ST</button>
-            <button class="lang-btn" onclick="switchLang('xh', event)"><span class="flag-icon">🇿🇦</span> XH</button>
-            <button class="lang-btn" onclick="switchLang('gd', event)"><span class="flag-icon">🇬🇧</span> GD</button>
-            <button class="lang-btn" onclick="switchLang('cy', event)"><span class="flag-icon">🇬🇧</span> CY</button>
-            <button class="lang-btn" onclick="switchLang('yi', event)"><span class="flag-icon">🇮🇱</span> YI</button>
-            <button class="lang-btn" onclick="switchLang('lb', event)"><span class="flag-icon">🇱🇺</span> LB</button>
-            <button class="lang-btn" onclick="switchLang('mt', event)"><span class="flag-icon">🇲🇹</span> MT</button>
-            <button class="lang-btn" onclick="switchLang('mi', event)"><span class="flag-icon">🇳🇿</span> MI</button>
-            <button class="lang-btn" onclick="switchLang('mn', event)"><span class="flag-icon">🇲🇳</span> MN</button>
-            <button class="lang-btn" onclick="switchLang('ne', event)"><span class="flag-icon">🇳🇵</span> NE</button>
-            <button class="lang-btn" onclick="switchLang('ps', event)"><span class="flag-icon">🇦🇫</span> PS</button>
-            <button class="lang-btn" onclick="switchLang('pa', event)"><span class="flag-icon">🇮🇳</span> PA</button>
-            <button class="lang-btn" onclick="switchLang('sd', event)"><span class="flag-icon">🇵🇰</span> SD</button>
-            <button class="lang-btn" onclick="switchLang('si', event)"><span class="flag-icon">🇱🇰</span> SI</button>
-            <button class="lang-btn" onclick="switchLang('sl', event)"><span class="flag-icon">🇸🇮</span> SL</button>
-            <button class="lang-btn" onclick="switchLang('tg', event)"><span class="flag-icon">🇹🇯</span> TG</button>
-            <button class="lang-btn" onclick="switchLang('te', event)"><span class="flag-icon">🇮🇳</span> TE</button>
-            <button class="lang-btn" onclick="switchLang('tk', event)"><span class="flag-icon">🇹🇲</span> TK</button>
-            <button class="lang-btn" onclick="switchLang('uz', event)"><span class="flag-icon">🇺🇿</span> UZ</button>
-            <button class="lang-btn" onclick="switchLang('ti', event)"><span class="flag-icon">🇪🇷</span> TI</button>
-            <button class="lang-btn" onclick="switchLang('tt', event)"><span class="flag-icon">🇷🇺</span> TT</button>
-            <button class="lang-btn" onclick="switchLang('as', event)"><span class="flag-icon">🇮🇳</span> AS</button>
-            <button class="lang-btn" onclick="switchLang('or', event)"><span class="flag-icon">🇮🇳</span> OR</button>
-            <button class="lang-btn" onclick="switchLang('ml', event)"><span class="flag-icon">🇮🇳</span> ML</button>
-            <button class="lang-btn" onclick="switchLang('mr', event)"><span class="flag-icon">🇮🇳</span> MR</button>
-            <button class="lang-btn" onclick="switchLang('am_ext', event)"><span class="flag-icon">🌐</span> AMH</button>
-            <button class="lang-btn" onclick="switchLang('bm', event)"><span class="flag-icon">🇲🇱</span> BM</button>
-            <button class="lang-btn" onclick="switchLang('co', event)"><span class="flag-icon">🇫🇷</span> CO</button>
-            <button class="lang-btn" onclick="switchLang('fy', event)"><span class="flag-icon">🇳🇱</span> FY</button>
-            <button class="lang-btn" onclick="switchLang('ht', event)"><span class="flag-icon">🇭🇹</span> HT</button>
-            <button class="lang-btn" onclick="switchLang('haw', event)"><span class="flag-icon">🇺🇸</span> HAW</button>
-            <button class="lang-btn" onclick="switchLang('hmn', event)"><span class="flag-icon">🌐</span> HMN</button>
-            <button class="lang-btn" onclick="switchLang('jw', event)"><span class="flag-icon">🇮🇩</span> JW</button>
-            <button class="lang-btn" onclick="switchLang('kn_ext', event)"><span class="flag-icon">🇮🇳</span> KAN</button>
-            <button class="lang-btn" onclick="switchLang('la_ext', event)"><span class="flag-icon">🇻🇦</span> LAT</button>
-            <button class="lang-btn" onclick="switchLang('mi_ext', event)"><span class="flag-icon">🇳🇿</span> MRI</button>
-            <button class="lang-btn" onclick="switchLang('my_ext', event)"><span class="flag-icon">🇲🇲</span> MYA</button>
-            <button class="lang-btn" onclick="switchLang('om', event)"><span class="flag-icon">🇪🇹</span> OM</button>
-            <button class="lang-btn" onclick="switchLang('qu', event)"><span class="flag-icon">🇵🇪</span> QU</button>
-            <button class="lang-btn" onclick="switchLang('sm', event)"><span class="flag-icon">🇼🇸</span> SM</button>
-            <button class="lang-btn" onclick="switchLang('sn_ext', event)"><span class="flag-icon">🇿🇼</span> SNA</button>
-            <button class="lang-btn" onclick="switchLang('ug', event)"><span class="flag-icon">🇨🇳</span> UG</button>
-            <button class="lang-btn" onclick="switchLang('yi_ext', event)"><span class="flag-icon">🇮🇱</span> YID</button>
+        <div class="lang-bar notranslate" id="langBar">
+            <button class="lang-btn active" onclick="switchLang('en', event)" data-name="en english မြန်မာ"><span class="flag-icon">🇬🇧</span> EN</button>
+            <button class="lang-btn" onclick="switchLang('my', event)" data-name="my myanmar မြန်မာ"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
+            <button class="lang-btn" onclick="switchLang('ar', event)" data-name="ar arabic عربية"><span class="flag-icon">🇸🇦</span> العربية</button>
+            <button class="lang-btn" onclick="switchLang('th', event)" data-name="th thai ไทย"><span class="flag-icon">🇹🇭</span> ไทย</button>
+            <button class="lang-btn" onclick="switchLang('ja', event)" data-name="ja japanese 日本語"><span class="flag-icon">🇯🇵</span> 日本語</button>
+            <button class="lang-btn" onclick="switchLang('zh', event)" data-name="zh chinese 中文"><span class="flag-icon">🇨🇳</span> 中文</button>
+            <button class="lang-btn" onclick="switchLang('es', event)" data-name="es spanish español"><span class="flag-icon">🇪🇸</span> ES</button>
+            <button class="lang-btn" onclick="switchLang('fr', event)" data-name="fr french français"><span class="flag-icon">🇫🇷</span> FR</button>
+            <button class="lang-btn" onclick="switchLang('ru', event)" data-name="ru russian русский"><span class="flag-icon">🇷🇺</span> RU</button>
+            <button class="lang-btn" onclick="switchLang('de', event)" data-name="de german deutsch"><span class="flag-icon">🇩🇪</span> DE</button>
+            <button class="lang-btn" onclick="switchLang('ko', event)" data-name="ko korean 한국어"><span class="flag-icon">🇰🇷</span> 한국어</button>
+            <button class="lang-btn" onclick="switchLang('it', event)" data-name="it italian italiano"><span class="flag-icon">🇮🇹</span> IT</button>
+            <button class="lang-btn" onclick="switchLang('pt', event)" data-name="pt portuguese português"><span class="flag-icon">🇵🇹</span> PT</button>
+            <button class="lang-btn" onclick="switchLang('tr', event)" data-name="tr turkish türkçe"><span class="flag-icon">🇹🇷</span> TR</button>
+            <button class="lang-btn" onclick="switchLang('vi', event)" data-name="vi vietnamese tiếng việt"><span class="flag-icon">🇻🇳</span> VI</button>
+            <button class="lang-btn" onclick="switchLang('id', event)" data-name="id indonesian indonesia"><span class="flag-icon">🇮🇩</span> ID</button>
+            <button class="lang-btn" onclick="switchLang('hi', event)" data-name="hi hindi हिन्दी"><span class="flag-icon">🇮🇳</span> हिन्दी</button>
+            <button class="lang-btn" onclick="switchLang('bn', event)" data-name="bn bengali বাংলা"><span class="flag-icon">🇧🇩</span> বাংলা</button>
+            <button class="lang-btn" onclick="switchLang('nl', event)" data-name="nl dutch nederlands"><span class="flag-icon">🇳🇱</span> NL</button>
+            <button class="lang-btn" onclick="switchLang('pl', event)" data-name="pl polish polski"><span class="flag-icon">🇵🇱</span> PL</button>
+            <button class="lang-btn" onclick="switchLang('el', event)" data-name="el greek ελληνικά"><span class="flag-icon">🇬🇷</span> ΕΛ</button>
+            <button class="lang-btn" onclick="switchLang('cs', event)" data-name="cs czech čeština"><span class="flag-icon">🇨🇿</span> CS</button>
+            <button class="lang-btn" onclick="switchLang('sv', event)" data-name="sv swedish svenska"><span class="flag-icon">🇸🇪</span> SV</button>
+            <button class="lang-btn" onclick="switchLang('ro', event)" data-name="ro romanian română"><span class="flag-icon">🇷🇴</span> RO</button>
+            <button class="lang-btn" onclick="switchLang('hu', event)" data-name="hu hungarian magyar"><span class="flag-icon">🇭🇺</span> HU</button>
+            <button class="lang-btn" onclick="switchLang('uk', event)" data-name="uk ukrainian українська"><span class="flag-icon">🇺🇦</span> UA</button>
+            <button class="lang-btn" onclick="switchLang('da', event)" data-name="da danish dansk"><span class="flag-icon">🇩🇰</span> DA</button>
+            <button class="lang-btn" onclick="switchLang('fi', event)" data-name="fi finnish suomi"><span class="flag-icon">🇫🇮</span> FI</button>
+            <button class="lang-btn" onclick="switchLang('no', event)" data-name="no norwegian norsk"><span class="flag-icon">🇳🇴</span> NO</button>
+            <button class="lang-btn" onclick="switchLang('ms', event)" data-name="ms malay melayu"><span class="flag-icon">🇲🇾</span> MS</button>
+            <button class="lang-btn" onclick="switchLang('tl', event)" data-name="tl tagalog filipino"><span class="flag-icon">🇵🇭</span> TL</button>
+            <button class="lang-btn" onclick="switchLang('sw', event)" data-name="sw swahili kiswahili"><span class="flag-icon">🇰🇪</span> SW</button>
+            <button class="lang-btn" onclick="switchLang('fa', event)" data-name="fa persian فارسی"><span class="flag-icon">🇮🇷</span> فارسی</button>
+            <button class="lang-btn" onclick="switchLang('ur', event)" data-name="ur urdu اردو"><span class="flag-icon">🇵🇰</span> اردو</button>
+            <button class="lang-btn" onclick="switchLang('ta', event)" data-name="ta tamil தமிழ்"><span class="flag-icon">🇮🇳</span> தமிழ்</button>
+            <button class="lang-btn" onclick="switchLang('km', event)" data-name="km khmer ខ្មែរ"><span class="flag-icon">🇰🇭</span> ខ្មែរ</button>
+            <button class="lang-btn" onclick="switchLang('lo', event)" data-name="lo lao ລາວ"><span class="flag-icon">🇱🇦</span> ລາວ</button>
+            <button class="lang-btn" onclick="switchLang('he', event)" data-name="he hebrew עברית"><span class="flag-icon">🇮🇱</span> עברית</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -256,7 +202,6 @@
                 secTitle: "THE CORE PHILOSOPHY", equation: "EQUALITY = TRUTH",
                 quote: '" Only that which is accepted by every single human being as equal can truly be called Truth. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
                 nav: { home: "Home", services: "Services", workers: "Workers", shops: "Shops", blog: "Blog", about: "About Us", contact: "Contact" }
             },
             my: {
@@ -265,7 +210,6 @@
                 secTitle: "အဓိက သဘောတရား ရင်းမြစ်", equation: "ညီမျှမှု = အမှန်တရား",
                 quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
                 font: "'Padauk', sans-serif",
-                continents: { asia: "အာရှ", africa: "အာဖရိက", na: "မြောက်အမေရိက", sa: "တောင်အမေရိက", ant: "အန္တာတိက", eu: "ဥရောပ", oc: "ဩစတြေးလျ / အိုရှန်းနီးယား" },
                 nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
             },
             ar: {
@@ -274,7 +218,6 @@
                 secTitle: "الفلسفة الأساسية", equation: "المساواة = الحقيقة",
                 quote: '" لا يُمكن أن يُسمى شيئًا حقًا إلا إذا قَبِله كل إنسانٍ على أنه عدلٌ وسواء. "',
                 font: "'Amiri', serif",
-                continents: { asia: "آسيا", africa: "أفريقيا", na: "أمريكا الشمالية", sa: "أمريكا الجنوبية", ant: "القارة القطبية الجنوبية", eu: "أوروبا", oc: "أوقيانوسيا" },
                 nav: { home: "الرئيسية", services: "الخدمات", workers: "العمال", shops: "المتاجر", blog: "المدونة", about: "من نحن", contact: "اتصل بنا" }
             },
             th: {
@@ -283,7 +226,6 @@
                 secTitle: "ปรัชญาหลัก", equation: "ความเท่าเทียม = ความจริง",
                 quote: '“ สิ่งใดก็ตามที่มนุษย์ทุกคนยอมรับว่าเท่าเทียมกันอย่างแท้จริง สิ่งนั้นจึงจะเรียกว่าความจริงได้อย่างแท้จริง ”',
                 font: "'Noto Sans Thai', sans-serif",
-                continents: { asia: "เอเชีย", africa: "แอฟริกา", na: "อเมริกาเหนือ", sa: "อเมริกาใต้", ant: "แอนตาร์กติกา", eu: "ยุโรป", oc: "โอเชียเนีย" },
                 nav: { home: "หน้าแรก", services: "บริการ", workers: "แรงงาน", shops: "ร้านค้า", blog: "บล็อก", about: "เกี่ยวกับเรา", contact: "ติดต่อ" }
             },
             ja: {
@@ -292,7 +234,6 @@
                 secTitle: "基本理念", equation: "平等 ＝ 真理",
                 quote: '「 すべての人間が対等であると認めるものだけが、真の真理と呼ぶにふさわしい。 」',
                 font: "'Noto Sans JP', sans-serif",
-                continents: { asia: "アジア", africa: "アフリカ", na: "北アメリカ", sa: "南アメリカ", ant: "南極大陸", eu: "ヨーロッパ", oc: "オセアニア" },
                 nav: { home: "ホーム", services: "サービス", workers: "ワーカー", shops: "ショップ", blog: "ブログ", about: "概要", contact: "お問い合わせ" }
             },
             zh: {
@@ -301,7 +242,6 @@
                 secTitle: "核心哲学", equation: "平等 = 真理",
                 quote: '“ 只有被每一个人平等接受的事物，才能真正被称为真理。”',
                 font: "'Noto Sans SC', sans-serif",
-                continents: { asia: "亚洲", africa: "非洲", na: "北美洲", sa: "南美洲", ant: "南极洲", eu: "欧洲", oc: "大洋洲" },
                 nav: { home: "首页", services: "服务", workers: "劳动者", shops: "商店", blog: "博客", about: "关于我们", contact: "联系" }
             },
             es: {
@@ -310,7 +250,6 @@
                 secTitle: "LA FILOSOFÍA CENTRAL", equation: "IGUALDAD = VERDAD",
                 quote: '" Solo aquello que es aceptado por cada ser humano como igual puede ser llamado verdaderamente Verdad. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "África", na: "América del Norte", sa: "América del Sur", ant: "Antártida", eu: "Europa", oc: "Oceanía" },
                 nav: { home: "Inicio", services: "Servicios", workers: "Trabajadores", shops: "Tiendas", blog: "Blog", about: "Nosotros", contact: "Contacto" }
             },
             fr: {
@@ -319,7 +258,6 @@
                 secTitle: "LA PHILOSOPHIE CENTRALE", equation: "ÉGALITÉ = VÉRITÉ",
                 quote: '" Seul ce qui est accepté par chaque être humain comme égal peut vraiment être appelé Vérité. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asie", africa: "Afrique", na: "Amérique du Nord", sa: "Amérique du Sud", ant: "Antarctique", eu: "Europe", oc: "Océanie" },
                 nav: { home: "Accueil", services: "Services", workers: "Travailleurs", shops: "Boutiques", blog: "Blog", about: "À propos", contact: "Contact" }
             },
             ru: {
@@ -328,7 +266,6 @@
                 secTitle: "ОСНОВНАЯ ФИЛОСОФИЯ", equation: "РАВЕНСТВО = ИСТИНА",
                 quote: '" Только то, что признано каждым человеком как равное, может поистине называться Истиной. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Азия", africa: "Африка", na: "Северная Америка", sa: "Южная Америка", ant: "Антарктида", eu: "Европа", oc: "Океания" },
                 nav: { home: "Главная", services: "Услуги", workers: "Рабочие", shops: "Магазины", blog: "Блог", about: "О нас", contact: "Контакты" }
             },
             de: {
@@ -337,7 +274,6 @@
                 secTitle: "DIE KERNPHILOSOPHIE", equation: "GLEICHHEIT = WAHRHEIT",
                 quote: '" Nur das, was von jedem einzelnen Menschen als gleich akzeptiert wird, kann wahrhaft Wahrheit genannt werden. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asien", africa: "Afrika", na: "Nordamerika", sa: "Südamerika", ant: "Antarktis", eu: "Europa", oc: "Ozeanien" },
                 nav: { home: "Startseite", services: "Dienste", workers: "Arbeiter", shops: "Geschäfte", blog: "Blog", about: "Über uns", contact: "Kontakt" }
             },
             ko: {
@@ -346,7 +282,6 @@
                 secTitle: "핵심 철학", equation: "평등 ＝ 진리",
                 quote: '“ 모든 인간이 평등하다고 인정하는 것만이 진정으로 진리라 불릴 수 있다. ”',
                 font: "'Noto Sans KR', sans-serif",
-                continents: { asia: "아시아", africa: "아프리카", na: "북아메리카", sa: "남아메리카", ant: "남극", eu: "유럽", oc: "오세아니아" },
                 nav: { home: "홈", services: "서비스", workers: "근로자", shops: "상점", blog: "블로그", about: "소개", contact: "문의" }
             },
             it: {
@@ -355,7 +290,6 @@
                 secTitle: "LA FILOSOFIA CENTRALE", equation: "UGUAGLIANZA = VERITÀ",
                 quote: '" Solo ciò che è accettato da ogni singolo essere umano come uguale può essere veramente chiamato Verità. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "America del Nord", sa: "America del Sud", ant: "Antartide", eu: "Europa", oc: "Oceania" },
                 nav: { home: "Home", services: "Servizi", workers: "Lavoratori", shops: "Negozi", blog: "Blog", about: "Chi siamo", contact: "Contatti" }
             },
             pt: {
@@ -364,7 +298,6 @@
                 secTitle: "A FILOSOFIA CENTRAL", equation: "IGUALDADE = VERDADE",
                 quote: '" Apenas aquilo que é aceito por cada ser humano como igual pode verdadeiramente ser chamado de Verdade. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Ásia", africa: "África", na: "América do Norte", sa: "América do Sul", ant: "Antártida", eu: "Europa", oc: "Oceania" },
                 nav: { home: "Início", services: "Serviços", workers: "Trabalhadores", shops: "Lojas", blog: "Blog", about: "Sobre", contact: "Contato" }
             },
             tr: {
@@ -373,7 +306,6 @@
                 secTitle: "TEMEL FELSEFE", equation: "EŞİTLİK = HAKİKAT",
                 quote: '" Yalnızca her bir insan tarafından eşit olarak kabul edilen şey gerçekten Hakikat olarak adlandırılabilir. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asya", africa: "Afrika", na: "Kuzey Amerika", sa: "Güney Amerika", ant: "Antarktika", eu: "Avrupa", oc: "Okyanusya" },
                 nav: { home: "Ana Sayfa", services: "Hizmetler", workers: "Çalışanlar", shops: "Mağazalar", blog: "Blog", about: "Hakkımızda", contact: "İletişim" }
             },
             vi: {
@@ -382,7 +314,6 @@
                 secTitle: "TRIẾT LÝ CỐT LÕI", equation: "BÌNH ĐẲNG = CHÂN LÝ",
                 quote: '" Chỉ những gì được mọi con người chấp nhận là bình đẳng mới thực sự được gọi là Chân lý. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Châu Á", africa: "Châu Phi", na: "Bắc Mỹ", sa: "Nam Mỹ", ant: "Nam Cực", eu: "Châu Âu", oc: "Châu Đại Dương" },
                 nav: { home: "Trang chủ", services: "Dịch vụ", workers: "Lao động", shops: "Cửa hàng", blog: "Bài viết", about: "Giới thiệu", contact: "Liên hệ" }
             },
             id: {
@@ -391,7 +322,6 @@
                 secTitle: "FILOSOFI UTAMA", equation: "KESETARAAN = KEBENARAN",
                 quote: '" Hanya apa yang diterima oleh setiap manusia sebagai setara yang benar-benar dapat disebut Kebenaran. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Amerika Utara", sa: "Amerika Selatan", ant: "Antarktika", eu: "Eropa", oc: "Oseania" },
                 nav: { home: "Beranda", services: "Layanan", workers: "Pekerja", shops: "Toko", blog: "Blog", about: "Tentang", contact: "Kontak" }
             },
             hi: {
@@ -400,7 +330,6 @@
                 secTitle: "मूल दर्शन", equation: "समानता = सत्य",
                 quote: '“ केवल वही जिसे हर एक मनुष्य द्वारा समान रूप से स्वीकार किया जाता है, वास्तव में सत्य कहा जा सकता है। ”',
                 font: "'Playfair Display', serif",
-                continents: { asia: "एशिया", africa: "अफ़्रीका", na: "उत्तरी अमेरिका", sa: "दक्षिण अमेरिका", ant: "अंटार्कटिका", eu: "यूरोप", oc: "ओशिनिया" },
                 nav: { home: "होम", services: "सेवाएं", workers: "कर्मचारी", shops: "दुकानें", blog: "ब्लॉग", about: "हमारे बारे में", contact: "संपर्क" }
             },
             bn: {
@@ -409,7 +338,6 @@
                 secTitle: "মূল দর্শন", equation: "সমতা = সত্য",
                 quote: '“ কেবল সেটাই যা প্রতিটি মানুষ সমান বলে গ্রহণ করে, তাকেই সত্য বলা যেতে পারে। ”',
                 font: "'Playfair Display', serif",
-                continents: { asia: "এশিয়া", africa: "আফ্রিকা", na: "উত্তর আমেরিকা", sa: "দক্ষিণ আমেরিকা", ant: "এন্টার্কটিকা", eu: "ইউরোপ", oc: "ওশেনিয়া" },
                 nav: { home: "হোম", services: "সেবাসমূহ", workers: "কর্মী", shops: "দোকান", blog: "ব্লগ", about: "আমাদের সম্পর্কে", contact: "যোগাযোগ" }
             },
             nl: {
@@ -418,7 +346,6 @@
                 secTitle: "DE KERNTFILOSOFIE", equation: "GELIJKHEID = WAARHEID",
                 quote: '" Alleen dat wat door ieder mens als gelijke wordt geaccepteerd, kan waarlijk Waarheid worden genoemd. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Azië", africa: "Afrika", na: "Noord-Amerika", sa: "Zuid-Amerika", ant: "Antarctica", eu: "Europa", oc: "Oceanië" },
                 nav: { home: "Home", services: "Diensten", workers: "Werknemers", shops: "Winkels", blog: "Blog", about: "Over ons", contact: "Contact" }
             },
             pl: {
@@ -427,7 +354,6 @@
                 secTitle: "GŁÓWNA FILOZOFIA", equation: "RÓWNOŚĆ = PRAWDA",
                 quote: '" Tylko to, co jest akceptowane przez każdego człowieka jako równe, może być prawdziwie nazwane Prawdą. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Azja", africa: "Afryka", na: "Ameryka Północna", sa: "Ameryka Południowa", ant: "Antarktyda", eu: "Europa", oc: "Oceania" },
                 nav: { home: "Strona główna", services: "Usługi", workers: "Pracownicy", shops: "Sklepy", blog: "Blog", about: "O nas", contact: "Kontakt" }
             },
             el: {
@@ -436,7 +362,6 @@
                 secTitle: "Η BΑΣΙΚΗ ΦΙΛΟΣΟΦΙΑ", equation: "ΙΣΟΤΗΤΑ = ΑΛΗΘΕΙΑ",
                 quote: '" Μόνο αυτό που γίνεται αποδεκτό από κάθε άνθρωπο ως ίσο μπορεί αληθινά να ονομαστεί Αλήθεια. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Ασία", africa: "Αφρική", na: "Βόρεια Αμερική", sa: "Νότια Αμερική", ant: "Ανταρκτική", eu: "Ευρώπη", oc: "Ωκεανία" },
                 nav: { home: "Αρχική", services: "Υπηρεσίες", workers: "Εργαζόμενοι", shops: "Καταστήματα", blog: "Blog", about: "Σχετικά", contact: "Επικοινωνία" }
             },
             cs: {
@@ -445,7 +370,6 @@
                 secTitle: "HLAVNÍ FILOZOFIE", equation: "ROVNOST = PRAVDA",
                 quote: '" Pouze to, co je každým člověkem přijímáno jako rovné, může být skutečně nazýváno Pravdou. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asie", africa: "Afrika", na: "Severní Amerika", sa: "Jižní Amerika", ant: "Antarktida", eu: "Evropa", oc: "Oceánie" },
                 nav: { home: "Domů", services: "Služby", workers: "Pracovníci", shops: "Obchody", blog: "Blog", about: "O nás", contact: "Kontakt" }
             },
             sv: {
@@ -454,7 +378,6 @@
                 secTitle: "KÄRNFILOSOFI", equation: "JÄMLIKHET = SANNING",
                 quote: '" Endast det som accepteras av varje enskild människa som jämlikt kan sanningenligt kallas Sanning. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asien", africa: "Afrika", na: "Nordamerika", sa: "Sydamerika", ant: "Antarktis", eu: "Europa", oc: "Oceanien" },
                 nav: { home: "Hem", services: "Tjänster", workers: "Arbetare", shops: "Butiker", blog: "Blogg", about: "Om oss", contact: "Kontakt" }
             },
             ro: {
@@ -463,7 +386,6 @@
                 secTitle: "FILOSOFIA PRINCIPALĂ", equation: "EGALITATE = ADEVĂR",
                 quote: '" Doar ceea ce este acceptat de fiecare ființă umană ca fiind egal poate fi cu adevărat numit Adevăr. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "America de Nord", sa: "America de Sud", ant: "Antarctica", eu: "Europa", oc: "Oceania" },
                 nav: { home: "Acasă", services: "Servicii", workers: "Muncitori", shops: "Magazine", blog: "Blog", about: "Despre noi", contact: "Contact" }
             },
             hu: {
@@ -472,7 +394,6 @@
                 secTitle: "A ALAPFILOZÓFIA", equation: "EGYENLŐSÉG = IGAZSÁG",
                 quote: '" Csak az nevezhető valóban Igazságnak, amit minden egyes ember egyenlőként fogad el. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Ázsia", africa: "Afrika", na: "Észak-Amerika", sa: "Dél-Amerika", ant: "Antarktisz", eu: "Európa", oc: "Óceánia" },
                 nav: { home: "Főoldal", services: "Szolgáltatások", workers: "Munkavállalók", shops: "Üzletek", blog: "Blog", about: "Rólunk", contact: "Kapcsolat" }
             },
             uk: {
@@ -481,7 +402,6 @@
                 secTitle: "ОСНОВНА ФІЛОСОФІЯ", equation: "РІВНІСТЬ = ІСТИНА",
                 quote: '" Тільки те, що визнається кожною людиною як рівне, може воістину називатися Істиною. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Азія", africa: "Африка", na: "Північна Америка", sa: "Південна Америка", ant: "Антарктида", eu: "Європа", oc: "Океанія" },
                 nav: { home: "Головна", services: "Послуги", workers: "Працівники", shops: "Магазини", blog: "Блог", about: "Про нас", contact: "Контакти" }
             },
             da: {
@@ -490,7 +410,6 @@
                 secTitle: "KERNEFILOSOFIEN", equation: "LIGHED = SANDHED",
                 quote: '" Kun det, der accepteres af ethvert menneske som lige, kan sandeligt kaldes Sandhed. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asien", africa: "Afrika", na: "Nordamerika", sa: "Sydamerika", ant: "Antarktis", eu: "Europa", oc: "Oceanien" },
                 nav: { home: "Hjem", services: "Tjenester", workers: "Arbejdere", shops: "Butikker", blog: "Blog", about: "Om os", contact: "Kontakt" }
             },
             fi: {
@@ -499,7 +418,6 @@
                 secTitle: "YDINFILOSOFIA", equation: "TASA-ARVO = TOTUUS",
                 quote: '" Vain sitä, minkä jokainen ihminen hyväksyy tasa-arvoiseksi, voidaan todella kutsua Totuudeksi. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Aasia", africa: "Afrikka", na: "Pohjois-Amerikka", sa: "Etelä-Amerikka", ant: "Antarktis", eu: "Eurooppa", oc: "Oseania" },
                 nav: { home: "Etusivu", services: "Palvelut", workers: "Työntekijät", shops: "Kaupat", blog: "Blogi", about: "Meistä", contact: "Yhteystiedot" }
             },
             no: {
@@ -508,7 +426,6 @@
                 secTitle: "KJERNEFILOSOFIEN", equation: "LIKHET = SANNHET",
                 quote: '" Bare det som aksepteres av hvert enkelt menneske som likt kan sannelig kalles Sannhet. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Nord-Amerika", sa: "Sør-Amerika", ant: "Antarktis", eu: "Europa", oc: "Oseania" },
                 nav: { home: "Hjem", services: "Tjenester", workers: "Arbeidere", shops: "Butikker", blog: "Blogg", about: "Om oss", contact: "Kontakt" }
             },
             ms: {
@@ -517,7 +434,6 @@
                 secTitle: "FALSAFAH TERAS", equation: "KESAKSAMAAN = KEBENARAN",
                 quote: '" Hanya apa yang diterima oleh setiap manusia sebagai saksama yang benar-benar boleh dipanggil Kebenaran. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Amerika Utara", sa: "Amerika Selatan", ant: "Antartika", eu: "Eropah", oc: "Oceania" },
                 nav: { home: "Utama", services: "Perkhidmatan", workers: "Pekerja", shops: "Kedai", blog: "Blog", about: "Perihal", contact: "Hubungi" }
             },
             tl: {
@@ -526,7 +442,6 @@
                 secTitle: "PANGUNAHING PILOSOPIYA", equation: "KAPANTAYAN = KATOTOHANAN",
                 quote: '" Tanging ang tinatanggap ng bawat tao bilang pantay ang tunay na matatawag na Katotohanan. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asya", africa: "Aprika", na: "Hilagang Amerika", sa: "Timog Amerika", ant: "Antartika", eu: "Europa", oc: "Oceania" },
                 nav: { home: "Tahanan", services: "Serbisyo", workers: "Manggagawa", shops: "Tindahan", blog: "Blog", about: "Tungkol", contact: "Kumpas" }
             },
             sw: {
@@ -535,7 +450,6 @@
                 secTitle: "FALSAFA KUU", equation: "USAWA = UKWELI",
                 quote: '" Ni kile tu kinachokubaliwa na kila mwanadamu kama sawa kinachoweza kuitwa Ukweli kwa dhati. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Amerika Kaskazini", sa: "Amerika Kusini", ant: "Antaktika", eu: "Ulaya", oc: "Oceania" },
                 nav: { home: "Mwanzo", services: "Huduma", workers: "Wafanyakazi", shops: "Maduka", blog: "Blogu", about: "Kuhusu", contact: "Wasiliana" }
             },
             fa: {
@@ -544,7 +458,6 @@
                 secTitle: "فلسفه اصلی", equation: "برابری = حقیقت",
                 quote: '" تنها آنچه توسط تک تک انسان‌ها به عنوان برابر پذیرفته شود، واقعاً می‌تواند حقیقت نامیده شود. "',
                 font: "'Amiri', serif",
-                continents: { asia: "آسیا", africa: "آفریقا", na: "آمریکای شمالی", sa: "آمریکای جنوبی", ant: "قطب جنوب", eu: "اروپا", oc: "اقیانوسیه" },
                 nav: { home: "خانه", services: "خدمات", workers: "کارگران", shops: "فروشگاه‌ها", blog: "وبلاگ", about: "درباره ما", contact: "تماس" }
             },
             ur: {
@@ -553,7 +466,6 @@
                 secTitle: "بنیادی فلسفہ", equation: "مساوات = سچائی",
                 quote: '" صرف وہی جسے ہر ایک انسان برابر تسلیم کرے سچے معنوں میں سچائی کہلا سکتا ہے۔ "',
                 font: "'Amiri', serif",
-                continents: { asia: "ایشیا", africa: "افریقہ", na: "شمالی امریکہ", sa: "جنوبی امریکہ", ant: "انٹارکٹیکا", eu: "یورپ", oc: "اوشینیا" },
                 nav: { home: "ہوم", services: "خدمات", workers: "کارکنان", shops: "دکانیں", blog: "بلاگ", about: "ہمارے بارے میں", contact: "رابطہ" }
             },
             ta: {
@@ -562,16 +474,14 @@
                 secTitle: "முதன்மை தத்துவம்", equation: "சமத்துவம் = உண்மை",
                 quote: '“ ஒவ்வொரு மனிதனாலும் சமமாக ஏற்றுக்கொள்ளப்படுவது மட்டுமே உண்மையிலேயே உண்மை என்று அழைக்கப்பட முடியும். ”',
                 font: "'Playfair Display', serif",
-                continents: { asia: "ஆசியா", africa: "ஆப்பிரிக்கா", na: "வட அமெரிக்கா", sa: "தென் அமெரிக்கா", ant: "அண்டார்டிகா", eu: "ஐரோப்பா", oc: "ஓசியானியா" },
                 nav: { home: "முகப்பு", services: "சேவைகள்", workers: "பணியாளர்கள்", shops: "கடைகள்", blog: "பதிவு", about: "எங்களைப் பற்றி", contact: "தொடர்பு" }
             },
             km: {
                 title: "ការពិត និង សមភាព", subtitle: "សហគ្រាសសង្គម",
                 slogan: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ។ ”',
                 secTitle: "ទស្សនវិជ្ជាស្នូល", equation: "សមភាព = ការពិត",
-                quote: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ。 ”',
+                quote: '“ មានតែអ្វីដែលត្រូវបានទទួលស្គាល់ដោយមនុស្សគ្រប់រូបថាស្មើភាពគ្នា នោះទើបអាចហៅថាជាការពិតយ៉ាងពិតប្រាកដ។ ”',
                 font: "'Noto Sans Khmer', sans-serif",
-                continents: { asia: "អាស៊ី", africa: "អាហ្វ្រិក", na: "អាមេរិកខាងជើង", sa: "អាមេរិកខាងត្បូង", ant: "អង់តាក់ទិច", eu: "អឺរ៉ុប", oc: "អូសេាអានី" },
                 nav: { home: "ទំព័រដើម", services: "សេវាកម្ម", workers: "កម្មករ", shops: "ហាង", blog: "ប្លុក", about: "អំពីយើង", contact: "ទំនាក់ទំនង" }
             },
             lo: {
@@ -580,7 +490,6 @@
                 secTitle: "ປັດຊະຍາຫຼັກ", equation: "ຄວາມເທົ່າທຽມ = ຄວາມຈິງ",
                 quote: '“ ມີແຕ່ສິ່ງທີ່ມະນຸດທຸກຄົນຍອມຮັບວ່າເທົ່າທຽມກັນຢ່າງແທ້ຈິງ ເທົ່ານັ້ນທີ່ສາມາດຮ້ອງວ່າ ຄວາມຈິງ ຢ່າງແທ້ຈິງ. ”',
                 font: "'Noto Sans Lao', sans-serif",
-                continents: { asia: "ອາຊີ", africa: "ອາຟຣິກາ", na: "ອາເມລິກາເໜືອ", sa: "ອາເມລິກາໃຕ້", ant: "ອານຕາກຕິກ", eu: "ຢູໂຣບ", oc: "ໂອເຊຍເນຍ" },
                 nav: { home: "ໜ້າຫຼັກ", services: "ບໍລິການ", workers: "ຄົນງານ", shops: "ຮ້ານຄ້າ", blog: "ບລັອກ", about: "ກ່ຽວກັບພວກເຮົາ", contact: "ຕິດຕໍ່" }
             },
             he: {
@@ -589,718 +498,23 @@
                 secTitle: "הפילוסופיה המרכזית", equation: "שוויוניות = אמת",
                 quote: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "אסיה", africa: "אפריקה", na: "צפון אמריקה", sa: "דרום אמריקה", ant: "אנטארקטיקה", eu: "אירופה", oc: "אוקיאניה" },
                 nav: { home: "בית", services: "שירותים", workers: "עובדים", shops: "חנויות", blog: "בלוג", about: "עלינו", contact: "צור קשר" }
-            },
-            af: {
-                title: "WAARHEID EN GELYKHEID", subtitle: "SOSIALE ONDERNEMING",
-                slogan: '" Slegs dit wat deur elke mens as gelyk aanvaar word, kan waarlik Waarheid genoem word. "',
-                secTitle: "DIE KERNFILOSOFIE", equation: "GELYKHEID = WAARHEID",
-                quote: '" Slegs dit wat deur elke mens as gelyk aanvaar word, kan waarlik Waarheid genoem word. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asië", africa: "Afrika", na: "Noord-Amerika", sa: "Suid-Amerika", ant: "Antarktika", eu: "Europa", oc: "Oseanië" },
-                nav: { home: "Tuis", services: "Dienste", workers: "Werkers", shops: "Winkels", blog: "Blog", about: "Oor ons", contact: "Kontak" }
-            },
-            sq: {
-                title: "VËRTETËSI DHE BARAZI", subtitle: "NDËRMARRJE SOCIALE",
-                slogan: '" Vetëm ajo që pranohet nga çdo qenie njerëzore si e barabartë mund të quhet me të vërtetë e vërtetë. "',
-                secTitle: "FILOZOFIA KRYESORE", equation: "BARAZI = VËRTETËSI",
-                quote: '" Vetëm ajo që pranohet nga çdo qenie njerëzore si e barabartë mund të quhet me të vërtetë e vërtetë. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azi", africa: "Afrikë", na: "Amerika Veriore", sa: "Amerika Jugore", ant: "Antarktidë", eu: "Evropë", oc: "Oqeani" },
-                nav: { home: "Kryefaqja", services: "Shërbimet", workers: "Punëtorët", shops: "Dyqanet", blog: "Blog", about: "Rreth nesh", contact: "Kontakt" }
-            },
-            am: {
-                title: "እውነት እና እኩልነት", subtitle: "ማህበራዊ ኢንተርፕራይዝ",
-                slogan: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
-                secTitle: "ዋናው ፍልስፍና", equation: "እኩልነት = እውነት",
-                quote: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "እስያ", africa: "አፍሪካ", na: "ሰሜን አሜሪካ", sa: "ደቡብ አሜሪካ", ant: "አንታርክቲካ", eu: "አውሮፓ", oc: "ኦሺያኒያ" },
-                nav: { home: "መነሻ", services: "አገልግሎቶች", workers: "ሰራተኞች", shops: "ሱቆች", blog: "ብሎግ", about: "ስለ እኛ", contact: "ግንኙነት" }
-            },
-            hy: {
-                title: "ՃՇՄԱՐՏՈՒԹՅՈՒՆ ԵՎ ՀԱՎԱՍԱՐՈՒԹՅՈՒՆ", subtitle: "ՍՈՑԻԱԼԱԿԱՆ ՁԵՌՆԱՐԿՈՒԹՅՈՒՆ",
-                slogan: '" Միայն այն, ինչ ընդունվում է յուրաքանչյուր մարդու կողմից որպես հավասար, կարող է իրոք կոչվել Ճշմարտություն: "',
-                secTitle: "ՀԻՄՆԱԿԱՆ ՓԻԼԻՍՈՓԱՅՈՒԹՅՈՒՆ", equation: "ՀԱՎԱՍԱՐՈՒԹՅՈՒՆ = ՃՇՄԱՐՏՈՒԹՅՈՒՆ",
-                quote: '" Միայն այն, ինչ ընդունվում է յուրաքանչյուր մարդու կողմից որպես հավասար, կարող է իրոք կոչվել Ճշմարտություն: "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Ասիա", africa: "Աֆրիկա", na: "Հյուսիսային Ամերիկա", sa: "Հարավային Ամերիկա", ant: "Անտարկտիդա", eu: "Եվրոպա", oc: "Օվկիանիա" },
-                nav: { home: "Գլխավոր", services: "Ծառայություններ", workers: "Աշխատողներ", shops: "Խանութներ", blog: "Բլոգ", about: "Մեր մասին", contact: "Կապ" }
-            },
-            az: {
-                title: "HƏQİQƏT VƏ BƏRABƏRLİK", subtitle: "SOSİAL MÜƏSSİSƏ",
-                slogan: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
-                secTitle: "ƏSAS FƏLSƏFƏ", equation: "BƏRABƏRLİK = HƏQİҚƏT",
-                quote: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asiya", africa: "Afrika", na: "Şimali Amerika", sa: "Cənubi Amerika", ant: "Antarktida", eu: "Avropa", oc: "Okeaniya" },
-                nav: { home: "Ana Səhifə", services: "Xidmətlər", workers: "İşçilər", shops: "Mağazalar", blog: "Bloq", about: "Haqqımızda", contact: "Əlaqə" }
-            },
-            eu: {
-                title: "EGIA ETA BERDINTASUNA", subtitle: "GIZARTE ENPRESA",
-                slogan: '" Gizaki bakar bakoitzak berdin gisa onartzen duena bakarrik dei daiteke egiaz egia. "',
-                secTitle: "OINARRIZKO FILOSOFIA", equation: "BERDINTASUNA = EGIA",
-                quote: '" Gizaki bakar bakoitzak berdin gisa onartzen duena bakarrik dei daiteke egiaz egia. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Ipar Amerika", sa: "Hego Amerika", ant: "Antartika", eu: "Europa", oc: "Ozeania" },
-                nav: { home: "Hasiera", services: "Zerbitzuak", workers: "Langileak", shops: "Dendak", blog: "Bloga", about: "Guri buruz", contact: "Kontaktua" }
-            },
-            be: {
-                title: "ПРАЎДА І РԱЎНАПРАЎЕ", subtitle: "САЦЫЯЛЬНАЕ ПРЫДПРЫЕМСТВА",
-                slogan: '" Толькі тое, што прызнаецца кожным чалавекам як роўнае, можа сапраўды называцца Праўдай. "',
-                secTitle: "АСНОЎНАЯ ФІЛАСОФІЯ", equation: "РԱЎНАПРАЎЕ = ПРАЎДА",
-                quote: '" Толькі тое, што прызнаецца кожным чалавекам як роўнае, можа сапраўды называцца Праўдай. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азія", africa: "Афрыка", na: "Паўночная Амерыка", sa: "Паўднёвая Амерыка", ant: "Антарктыда", eu: "Еўропа", oc: "Акіянія" },
-                nav: { home: "Галоўная", services: "Паслугі", workers: "Рабочыя", shops: "Магазины", blog: "Блог", about: "Пра нас", contact: "Кантакты" }
-            },
-            bs: {
-                title: "ISTINA I JEDNAKOST", subtitle: "SOCIJALNO PREDUZEĆE",
-                slogan: '" Samo ono što svaki čovjek prihvati kao jednako može se zaista nazvati Istinom. "',
-                secTitle: "GLAVNA FILOZOFIJA", equation: "JEDNAKOST = ISTINA",
-                quote: '" Samo ono što svaki čovjek prihvati kao jednako može se zaista nazvati Istinom. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azija", africa: "Afrika", na: "Sjeverna Amerika", sa: "Južna Amerika", ant: "Antarktika", eu: "Evropa", oc: "Okeanija" },
-                nav: { home: "Početna", services: "Usluge", workers: "Radnici", shops: "Prodavnice", blog: "Blog", about: "O nama", contact: "Kontakt" }
-            },
-            bg: {
-                title: "ИСТИНА И РАВЕНСТВО", subtitle: "СОЦИАЛНО ПРЕДПРИЯТИЕ",
-                slogan: '" Само това, което се приема от всяко човешко същество като равно, може наистина да се нарече Истина. "',
-                secTitle: "ОСНОВНА ФИЛОСОФИЯ", equation: "РАВЕНСТВО = ИСТИНА",
-                quote: '" Само това, което се приема от всяко човешко същество като равно, може наистина да се нарече Истина. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азия", africa: "Африка", na: "Северна Америка", sa: "Южна Америка", ant: "Антарктида", eu: "Европа", oc: "Океания" },
-                nav: { home: "Начало", services: "Услуги", workers: "Работещи", shops: "Магазини", blog: "Блог", about: "За нас", contact: "Контакт" }
-            },
-            ca: {
-                title: "VERITAT I IGUALTAT", subtitle: "EMPRESA SOCIAL",
-                slogan: '" Només allò que és acceptat per cada ésser humà com a igual pot ser anomenat veritat. "',
-                secTitle: "LA FILOSOFIA CENTRAL", equation: "IGUALTAT = VERITAT",
-                quote: '" Només allò que és acceptat per cada ésser humà com a igual pot ser anomenat veritat. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Àsia", africa: "Àfrica", na: "Amèrica del Nord", sa: "Amèrica del Sud", ant: "Antàrtida", eu: "Europa", oc: "Oceania" },
-                nav: { home: "Inici", services: "Serveis", workers: "Treballadors", shops: "Botigues", blog: "Blog", about: "Sobre nosaltres", contact: "Contacte" }
-            },
-            hr: {
-                title: "ISTINA I JEDNAKOST", subtitle: "DRUŠTVENO PODUZEĆE",
-                slogan: '" Samo ono što svaki čovjek prihvati kao jednako može se doista nazvati Istinom. "',
-                secTitle: "GLAVNA FILOZOFIJA", equation: "JEDNAKOST = ISTINA",
-                quote: '" Samo ono što svaki čovjek prihvati kao jednako može se doista nazvati Istinom. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azija", africa: "Afrika", na: "Sjeverna Amerika", sa: "Južna Amerika", ant: "Antarktika", eu: "Europa", oc: "Oceanija" },
-                nav: { home: "Naslovnica", services: "Usluge", workers: "Radnici", shops: "Trgovine", blog: "Blog", about: "O nama", contact: "Kontakt" }
-            },
-            eo: {
-                title: "VERO KAJ EGALECO", subtitle: "SOCIA ENTERPRIZO",
-                slogan: '" Nur tio, kion ĉiu homa estaĵo akceptas kiel egalan, povas vere nomiĝi Vero. "',
-                secTitle: "LA KRNA FILOZOFIO", equation: "EGALECO = VERO",
-                quote: '" Nur tio, kion ĉiu homa estaĵo akceptas kiel egalan, povas vere nomiĝi Vero. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azio", africa: "Afriko", na: "Nord-Ameriko", sa: "Sud-Ameriko", ant: "Antarkto", eu: "Eŭropo", oc: "Oceanio" },
-                nav: { home: "Hejmo", services: "Servoj", workers: "Laboristoj", shops: "Butikoj", blog: "Blogo", about: "Pri ni", contact: "Kontakto" }
-            },
-            et: {
-                title: "TÕDE JA VÕRDSUS", subtitle: "SOTSIAALNE ETTEVÕTE",
-                slogan: '" Ainult seda, mida iga inimene aktsepteerib võrdsemana, saab tõeliselt nimetada Tõeks. "',
-                secTitle: "PÕHIFILOSOOFIA", equation: "VÕRDSUS = TÕDE",
-                quote: '" Ainult seda, mida iga inimene aktsepteerib võrdsemana, saab tõeliselt nimetada Tõeks. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Aasia", africa: "Aafrika", na: "Põhja-Ameerika", sa: "Lõuna-Ameerika", ant: "Antarktika", eu: "Euroopa", oc: "Okeaania" },
-                nav: { home: "Avaleht", services: "Teenused", workers: "Töötajad", shops: "Poed", blog: "Blogi", about: "Meist", contact: "Kontakt" }
-            },
-            gl: {
-                title: "VERDADE E IGUALDADE", subtitle: "EMPRESA SOCIAL",
-                slogan: '" Só aquilo que é aceptado por cada ser humano como igual pode ser chamado verdadeiramente Verdade. "',
-                secTitle: "A FILOSOFÍA CENTRAL", equation: "IGUALDADE = VERDADE",
-                quote: '" Só aquilo que é aceptado por cada ser humano como igual pode ser chamado verdadeiramente Verdade. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "África", na: "América do Norte", sa: "América do Sur", ant: "Antártida", eu: "Europa", oc: "Oceanía" },
-                nav: { home: "Inicio", services: "Servizos", workers: "Traballadores", shops: "Tendas", blog: "Blog", about: "Sobre nós", contact: "Contacto" }
-            },
-            ka: {
-                title: "ჭეშმარიტება და თანასწორობა", subtitle: "სოციალური საწარმო",
-                slogan: '" მხოლოდ ის, რასაც თითოეული ადამიანი თანასწორად აღიარებს, შეიძლება ჭეშმარიტებად იწოდოს. "',
-                secTitle: "ძირითადი ფილოსოფია", equation: "თანასწორობა = ჭეშმარიტება",
-                quote: '" მხოლოდ ის, რასაც თითოეული ადამიანი თანასწორად აღიარებს, შეიძლება ჭეშმარიტებად იწოდოს. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "აზია", africa: "აფრიკა", na: "ჩრდილოეთი ამერიკა", sa: "სამხრეთი ამერიკა", ant: "ანტარქტიდა", eu: "ევროპა", oc: "ოკეანეთი" },
-                nav: { home: "მთავარი", services: "სერვისები", workers: "მუშები", shops: "მაღაზიები", blog: "ბლოგი", about: "ჩვენ შესახებ", contact: "კონტაქტი" }
-            },
-            gu: {
-                title: "સત્ય અને સમાનતા", subtitle: "સામાજિક એન્ટરપ્રાઇઝ",
-                slogan: '“ ફક્ત તે જ જેને દરેક મનુષ્ય દ્વારા સમાન તરીકે સ્વીકારવામાં આવે છે તેને સાચા અર્થમાં સત્ય કહી શકાય. ”',
-                secTitle: "મુખ્ય દર્શન", equation: "સમાનતા = સત્ય",
-                quote: '“ ફક્ત તે જ જેને દરેક મનુષ્ય દ્વારા સમાન તરીકે સ્વીકારવામાં આવે છે તેને સાચા અર્થમાં સત્ય કહી શકાય. ”',
-                font: "'Playfair Display', serif",
-                continents: { asia: "એશિયા", africa: "આફ્રિકા", na: "ઉત્તર અમેરિકા", sa: "દક્ષિણ અમેરિકા", ant: "એન્ટાર્કટিকা", eu: "યુરોપ", oc: "ઓશિનિયા" },
-                nav: { home: "હોમ", services: "સેવાઓ", workers: "કામદારો", shops: "દુકાનો", blog: "બ્લોગ", about: "અમારા વિશે", contact: "સંપર્ક" }
-            },
-            ha: {
-                title: "GASKIYA DA DAIDAITO", subtitle: "KAMFANIN ZAMANTAKWA",
-                slogan: '" Abin kawai da kowane mutum ya yarda da shi a matsayin daidai ana iya kiran sa Gaskiya ta gaske. "',
-                secTitle: "BABBAR FALSAFA", equation: "DAIDAITO = GASKIYA",
-                quote: '" Abin kawai da kowane mutum ya yarda da shi a matsayin daidai ana iya kiran sa Gaskiya ta gaske. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asiya", africa: "Afirka", na: "Arewacin Amurka", sa: "Kudancin Amurka", ant: "Antatika", eu: "Turai", oc: "Oshiniya" },
-                nav: { home: "Gida", services: "Ayyuka", workers: "Ma'aikata", shops: "Shago", blog: "Shafi", about: "Game da mu", contact: "Tuntuɓi" }
-            },
-            is: {
-                title: "SANNLEIKI OG JAFNRÉTTI", subtitle: "FÉLAGSLEGT FYRIRTÆKI",
-                slogan: '" Aðeins það sem hver einasti maður viðurkennir sem jafnt er hægt að kalla sannleika. "',
-                secTitle: "KJARNAHEIMSPEKI", equation: "JAFNRÉTTI = SANNLEIKI",
-                quote: '" Aðeins það sem hver einasti maður viðurkennir sem jafnt er hægt að kalla sannleika. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asía", africa: "Afríka", na: "Norður-Ameríka", sa: "Suður-Ameríka", ant: "Suðurskautslandið", eu: "Evrópa", oc: "Eyjaálfa" },
-                nav: { home: "Heim", services: "Þjónusta", workers: "Starfsmenn", shops: "Verslanir", blog: "Blogg", about: "Um okkur", contact: "Hafa samband" }
-            },
-            ga: {
-                title: "FÍRINNE AGUS COMHANNAS", subtitle: "FIONTAR SÓISIALTA",
-                slogan: '" Níl ach an méid a nglacann gach duine leis mar chothrom le chéile a thabhairt Fírinne air go fírinneach. "',
-                secTitle: "AN PHOILISEACH LÁIR", equation: "COMHANNAS = FÍRINNE",
-                quote: '" Níl ach an méid a nglacann gach duine leis mar chothrom le chéile a thabhairt Fírinne air go fírinneach. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "An Áise", africa: "An Afraic", na: "Meiriceá Thuaidh", sa: "Meiriceá Theas", ant: "Antartaice", eu: "An Eoraip", oc: "An Aigéine" },
-                nav: { home: "Baile", services: "Seirbhísí", workers: "Oibrithe", shops: "Siopaí", blog: "Blag", about: "Fúinn", contact: "Déan teagmháil" }
-            },
-            kn: {
-                title: "ಸತ್ಯ ಮತ್ತು ಸಮಾನತೆ", subtitle: "ಸಾಮಾಜಿಕ ಉದ್ಯಮ",
-                slogan: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
-                secTitle: "ಮುಖ್ಯ ತತ್ವಶಾಸ್ತ್ರ", equation: "ಸಮಾನತೆ = ಸತ್ಯ",
-                quote: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ಏಷ್ಯಾ", africa: "ಆಫ್ರಿಕಾ", na: "ಉತ್ತರ ಅಮೆರಿಕ", sa: "ದಕ್ಷಿಣ ಅಮೆರಿಕ", ant: "ಅಂಟಾರ್ಕ್ಟಿಕಾ", eu: "ಯುರೋಪ್", oc: "ಓಷಿಯಾನಿಯಾ" },
-                nav: { home: "ಮುಖಪುಟ", services: "ಸೇವೆಗಳು", workers: "ಕೆಲಸಗಾರರು", shops: "ಅಂಗಡಿಗಳು", blog: "ಬ್ಲಾಗ್", about: "ನಮ್ಮ ಬಗ್ಗೆ", contact: "ಸಂಪರ್ಕ" }
-            },
-            kk: {
-                title: "ШЫНДЫҚ ЖӘНЕ ТЕҢДІК", subtitle: "ӘЛЕУМЕТТІК КӘСІПОРЫН",
-                slogan: '" Әрбір адам тең деп қабылдаған нәрсе ғана шын мәнінде Шындық деп атала алады. "',
-                secTitle: "НЕГІЗГІ ФИЛОСОФИЯ", equation: "ТЕҢДІК = ШЫНДЫҚ",
-                quote: '" Әрбір адам тең деп қабылдаған нәрсе ғана шын мәнінде Шындық деп атала алады. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азия", africa: "Африка", na: "Солтүстік Америка", sa: "Оңтүстік Америка", ant: "Антарктида", eu: "Еуропа", oc: "Океания" },
-                nav: { home: "Басты бет", services: "Қызметтер", workers: "Жұмысшылар", shops: "Дүкендер", blog: "Блог", about: "Біз туралы", contact: "Байланыс" }
-            },
-            ky: {
-                title: "ЧЫНДЫК ЖАНА ТЕҢДИК", subtitle: "СОЦИАЛДЫК ИШКЕРЛИК",
-                slogan: '" Ар бир адам тарабынан тең катары кабыл алынган нерсе гана чыныгында Чындык деп атала алат. "',
-                secTitle: "НЕГИЗГИ ФИЛОСОФИЯ", equation: "ТЕҢДИК = ЧЫНДЫК",
-                quote: '" Ар бир адам тарабынан тең катары кабыл алынган нерсе гана чыныгында Чындык деп атала алат. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азия", africa: "Африка", na: "Түндүк Америка", sa: "Түштүк Америка", ant: "Антарктида", eu: "Европа", oc: "Океания" },
-                nav: { home: "Башкы", services: "Кызматтар", workers: "Кызматкерлер", shops: "Дүкөндөр", blog: "Блог", about: "Биз жөнүндө", contact: "Байланыш" }
-            },
-            lv: {
-                title: "PATIESĪBA UN LĪDZĪBA", subtitle: "SOCIĀLAIS UŅĒMUMS",
-                slogan: '" Tikai to, ko katrs cilvēks pieņem kā vienlīdzīgu, var patiesi saukt par Patiesību. "',
-                secTitle: "PAMATFILOZOFIJA", equation: "LĪDZĪBA = PATIESĪBA",
-                quote: '" Tikai to, ko katrs cilvēks pieņem kā vienlīdzīgu, var patiesi saukt par Patiesību. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Āzija", africa: "Āfrika", na: "Ziemeļamerika", sa: "Dienvidamerika", ant: "Antarktīda", eu: "Eiropa", oc: "Okeānija" },
-                nav: { home: "Sākums", services: "Pakalpojumi", workers: "Strādnieki", shops: "Veikali", blog: "Blogs", about: "Par mums", contact: "Kontakti" }
-            },
-            lt: {
-                title: "TIESA IR LYGYBĖ", subtitle: "SOCIALINĖ ĮMONĖ",
-                slogan: '" Tik tai, kas priimta kiekvieno žmogaus kaip lygu, gali būti tikrai vadinama Tiesa. "',
-                secTitle: "PAGRINDINĖ FILOSOFIJA", equation: "LYGYBĖ = TIESA",
-                quote: '" Tik tai, kas priimta kiekvieno žmogaus kaip lygu, gali būti tikrai vadinama Tiesa. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azija", africa: "Afrika", na: "Šiaurės Amerika", sa: "Pietų Amerika", ant: "Antarktida", eu: "Europa", oc: "Okeanija" },
-                nav: { home: "Pradžia", services: "Paslaugos", workers: "Darbuotojai", shops: "Parduotuvės", blog: "Tinklaraštis", about: "Apie mus", contact: "Kontaktai" }
-            },
-            mk: {
-                title: "ВИСТИНА И ЕДНАКВОСТ", subtitle: "СОЦИЈАЛНО ПРЕТПРИЈАТИЕ",
-                slogan: '" Само ona што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
-                secTitle: "ГЛАВНА ФИЛОЗОФИЈА", equation: "ЕДНАКВОСТ = ВИСТИНА",
-                quote: '" Само ona што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азија", africa: "Африка", na: "Северна Америка", sa: "Јужна Америка", ant: "Антарктик", eu: "Европа", oc: "Океанија" },
-                nav: { home: "Дома", services: "Услуги", workers: "Работници", shops: "Продавници", blog: "Блог", about: "За нас", contact: "Контакт" }
-            },
-            mg: {
-                title: "MARINA SY FITOVIA", subtitle: "ORINASA SOSIALY",
-                slogan: '" Izay eken\'ny olombelona tsirairay ho mitovy ihany no azo antsoina hoe Marina. "',
-                secTitle: "FILÔZÔFIA FOTO-KEVITRA", equation: "FITOVIA = MARINA",
-                quote: '" Izay eken\'ny olombelona tsirairay ho mitovy ihany no azo antsoina hoe Marina. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azia", africa: "Afrika", na: "Amerika Avaratra", sa: "Amerika Atsimo", ant: "Antarktika", eu: "Eoropa", oc: "Oseania" },
-                nav: { home: "Fandraisana", services: "Serivisy", workers: "Mpiasa", shops: "Fivarotana", blog: "Bilaogy", about: "Momba anay", contact: "Fifandraisana" }
-            },
-            ceb: {
-                title: "KAMATUORAN UG KAGAHINUMDUM", subtitle: "SOSYAL NGA NEGOSYO",
-                slogan: '" Kadtong gidawat sa matag tawo ingon nga patas ang tinuod nga matawag nga Kamatuoran. "',
-                secTitle: "ANG PANGUNANG PILOSOPIYA", equation: "PATS = KAMATUORAN",
-                quote: '" Kadtong gidawat sa matag tawo ingon nga patas ang tinuod nga matawag nga Kamatuoran. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asya", africa: "Aprika", na: "Amihanang Amerika", sa: "Habagatang Amerika", ant: "Antartika", eu: "Europa", oc: "Oceania" },
-                nav: { home: "Panimalay", services: "Serbisyo", workers: "Mga Trabahante", shops: "Mga Tindahan", blog: "Blog", about: "Bahin Kanamo", contact: "Kontaka" }
-            },
-            ku: {
-                title: "RASTÎ Û WENYAR", subtitle: "KARGIRÎYA CIVAKÎ",
-                slogan: '" Tenê tiştê ku ji hêla her mirovekî ve wekî yeksan tê qebûlkirin dikare bi rastî were gotin Rastî. "',
-                secTitle: "FELSEFEYA BINGEHÎN", equation: "YEXSANÎ = RASTÎ",
-                quote: '" Tenê tiştê ku ji hêla her mirovekî ve wekî yeksan tê qebûlkirin dikare bi rastî were gotin Rastî. "',
-                font: "'Amiri', serif",
-                continents: { asia: "Asya", africa: "Afrîka", na: "Amerîkaya Bakur", sa: "Amerîkaya Başûr", ant: "Antarktîka", eu: "Ewrûpa", oc: "Okyanûsya" },
-                nav: { home: "Serê Rûpelê", services: "Xizmet", workers: "Karker", shops: "Firotgeh", blog: "Blog", about: "Di Derbarê Me", contact: "Têkilî" }
-            },
-            so: {
-                title: "RUNTA IYO SIMNAANTA", subtitle: "HAY’AD BULSHO",
-                slogan: '" Kaliya waxa ay qof kasta oo binu-aadigi ahi u aqoonsado mid siman ayaa si dhab ah loogu yeeri karaa Run. "',
-                secTitle: "FALSAFADA AASAASIGA AH", equation: "SIMNAANTA = RUNTA",
-                quote: '" Kaliya waxa ay qof kasta oo binu-aadigi ahi u aqoonsado mid siman ayaa si dhab ah loogu yeeri karaa Run. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Aasiya", africa: "Afrika", na: "Waqooyiga Ameerika", sa: "Koonfurta Ameerika", ant: "Antarktika", eu: "Yurub", oc: "Oseaniya" },
-                nav: { home: "Bogga Hore", services: "Adeegyada", workers: "Shaqaalaha", shops: "Dukaanada", blog: "Baloogga", about: "Nagu Saabsan", contact: "La Xiriir" }
-            },
-            zu: {
-                title: "IQINISO NOKULINGANA", subtitle: "IBHIZINISI LOMPHAKATHI",
-                slogan: '" Yilokho kuphela okwamukelwa yibo bonke abantu njengokulinganayo okungabizwa ngeqiniso. "',
-                secTitle: "IFILOSOFI EYINHLOKO", equation: "UKULINGANA = IQINISO",
-                quote: '" Yilokho kuphela okwamukelwa yibo bonke abantu njengokulinganayo okungabizwa ngeqiniso. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "I-Asia", africa: "I-Afrika", na: "I-North America", sa: "I-South America", ant: "I-Antarctica", eu: "Yurophu", oc: "I-Oceania" },
-                nav: { home: "Ikhaya", services: "Izinsizakalo", workers: "Abasebenzi", shops: "Izitolo", blog: "Ibhulogi", about: "Mayelana Nathi", contact: "Xhumana" }
-            },
-            su: {
-                title: "KAKERSAN JEUNG KASARUAAN", subtitle: "PAUSAHAAN SOSIAL",
-                slogan: '" Ngan ukur anu ditarima ku unggal manusa salaku sarua anu bener-bener bisa disebut Kabeneran. "',
-                secTitle: "FILOSOFI UTAMA", equation: "KASARUAAN = KABENERAN",
-                quote: '" Ngan ukur anu ditarima ku unggal manusa salaku sarua anu bener-bener bisa disebut Kabeneran. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Amérika Kalér", sa: "Amérika Kidul", ant: "Antartika", eu: "Éropa", oc: "Rasial" },
-                nav: { home: "Utama", services: "Layanan", workers: "Pagawe", shops: "Toko", blog: "Blog", about: "Tentang", contact: "Kontak" }
-            },
-            yo: {
-                title: "ÒTITỌ́ ÀTI AAPỌ̀", subtitle: "ilé-iṣẹ́ àwùjọ",
-                slogan: '" Òtitọ́ nikan ni eyi ti gbogbo eniyan gba bi deede ni a le pe ni Òtitọ́ gidi. "',
-                secTitle: "ÌMỌ̀ Ọ̀GBỌ́N KANTELU", equation: "AAPỌ̀ = ÒTITỌ́",
-                quote: '" Òtitọ́ nikan ni eyi ti gbogbo eniyan gba bi deede ni a le pe ni ÒtitỌ́ gidi. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afirikā", na: "Ariwa Amerika", sa: "Gusu Amerika", ant: "Antaktika", eu: "Yuroopu", oc: "Oshania" },
-                nav: { home: "Ilé", services: "Àwọn Iṣẹ́", workers: "Àwọn Oṣìṣẹ́", shops: "Àwọn Ilé Itaja", blog: "Bọọlu", about: "Nipa Wa", contact: "Kàn sí Wa" }
-            },
-            ig: {
-                title: "EZOWE NA NHATA", subtitle: "ỤLỌỌRỌ MGBANWE MGBADOBE",
-                slogan: '" Naanị ihe onye ọ bụla nabatara dị ka nha anaghị enwe ike ịkpọ eziokwu n’ezie. "',
-                secTitle: "ISI NKE NDỊ", equation: "NHATA = EZIOKWU",
-                quote: '" Naanị ihe onye ọ bụla nabatara dị ka nha anaghị enwe ike ịkpọ eziokwu n’ezie. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Ụlọ", services: "Ozi", workers: "Ndị Ọrụ", shops: "Ụlọ Ahịa", blog: "Blọgụ", about: "Gbasara Anyị", contact: "Kpọtụrụ" }
-            },
-            ny: {
-                title: "OWONADI NDI KUFUNA", subtitle: "NTCHITO YA CHIKHALIDWE",
-                slogan: '" Zokha zomwe munthu aliyense amazivomereza monga zofanana zingathe kutchedwa Chowona chenicheni. "',
-                secTitle: "MFUNDO YOYAMBA", equation: "KUFUNA = CHOWONA",
-                quote: '" Zokha zomwe munthu aliyense amazivomereza monga zofanana zingathe kutchedwa Chowona chenicheni. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Kunyumba", services: "Ntchito", workers: "Ogwira Ntchito", shops: "Masitolo", blog: "Blog", about: "Zatithu", contact: "Lumikizani" }
-            },
-            sn: {
-                title: "CHOKAZA NEKUTIRANGA", subtitle: "BHIZINISI REREVERO",
-                slogan: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
-                secTitle: "UZIVA HURU", equation: "KUTIRANGA = CHOKWADI",
-                quote: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Kumba", services: "Mabasa", workers: "Vashandi", shops: "Zvitoro", blog: "Buroku", about: "Nezvedu", contact: "Bata" }
-            },
-            st: {
-                title: "NTSHA LE HO LEBOLLA", subtitle: "KHETHO EA SECHABA",
-                slogan: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka \'nete. "',
-                secTitle: "FILOSOFI E KHOLO", equation: "HO LEBOLLA = NNETE",
-                quote: '" Ke feela seo motho e mong le e mong a se amohelang e le se lekanang se ka bitsoang Nnete ka \'nete. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Lehae", services: "Litšebeletso", workers: "Bakoetlisi", shops: "Mabenkele", blog: "Blog", about: "Ka rona", contact: "Ikopanye" }
-            },
-            xh: {
-                title: "INYANISO NOKULINGANA", subtitle: "ISHISHINI LENTLALO",
-                slogan: '" Kuphela koko kwamkelwa ngumntu ngamnye njengokulinganayo okunokuthi kubizwe ngokuba yiNyaniso. "',
-                secTitle: "IFILOSOFI EPHAKATHI", equation: "UKULINGANA = INYANISO",
-                quote: '" Kuphela koko kwamkelwa ngumntu ngamnye njengokulinganayo okunokuthi kubizwe ngokuba yiNyaniso. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Ikhaya", services: "Iinkonzo", workers: "Abasebenzi", shops: "Ivenkile", blog: "Ibhlog", about: "Malunga nathi", contact: "Qhagamshelana" }
-            },
-            gd: {
-                title: "FIINNE AGUS CO-IONNANACHD", subtitle: "GNÌOMHACHAS SÒISEALTA",
-                slogan: '" Is e a-mhàin na tha gach duine ag aontachadh a bhith co-ionann a ghabhas ràdh gu bhir Fìrinn. "',
-                secTitle: "AN FHIRINNE SHÒRAICHTE", equation: "CO-IONNANACHD = FÌRINN",
-                quote: '" Is e a-mhàin na tha gach duine ag aontachadh a bhith co-ionann a ghabhas ràdh gu bhir Fìrinn. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "An Àisia", africa: "An Afraga", na: "Aimeireaga a Tuath", sa: "Aimeireaga a Deas", ant: "Antargtica", eu: "An Roinn-Eòrpa", oc: "Oceania" },
-                nav: { home: "Dachaigh", services: "Seirbheisean", workers: "Luchd-obrach", shops: "Bùthan", blog: "Blog", about: "Mu dheidhinn", contact: "Cuir fios" }
-            },
-            cy: {
-                title: "GWIRIONEDD A CHYFRADD", subtitle: "MENTER GYMDEITHASOL",
-                slogan: '" Dim ond yr hyn a dderbynnir gan bob unigolyn fel un cyfartal y gellir ei alw yn Wirionedd yn wirioneddol. "',
-                secTitle: "Y ATHRORIAETH SYLFAENOL", equation: "CYFARTAL = GWIRIONEDD",
-                quote: '" Dim ond yr hyn a dderbynnir gan bob unigolyn fel un cyfartal y gellir ei alw yn Wirionedd yn wirioneddol. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Affrica", na: "Gogledd America", sa: "De America", ant: "Antarctica", eu: "Ewrop", oc: "Oceania" },
-                nav: { home: "Hafan", services: "Gwasanaethau", workers: "Gweithwyr", shops: "Siopau", blog: "Blog", about: "Amdanom ni", contact: "Cysylltu" }
-            },
-            yi: {
-                title: "אמת און גלייכקייט", subtitle: "סאציאלע אונטערנעמונג",
-                slogan: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
-                secTitle: "דער הויפּט פילאָסאָפֿיע", equation: "גלייכקייט = אמת",
-                quote: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
-                font: "'Amiri', serif",
-                continents: { asia: "אזיע", africa: "אפריקע", na: "צפון אמעריקע", sa: "דרום אמעריקע", ant: "אנטארקטיקע", eu: "אייראָפּע", oc: "אקעאניע" },
-                nav: { home: "היים", services: "דינסטן", workers: "אַרבעטער", shops: "שעפֿער", blog: "בלאָג", about: "וועגן אונדז", contact: "קאָנטאַקט" }
-            },
-            lb: {
-                title: "WAARHEET AN GLÄICHHEET", subtitle: "SOZIAL ENTERPRISE",
-                slogan: '" Nëmme dat, wat vun all eenzelne Mënsch als gläich akzeptéiert gëtt, kann tréischtlech Wourecht genannt ginn. "',
-                secTitle: "DÉI HAUPTPHILOSOPHIE", equation: "GLÄICHHEET = WAARHEET",
-                quote: '" Nëmme dat, wat vun all eenzelne Mënsch als gläich akzeptéiert gëtt, kann tréischtlech Wourecht genannt ginn. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asien", africa: "Afrika", na: "Nordamerika", sa: "Südamerika", ant: "Antarktis", eu: "Europa", oc: "Ozeanien" },
-                nav: { home: "Heem", services: "Servicer", workers: "Aarbechter", shops: "Geschäfter", blog: "Blog", about: "Iwwer eis", contact: "Kontakt" }
-            },
-            mt: {
-                title: "VERITÀ U UGWALJANZA", subtitle: "IMPRIŻA SOĊJALI",
-                slogan: '" Dak biss li jiġi aċċettat minn kull bniedem bħala ugwali jista’ tassew jissejjaħ Verità. "',
-                secTitle: "IL-FILOSOFIJA ĊWENTRALI", equation: "UGWALJANZA = VERITÀ",
-                quote: '" Dak biss li jiġi aċċettat minn kull bniedem bħala ugwali jista’ tassew jissejjaħ Verità. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asja", africa: "Afrika", na: "Amerika ta' Fuq", sa: "Amerika t'Isfel", ant: "Antartika", eu: "Ewropa", oc: "Oċeanja" },
-                nav: { home: "Dar", services: "Servizzi", workers: "Ħaddiema", shops: "Ħwienet", blog: "Blog", about: "Dwarna", contact: "Kuntatt" }
-            },
-            mi: {
-                title: "TIKA ME TE RITE", subtitle: "PAKIHI PĀPĀTORO",
-                slogan: '" Ko te mea anake e whakaaetia ana e ia tangata hei mea rite, koia tonu te mea e kīia ana he Tika. "',
-                secTitle: "TE AHUREI MATUA", equation: "RITE = TIKA",
-                quote: '" Ko te mea anake e whakaaetia ana e ia tangata hei mea rite, koia tonu te mea e kīia ana he Tika. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Ahia", africa: "Awherika", na: "Amerika ki te Raki", sa: "Amerika ki te Tonga", ant: "Antarctica", eu: "Ūropi", oc: "Te Moana-nui-a-Kiwa" },
-                nav: { home: "Kāinga", services: "Ratonga", workers: "Kaimahi", shops: "Toa", blog: "Blog", about: "Mō Mātou", contact: "Whakapā" }
-            },
-            mn: {
-                title: "ҮНЭН БА ТЭГШ БАЙДАЛ", subtitle: "НИЙГМИЙН АЖ АХУЙ",
-                slogan: '" Хүн бүрийн тэгш гэж хүлээн зөвшөөрсөн зүйл л жинхэнэ Үнэн байж чадна. "',
-                secTitle: "ҮНДСЭН ФИЛОСОФИ", equation: "ТЭГШ БАЙДАЛ = ҮНЭН",
-                quote: '" Хүн бүрийн тэгш гэж хүлээн зөвшөөрсөн зүйл л жинхэнэ Үнэн байж чадна. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Ази", africa: "Африк", na: "Хойд Америк", sa: "Өмнөд Америк", ant: "Антарктид", eu: "Европ", oc: "Далайн орнууд" },
-                nav: { home: "Нүүр", services: "Үйлчилгээ", workers: "Ажилчид", shops: "Дэлгүүрүүд", blog: "Блог", about: "Бидний тухай", contact: "Холбоо барих" }
-            },
-            ne: {
-                title: "सत्य र समानता", subtitle: "सामाजिक उद्यम",
-                slogan: '" प्रत्येक मानवद्वारा समान रूपमा स्वीकार गरिएको कुरा मात्र वास्तविक सत्य हुन सक्छ। "',
-                secTitle: "मुख्य दर्शन", equation: "समानता = सत्य",
-                quote: '" प्रत्येक मानवद्वारा समान रूपमा स्वीकार गरिएको कुरा मात्र वास्तविक सत्य हुन सक्छ। "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "एसिया", africa: "अफ्रिका", na: "उत्तर अमेरिका", sa: "दक्षिण अमेरिका", ant: "अन्टार्कटिका", eu: "युरोप", oc: "ओशिनिया" },
-                nav: { home: "गृहपृष्ठ", services: "सेवाहरू", workers: "कामदारहरू", shops: "पसलहरू", blog: "ब्लग", about: "हाम्रो बारेमा", contact: "सम्पर्क" }
-            },
-            ps: {
-                title: "رښتیا او مساوات", subtitle: "ټولنیز شرکت",
-                slogan: '" یوازې هغه څه چې د هر انسان لخوا د برابر په توګه منل کیږي په حقیقت کې رښتیا بلل کیدی شي. "',
-                secTitle: "اصلي فلسفه", equation: "مساوات = رښتیا",
-                quote: '" یوازې هغه څه چې د هر انسان لخوا د برابر په توګه منل کیږي په حقیقت کې رښتیا بلل کیدی شي. "',
-                font: "'Amiri', serif",
-                continents: { asia: "اسیا", africa: "افریقا", na: "شمالي امریکا", sa: "جنوبي امریکا", ant: "انټارکتیکا", eu: "اروپا", oc: "اوشینیا" },
-                nav: { home: "کور", services: "خدمات", workers: "کارکونکي", shops: "دکانونه", blog: "بلاګ", about: "زموږ په اړه", contact: "اپریکې" }
-            },
-            pa: {
-                title: "ਸੱਚ ਅਤੇ ਸਮਾਨਤਾ", subtitle: "ਸਮਾਜਿਕ ਉੱਦਮ",
-                slogan: '" ਸਿਰਫ ਉਹ ਚੀਜ਼ ਜਿਸਨੂੰ ਹਰ ਮਨੁੱਖ ਦੁਆਰਾ ਬਰਾਬਰ ਸਵੀਕਾਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਅਸਲ ਵਿੱਚ ਸੱਚ ਕਹਾ ਸਕਦੀ ਹੈ। "',
-                secTitle: "ਮੁੱਖ ਦਰਸ਼ਨ", equation: "ਸਮਾਨਤਾ = ਸੱਚ",
-                quote: '" ਸਿਰਫ ਉਹ ਚੀਜ਼ ਜਿਸਨੂੰ ਹਰ ਮਨੁੱਖ ਦੁਆਰਾ ਬਰਾਬਰ ਸਵੀਕਾਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਅਸਲ ਵਿੱਚ ਸੱਚ ਕਹਾ ਸਕਦੀ ਹੈ। "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ਏਸ਼ੀਆ", africa: "ਅਫਰੀਕਾ", na: "ਉੱਤਰੀ ਅਮਰੀਕਾ", sa: "ਦੱਖਣੀ ਅਮਰੀਕਾ", ant: "ਅੰਟਾਰਕਟਿਕਾ", eu: "ਯੂਰਪ", oc: "ਓਸ਼ੇਨੀਆ" },
-                nav: { home: "ਘਰ", services: "ਸੇਵਾਵਾਂ", workers: "ਕਰਮਚਾਰੀ", shops: "ਦੁکانਾਂ", blog: "ਬਲੌਗ", about: "ਸਾਡੇ ਬਾਰੇ", contact: "ਸੰਪਰਕ" }
-            },
-            sd: {
-                title: "سچ ۽ برابري", subtitle: "سماجي ادارو",
-                slogan: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي, سچ سڏجي سگهي ٿو. "',
-                secTitle: "بنيادي فلسفو", equation: "برابري = سچ",
-                quote: '" صرف اهو جنهن کي هر انسان طرفان برابر تسليم ڪيو وڃي, سچ سڏجي سگهي ٿو. "',
-                font: "'Amiri', serif",
-                continents: { asia: "ايشيا", africa: "آفريڪا", na: "اتر آمريڪا", sa: "ڏکڻ آمريڪا", ant: "انٽارڪٽيكا", eu: "يورپ", oc: "اوশينيا" },
-                nav: { home: "هوم", services: "خدمتون", workers: "ڪم ڪندڙ", shops: "دڪانون", blog: "بلاگ", about: "اسان بابت", contact: "رابطو" }
-            },
-            si: {
-                title: "සත්‍යය සහ සමානාත්මතාවය", subtitle: "සමාජ ව්‍යවසාය",
-                slogan: '" සෑම මිනිසකුම සමාන ලෙස පිළිගන්නා දෙයක් පමණක් සත්‍යය ලෙස හැඳින්විය හැක. "',
-                secTitle: "ප්‍රධාන දර්ශනය", equation: "සමානාත්මතාවය = සත්‍යය",
-                quote: '" සෑම මිනිසකුම සමාන ලෙස පිළිගන්නා දෙයක් පමණක් සත්‍යය ලෙස හැඳින්විය හැක. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ආසියාව", africa: "අප්‍රිකාව", na: "උතුරු ඇමරිකාව", sa: "දකුණු ඇමරිකාව", ant: "ඇන්ටාක්ටිකාව", eu: "යුරෝපය", oc: "ඕෂනියා" },
-                nav: { home: "මුල් පිටුව", services: "සේවා", workers: "සේවකයින්", shops: "සාප්පු", blog: "බ්ලොග්", about: "අපි ගැන", contact: "සම්බන්ධ වන්න" }
-            },
-            sl: {
-                title: "RESNICA IN ENAKOST", subtitle: "SOCIALNO PODJETJE",
-                slogan: '" Samo tisto, kar vsak človek sprejme kot enako, se lahko resnično imenuje Resnica. "',
-                secTitle: "OSREDNJA FILOZOFIJA", equation: "ENAKOST = RESNICA",
-                quote: '" Samo tisto, kar vsak človek sprejme kot enako, se lahko resnično imenuje Resnica. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azija", africa: "Afrika", na: "Severna Amerika", sa: "Južna Amerika", ant: "Antarktika", eu: "Evropa", oc: "Oceanija" },
-                nav: { home: "Domov", services: "Storitve", workers: "Delavci", shops: "Trgovine", blog: "Blog", about: "O nas", contact: "Kontakt" }
-            },
-            tg: {
-                title: "ҲАҚИҚАТ ВА БАРОБАРӢ", subtitle: "КОРХОНАИ ИҶТИМОӢ",
-                slogan: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
-                secTitle: "ФИЛОСОФИЯИ АСОСӢ", equation: "БАРОБАРӢ = ҲАҚИҚАТ",
-                quote: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Осиё", africa: "Африқо", na: "Amerikada Shimolӣ", sa: "Amerikada Ҷанубӣ", ant: "Антарктида", eu: "Аврупо", oc: "Океания" },
-                nav: { home: "Асосӣ", services: "Хизматрасониҳо", workers: "Kоргарон", shops: "Дӯконҳо", blog: "Блог", about: "Дар бораи мо", contact: "Тамос" }
-            },
-            te: {
-                title: "సత్యం మరియు సమానత్వం", subtitle: "సామాజిక సంస్థ",
-                slogan: '" ప్రతి మానవునిచే సమానంగా అంగీకరించబడినది మాత్రమే నిజమైన సత్యం అనబడుతుంది. "',
-                secTitle: "ప్రధాన తత్వశాస్త్రం", equation: "సమానత్వం = సత్యం",
-                quote: '" ప్రతి మానవునిచే సమానంగా అంగీకరించబడినది మాత్రమే నిజమైన సత్యం అనబడుతుంది. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ఆసియా", africa: "ఆఫ్రికా", na: "ఉత్తర అమెరికా", sa: "దక్షిణ అమెరికా", ant: "అంటార్కిటికా", eu: "యూరప్", oc: "ఓషియానియా" },
-                nav: { home: "హోమ్", services: "సేవలు", workers: "కార్మికులు", shops: "దుకాణాలు", blog: "బ్లాగ్", about: "మా గురించి", contact: "సంప్రదించండి" }
-            },
-            tk: {
-                title: "HAKYKAT WE DEŇLIK", subtitle: "SOSIAL WERIPHANA",
-                slogan: '" Diňe her bir ynsan tarapyndan deň hökmünde kabul edilýän zat hakyky Hakykat diýlip atlandyrylyp biler. "',
-                secTitle: "ESASY FILOSOFIÝA", equation: "DEŇLIK = HAKYKAT",
-                quote: '" Diňe her bir ynsan tarapyndan deň hökmünde kabul edilýän zat hakyky Hakykat diýlip atlandyrylyp biler. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Aziýa", africa: "Afrika", na: "Demirgazyk Amerika", sa: "Günorta Amerika", ant: "Antarktida", eu: "Ýewropa", oc: "Okeaniýa" },
-                nav: { home: "Baş sahypa", services: "Hyzmatlar", workers: "Işgärler", shops: "Dükanlar", blog: "Blog", about: "Biz barada", contact: "Habarlaşmak" }
-            },
-            uz: {
-                title: "HAQIQAT VA TENGLIK", subtitle: "IJTIMOIY KORXONA",
-                slogan: '" Faqat har bir inson tomonidan teng deb qabul qilingan narsagina Haqiqat deb atalishi mumkin. "',
-                secTitle: "ASOSIY FAYLASUFIYA", equation: "TENGLIK = HAQIQAT",
-                quote: '" Faqat har bir inson tomonidan teng deb qabul qilingan narsagina Haqiqat deb atalishi mumkin. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Osiyo", africa: "Afrika", na: "Shimoliy Amerika", sa: "Janubiy Amerika", ant: "Antarktida", eu: "Yevropa", oc: "Okeaniya" },
-                nav: { home: "Bosh sahifa", services: "Xizmatlar", workers: "Ishchilar", shops: "Do'konlar", blog: "Blog", about: "Biz haqimizda", contact: "Aloqa" }
-            },
-            ti: {
-                title: "ሓቅን ማዕርነትን", subtitle: "ማሕበራዊ ኢንተርፕራይዝ",
-                slogan: '" ብዓይኑ ንዝተፈላለየ ሰብ ማዕረ ኢሉ ዝቕበሎ ጥራሕ እዩ ሓቂ ክበሃል ዝኽእል። "',
-                secTitle: "መሰረታዊ ፍልስፍና", equation: "ማዕርነት = ሓቅ",
-                quote: '" ብዓይኑ ንዝተፈላለየ ሰብ ማዕረ ኢሉ ዝቕበሎ ጥራሕ እዩ ሓቂ ክበሃል ዝኽእል። "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "እስያ", africa: "አፍሪካ", na: "ሰሜን አሜሪካ", sa: "ደቡብ አሜሪካ", ant: "አንታርክቲካ", eu: "አውሮፓ", oc: "ኦሽንያ" },
-                nav: { home: "መበገሲ", services: "ግልጋሎታት", workers: "ሰራሕተኛታት", shops: "ዱካናት", blog: "ብሎግ", about: "ብዛዕባና", contact: "ርኸቡና" }
-            },
-            tt: {
-                title: "ХАКЫКАТЬ ВӘ ТИҢЛЕК", subtitle: "СОЦИАЛЬ ПРЕДПРИЯТИЕ",
-                slogan: '" Һәрбер кеше тарафыннан тиң дип кабул ителгән нәрсә генә чын мәгънәдә Хакыкать дип атала ала. "',
-                secTitle: "ТӨП ФИЛОСОФИЯ", equation: "ТИҢЛЕК = ХАКЫКАТЬ",
-                quote: '" Һәрбер кеше тарафыннан тиң дип кабул ителгән нәрсә генә чын мәгънәдә Хакыкать дип атала ала. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Азия", africa: "Африка", na: "Төньяк Америка", sa: "Көньяк Америка", ant: "Антарктида", eu: "Ауропа", oc: "Океания" },
-                nav: { home: "Баш бит", services: "Хезмәтләр", workers: "Эшчеләр", shops: "Кибетләр", blog: "Блог", about: "Без турда", contact: "Элемтә" }
-            },
-            as: {
-                title: "সত্য আৰু সমতা", subtitle: "সামাজিক প্ৰতিষ্ঠান",
-                slogan: '" কেৱল যিটো প্ৰতিজন মানুহে সমান বুলি গ্ৰহণ কৰে, তাকেইহে প্ৰকৃত সত্য بুলি ক\'ব পাৰি। "',
-                secTitle: "মূল দৰ্শন", equation: "সমতা = সত্য",
-                quote: '" কেৱল যিটো প্ৰতিজন মানুহে সমান বুলি গ্ৰহণ কৰে, তাকেইহে প্ৰকৃত সত্য বুলি ক\'ব পাৰি। "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "এছিয়া", africa: "আফ্ৰিকা", na: "উত্তৰ আমেৰিকা", sa: "দক্ষিণ আমেৰিকা", ant: "এন্টাৰ্কটিকা", eu: "ইউৰোপ", oc: "অচেনিয়া" },
-                nav: { home: "মুখ্য পৃষ্ঠা", services: "সেৱাসমূহ", workers: "কৰ্মীসকল", shops: "দোকানসমূহ", blog: "ব্লগ", about: "আমাৰ বিষয়ে", contact: "যোগাযোগ" }
-            },
-            or: {
-                title: "ସତ୍ୟ ଏବଂ ସମାନତା", subtitle: "ସାମାଜିକ ଉଦ୍ଯୋଗ",
-                slogan: '" କେବଳ ଯାହା ପ୍ରତ୍ୟେକ ମନୁଷ୍ୟ ଦ୍ୱାରା ସମାନ ଭାବରେ ଗ୍ରହଣ କରାଯାଏ, ତାହାକୁ ହିଁ ପ୍ରକୃତ ସତ୍ୟ କୁହାଯାଇପାରିବ। "',
-                secTitle: "ମୌଳିକ ଦର୍ଶନ", equation: "ସମାନତା = ସତ୍ୟ",
-                quote: '" କେବଳ ଯାହା ପ୍ରତ୍ୟେକ ମନୁଷ୍ୟ ଦ୍ୱାରା ସମାନ ଭାବରେ ଗ୍ରହଣ କରାଯାଏ, ତାହାକୁ ହିଁ ପ୍ରକୃତ ସତ୍ୟ କୁହାଯାଇପାରିବ। "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ଏସିଆ", africa: "ଆଫ୍ରିକା", na: "ଉତ୍ତର ଆମେରିକା", sa: "ଦକ୍ଷିଣ ଆମେରିକା", ant: "ଆଣ୍ଟାର୍କଟିକା", eu: "ୟୁରୋପ", oc: "ଓସେନିଆ" },
-                nav: { home: "ହୋମ", services: "ସେବା", workers: "କର୍ମଚାରୀ", shops: "ଦୋକାନ", blog: "ବ୍ଲଗ୍", about: "ଆମ ବିଷୟରେ", contact: "ଯୋଗାଯୋଗ" }
-            },
-            ml: {
-                title: "സത്യവും സമത്വവും", subtitle: "സാമൂഹിക സംരംഭം",
-                slogan: '" ഓരോ മനുഷ്യനും തുല്യമായി അംഗീകരിക്കുന്ന കാര്യം മാത്രമാണ് യഥാർത്ഥത്തിൽ സത്യം എന്ന് വിളിക്കപ്പെടുന്നത്. "',
-                secTitle: "പ്രധാന തത്വം", equation: "സമത്വം = സത്യം",
-                quote: '" ഓരോ മനുഷ്യനും തുല്യമായി അംഗീകരിക്കുന്ന കാര്യം മാത്രമാണ് യഥാർത്ഥത്തിൽ സത്യം എന്ന് വിളിക്കപ്പെടുന്നത്. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ഏഷ്യ", africa: "ആഫ്രിക്ക", na: "വടക്കേ അമേരിക്ക", sa: "തെക്കേ അമേരിക്ക", ant: "അന്റാർട്ടിക്ക", eu: "യൂറോപ്പ്", oc: "ഓഷ്യാനിയ" },
-                nav: { home: "ഹോം", services: "സേവനങ്ങൾ", workers: "തൊഴിലാളികൾ", shops: "കടകൾ", blog: "ബ്ലോഗ്", about: "ഞങ്ങളെക്കുറിച്ച്", contact: "ബന്ധപ്പെടുക" }
-            },
-            mr: {
-                title: "सत्य आणि समानता", subtitle: "सामाजिक उद्योग",
-                slogan: '" केवळ तीच गोष्ट जी प्रत्येक मानवाद्वारे समान म्हणून स्वीकारली जाते, तिलाच खऱ्या अर्थाने सत्य म्हटले जाऊ शकते. "',
-                secTitle: "मुख्य तत्त्वज्ञान", equation: "समानता = सत्य",
-                quote: '" केवळ तीच गोष्ट जी प्रत्येक मानवाद्वारे समान म्हणून स्वीकारली जाते, तिलाच खऱ्या अर्थाने सत्य म्हटले जाऊ शकते. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "आशिया", africa: "आफ्रिका", na: "उत्तर अमेरिका", sa: "दक्षिण अमेरिका", ant: "अंटार्क्टिका", eu: "युरोप", oc: "ओशनिया" },
-                nav: { home: "मुख्यपृष्ठ", services: "सेवा", workers: "कामगार", shops: "दुकाने", blog: "ब्लॉग", about: "आमच्याबद्दल", contact: "संपर्क" }
-            },
-            am_ext: {
-                title: "እውነት እና እኩልነት", subtitle: "ማህበራዊ ኢንተርፕራይዝ",
-                slogan: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
-                secTitle: "ዋናው ፍልስፍና", equation: "እኩልነት = እውነት",
-                quote: '" በሁሉም ሰው ዘንድ እኩል ተብሎ የሚቀበለው ብቻ በእውነት እውነት ሊባል ይችላል። "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "እስያ", africa: "አፍሪካ", na: "ሰሜን አሜሪካ", sa: "ደቡብ አሜሪካ", ant: "አንታርክቲካ", eu: "አውሮፓ", oc: "ኦሺያኒያ" },
-                nav: { home: "መነሻ", services: "አገልግሎቶች", workers: "ሰራተኞች", shops: "ሱቆች", blog: "ብሎግ", about: "ስለ እኛ", contact: "ግንኙነት" }
-            },
-            bm: {
-                title: "TIYA NI KAN KASAN", subtitle: "KAFA SOSYALI",
-                slogan: '" Fura min bɛ sɔrɔ adamaden kelen-kelen bɛɛ fɛ walasa ka kɛ kelen ye, o de bɛ fɔ ko Tiya ye. "',
-                secTitle: "FILOSOFI BA", equation: "KASAN = TIYA",
-                quote: '" Fura min bɛ sɔrɔ adamaden kelen-kelen bɛɛ fɛ walasa ka kɛ kelen ye, o de bɛ fɔ ko Tiya ye. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asi", africa: "Afiriki", na: "Ameriki Kɛnɛ", sa: "Ameriki Worodugu", ant: "Antarktika", eu: "Ewropa", oc: "Oseani" },
-                nav: { home: "So", services: "Baara", workers: "Baarakɛlaw", shops: "Sitorow", blog: "Blog", about: "An ka kuma", contact: "Wara" }
-            },
-            co: {
-                title: "VERITÀ È UGUALITÀ", subtitle: "IMPRESA CUSCIENZA",
-                slogan: '" Solu ciò chì hè accettatu da ogni umanu cum\'è uguale pò esse veramente chjamatu Verità. "',
-                secTitle: "A FILUSUFIA PRINCIPALE", equation: "UGUALITÀ = VERITÀ",
-                quote: '" Solu ciò chì hè accettatu da ogni umanu cum\'è uguale pò esse veramente chjamatu Verità. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "America di u Nordu", sa: "America di u Sudu", ant: "Antartide", eu: "Europa", oc: "Oceania" },
-                nav: { home: "Accumenciu", services: "Servizii", workers: "Operaghji", shops: "Boutiques", blog: "Blog", about: "À propositu", contact: "Cuntattu" }
-            },
-            fy: {
-                title: "WAARHEID EN GELIKENS", subtitle: "SOSJAAL BEDRIUW",
-                slogan: '" Allinne dat wat troch elk minske as gelyk akseptearre wurdt, kin wier wês Wierheid neamd wurde. "',
-                secTitle: "DE KERNFILOSOOFY", equation: "GELIKENS = WAARHEID",
-                quote: '" Allinne dat wat troch elk minske as gelyk akseptearre wurdt, kin wier wês Wierheid neamd wurde. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Aazje", africa: "Afrika", na: "Noard-Amearika", sa: "Súd-Amearika", ant: "Antarktika", eu: "Jeropa", oc: "Oseanië" },
-                nav: { home: "Hiem", services: "Tsjinsten", workers: "Wurkers", shops: "Winkels", blog: "Blog", about: "Oer ús", contact: "Kontakt" }
-            },
-            ht: {
-                title: "VERITE AK EGALITE", subtitle: "ANTREPRIZ SOSYAL",
-                slogan: '" Son aseptab pa chak moun kòm egal ki ka vrèman rele Verite. "',
-                secTitle: "FILOZOFI SANTRAL LA", equation: "EGALITE = VERITE",
-                quote: '" Son aseptab pa chak moun kòm egal ki ka vrèman rele Verite. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Azi", africa: "Afrik", na: "Amerik di Nò", sa: "Amerik di Sid", ant: "Antaktik", eu: "Ewòp", oc: "Oseyani" },
-                nav: { home: "Akèy", services: "Sèvis", workers: "Travayè", shops: "Boutik", blog: "Blog", about: "Konsènan nou", contact: "Kontak" }
-            },
-            haw: {
-                title: "KA ʻOIAʻIʻO A ME KE KULANA LIKOLIKO", subtitle: "HUI KAIAULU",
-                slogan: '" ʻO ka mea wale nō i ʻae ʻia e kānaka apau he kaulike ke kapa ʻia ʻo ia ka ʻOiaʻiʻo. "',
-                secTitle: "KA MANAʻO NUI", equation: "KULANA LIKOLIKO = KA ʻOIAʻIʻO",
-                quote: '" ʻO ka mea wale nō i ʻae ʻia e kānaka apau he kaulike ke kapa ʻia ʻo ia ka ʻOiaʻiʻo. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Apelika", na: "ʻAmelika ʻĀkau", sa: "ʻAmelika Hema", ant: "Antarctica", eu: "ʻEulopa", oc: "Oceania" },
-                nav: { home: "Kahi Hoʻomaka", services: "Lawelawe", workers: "Poʻe Hana", shops: "Halekuai", blog: "Pūnaewele", about: "No Mākou", contact: "Kāhea" }
-            },
-            hmn: {
-                title: "QHOV TSEEB THIAB SIAB TSO", subtitle: "LUS KEV KOOM UA",
-                slogan: '" Tsuas yog qhov uas txhua tus neeg lees paub tias sib luag thiaj hu ua Qhov Tseeb tiag. "',
-                secTitle: "LUS TSEEM CEEB", equation: "SIAB TSO = QHOV TSEEB",
-                quote: '" Tsuas yog qhov uas txhua tus neeg lees paub tias sib luag thiaj hu ua Qhov Tseeb tiag. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asiasi", africa: "Afrikes", na: "Qaum Teb Amelikas", sa: "Sab Qab Teb Amelikas", ant: "Antarctica", eu: "Yob Lauj", oc: "Oceania" },
-                nav: { home: "Tsev", services: "Kev Pab", workers: "Cov Neeg Ua Haujlwm", shops: "Khw Muag", blog: "Phau ntawv", about: "Hais Txog Peb", contact: "Tiv Tauj" }
-            },
-            jw: {
-                title: "KABENERAN LAN KASARIKAN", subtitle: "PERUSAHAAN SOSIAL",
-                slogan: '" Nam mung sing ditampa dening saben manungsa minangka padha sing bener-bener bisa diarani Kebenaran. "',
-                secTitle: "FILOSOFI UTAMA", equation: "KASARIKAN = KABENERAN",
-                quote: '" Nam mung sing ditampa dening saben manungsa minangka padha sing bener-bener bisa diarani Kebenaran. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Amérika Lor", sa: "Amérika Kidul", ant: "Antartika", eu: "Éropah", oc: " Osélia" },
-                nav: { home: "Ngarep", services: "Layanan", workers: "Pagawe", shops: "Toko", blog: "Blog", about: "Babagan Kita", contact: "Kontak" }
-            },
-            kn_ext: {
-                title: "ಸತ್ಯ ಮತ್ತು ಸಮಾನತೆ", subtitle: "ಸಾಮಾಜಿಕ ಸಂಸ್ಥೆ",
-                slogan: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
-                secTitle: "ಮುಖ್ಯ ತತ್ವಶಾಸ್ತ್ರ", equation: "ಸಮಾನತೆ = ಸತ್ಯ",
-                quote: '“ ಪ್ರತಿಯೊಬ್ಬ ಮನುಷ್ಯನಿಂದ ಸಮಾನವಾಗಿ ಸ್ವೀಕರಿಸಲ್ಪಟ್ಟದ್ದನ್ನು ಮಾತ್ರ ನಿಜವಾದ ಸತ್ಯ ಎಂದು ಕರೆಯಬಹುದು. ”',
-                font: "'Playfair Display', serif",
-                continents: { asia: "ಏಷ್ಯಾ", africa: "ಆಫ್ರಿಕಾ", na: "ಉತ್ತರ ಅಮೆರಿಕ", sa: "ದಕ್ಷಿಣ ಅಮೆರಿಕ", ant: "ಅಂಟಾರ್ಕ್ಟಿಕಾ", eu: "ಯುರೋಪ್", oc: "ಓಷಿಯಾನಿಯಾ" },
-                nav: { home: "ಮುಖಪುಟ", services: "ಸೇವೆಗಳು", workers: "ಕೆಲಸಗಾರರು", shops: "ಅಂಗಡಿಗಳು", blog: "ಬ್ಲಾಗ್", about: "ನಮ್ಮ ಬಗ್ಗೆ", contact: "ಸಂಪರ್ಕ" }
-            },
-            la_ext: {
-                title: "VERITAS ET AEQUALITAS", subtitle: "SOCIETAS SOCIALIS",
-                slogan: '" Solum id quod ab unoquoque homine aequum accipitur vere Veritas dici potest. "',
-                secTitle: "PHILOSOPHIA CENTRALIS", equation: "AEQUALITAS = VERITAS",
-                quote: '" Solum id quod ab unoquoque homine aequum accipitur vere Veritas dici potest. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "America Septemtrionalis", sa: "America Meridionalis", ant: "Antarctica", eu: "Europa", oc: "Oceania" },
-                nav: { home: "Domus", services: "Servitia", workers: "Operarii", shops: "Tabernae", blog: "Blog", about: "De Nobis", contact: "Contactus" }
-            },
-            mi_ext: {
-                title: "TE TIKA ME TE RITE", subtitle: "PĀTAKA HAPORI",
-                slogan: '" Ko te mea anake e whakaaetia ana e te tangata katoa hei ritenga, koia tonu te mea e kīia ana he Tika. "',
-                secTitle: "TE AHUREI MATUA", equation: "RITE = TIKA",
-                quote: '" Ko te mea anake e whakaaetia ana e te tangata katoa hei ritenga, koia tonu te mea e kīia ana he Tika. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Ahia", africa: "Awherika", na: "Amerika ki te Raki", sa: "Amerika ki te Tonga", ant: "Antarctica", eu: "Ūropi", oc: "Te Moana-nui-a-Kiwa" },
-                nav: { home: "Kāinga", services: "Ratonga", workers: "Kaimahi", shops: "Toa", blog: "Blog", about: "Mō Mātou", contact: "Whakapā" }
-            },
-            my_ext: {
-                title: "အမှန်တရားနှင့် ညီမျှမှု", subtitle: "လူမှုစီးပွားရေး လုပ်ငန်း",
-                slogan: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
-                secTitle: "အဓိက သဘောတရား ရင်းမြစ်", equation: "ညီမျှမှု = အမှန်တရား",
-                quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
-                font: "'Padauk', sans-serif",
-                continents: { asia: "အာရှ", africa: "အာဖရိက", na: "မြောက်အမေရိက", sa: "တောင်အမေရိက", ant: "အန္တာတိက", eu: "ဥရောပ", oc: "ဩစတြေးလျ / အိုရှန်းနီးယား" },
-                nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
-            },
-            om: {
-                title: "DHUGAA FI WALQIXXUMMAA", subtitle: "DHAAABBATA HAWAASAA",
-                slogan: '" Wanti nama hundaan akka walqixaatti fudhatame qofa dhugaa jedhamee waamuu danda\'ama. "',
-                secTitle: "FILOZOOFII GURGUDDOO", equation: "WALQIXXUMMAA = DHUGAA",
-                quote: '" Wanti nama hundaan akka walqixaatti fudhatame qofa dhugaa jedhamee waamuu danda\'ama. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asiya", africa: "Afrikaa", na: "Amerikaa Kaabaa", sa: "Amerikaa Kibbaa", ant: "Antarktiikaa", eu: "Awurooppaa", oc: "Ooshianiyaa" },
-                nav: { home: "Fuula Dura", services: "Tajaajila", workers: "Hojjettoota", shops: "Kaardii", blog: "Oduu", about: "Waa\'ee Keenya", contact: "Quunnami" }
-            },
-            qu: {
-                title: "CHIQAQ KAY PASAQ", subtitle: "RUNA KAWSAY",
-                slogan: '" Mayqin runapas kañalla kasqanta chaskisqanmi chiqaq kayqa kanman. "',
-                secTitle: "HUNTA YUYAY", equation: "KAFALLA = CHIQAQ",
-                quote: '" Mayqin runapas kañalla kasqanta chaskisqanmi chiqaq kayqa kanman. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asya", africa: "Afrikana", na: "Chinchay Amerika", sa: "Urin Amerika", ant: "Antartika", eu: "Iwrupa", oc: "Oceania" },
-                nav: { home: "Qallariy", services: "Yanapaykuna", workers: "Llank'aqkuna", shops: "Qhatukuna", blog: "Willay", about: "Ñuqanchikmanta", contact: "Tupanakuq" }
-            },
-            sm: {
-                title: "UPU MONI MA LE TUTUSA", subtitle: "FAALAVALAVA FAAPOTOPOTOINA",
-                slogan: '" Na o le mea e taliaina e tagata uma lava e tutusa e mafai ona valaau moni o le Upu Moni. "',
-                secTitle: "O LE FESILI AUTU", equation: "TUTUSA = UPU MONI",
-                quote: '" Na o le mea e taliaina e tagata uma lava e tutusa e mafai ona valaau moni o le Upu Moni. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Aferika", na: "Amerika i Matu", sa: "Amerika i Saute", ant: "Antarctica", eu: "Europa", oc: "Oseania" },
-                nav: { home: "Amata", services: "Auaunaga", workers: "Tagata faigaluega", shops: "Faleoloa", blog: "Blogs", about: "Ae Faatatau ia i Matou", contact: "Faʻafesoʻotaʻi" }
-            },
-            sn_ext: {
-                title: "CHOKAZA NEKUTIRANGA", subtitle: "BHIZINISI REREVERO",
-                slogan: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
-                secTitle: "UZIVA HURU", equation: "KUTIRANGA = CHOKWADI",
-                quote: '" Chinhu chimwe chete chinogamuchirwa nemunhu wose sechakafanana ndicho chinogona kunzi Chokwadi. "',
-                font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Africa", na: "North America", sa: "South America", ant: "Antarctica", eu: "Europe", oc: "Oceania" },
-                nav: { home: "Kumba", services: "Mabasa", workers: "Vashandi", shops: "Zvitoro", blog: "Buroku", about: "Nezvedu", contact: "Bata" }
-            },
-            ug: {
-                title: "HÄQIQÄT WÄ TÄNGXIMLIK", subtitle: "IJTIMOIY KORXONA",
-                slogan: '" Pätkchü har bir insan täripidin täng dëp qobul qilingan närsägina häqiqät dëp atalishi mumkin. "',
-                secTitle: "ASASIY PËLWÄ", equation: "TÄNGXIMLIK = HÄQIQÄT",
-                quote: '" Pätkchü har bir insan täripidin täng dëp qobul qilingan närsägina häqiqät dëp atalishi mumkin. "',
-                font: "'Amiri', serif",
-                continents: { asia: "Asiye", africa: "Efrige", na: "Şimaliy Amérika", sa: "Jenubiy Amérika", ant: "Antarktika", eu: "Yawropa", oc: "Okyaniye" },
-                nav: { home: "Bash Bët", services: "Mäximlär", workers: "Işçilär", shops: "Dükanlar", blog: "Blog", about: "Biz Toğrisida", contact: "Alaqä" }
-            },
-            yi_ext: {
-                title: "אמת און גלייכקייט", subtitle: "סאציאלע אונטערנעמונג",
-                slogan: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
-                secTitle: "דער הויפּט פילאָסאָפֿיע", equation: "גלייכקייט = אמת",
-                quote: '" נאָר דאָס וואָס יעמעד מענטש אָפּנעמט ווי גלייך, קען באמת גערופן ווערן אמת. "',
-                font: "'Amiri', serif",
-                continents: { asia: "אזיע", africa: "אפריקע", na: "צפון אמעריקע", sa: "דרום אמעריקע", ant: "אנטארקטיקע", eu: "אייראָפּע", oc: "אקעאניע" },
-                nav: { home: "היים", services: "דינסטן", workers: "אַרבעטער", shops: "שעפֿער", blog: "בלאָג", about: "וועגן אונדז", contact: "קאָנטאַקט" }
             }
         };
 
-        function jumpToSection(sectionId) {
-            const elem = document.getElementById(sectionId);
-            if (elem) {
-                elem.scrollIntoView({ behavior: 'smooth' });
-            }
+        function filterLanguages() {
+            const input = document.getElementById('langSearchInput').value.toLowerCase();
+            const buttons = document.querySelectorAll('#langBar .lang-btn');
+            
+            buttons.forEach(btn => {
+                const text = btn.innerText.toLowerCase();
+                const dataName = btn.getAttribute('data-name') || '';
+                if (text.includes(input) || dataName.includes(input)) {
+                    btn.style.display = 'inline-flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
         }
 
         function switchLang(lang, e) {
@@ -1316,17 +530,6 @@
             const quoteElem = document.getElementById('philosophy-quote');
             quoteElem.innerText = data.quote;
             quoteElem.style.fontFamily = data.font;
-
-            // Update Continents
-            if (data.continents) {
-                document.getElementById('cont-asia').innerHTML = '<span class="flag-icon">🌏</span> ' + data.continents.asia;
-                document.getElementById('cont-africa').innerHTML = '<span class="flag-icon">🌍</span> ' + data.continents.africa;
-                document.getElementById('cont-na').innerHTML = '<span class="flag-icon">🌎</span> ' + data.continents.na;
-                document.getElementById('cont-sa').innerHTML = '<span class="flag-icon">🌎</span> ' + data.continents.sa;
-                document.getElementById('cont-ant').innerHTML = '<span class="flag-icon">🇦🇶</span> ' + data.continents.ant;
-                document.getElementById('cont-eu').innerHTML = '<span class="flag-icon">🇪🇺</span> ' + data.continents.eu;
-                document.getElementById('cont-oc').innerHTML = '<span class="flag-icon">🇦🇺</span> ' + data.continents.oc;
-            }
 
             document.getElementById('nav-home').innerText = data.nav.home;
             document.getElementById('nav-services').innerText = data.nav.services;
