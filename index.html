@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=38">
+    <link rel="stylesheet" href="style.css?v=39">
     <style>
         /* Compact Single Line Horizontal Scroll Container */
         .lang-bar, .continent-bar {
@@ -81,7 +81,7 @@
 </head>
 <body>
     <header class="top-header">
-        <!-- 7 Continents Bar (Placed Above Language Bar) -->
+        <!-- 7 Continents Bar -->
         <div class="continent-bar notranslate">
             <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Asia')"><span class="flag-icon">🌏</span> အာရှ</button>
             <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Africa')"><span class="flag-icon">🌍</span> အာဖရိက</button>
@@ -92,9 +92,8 @@
             <button class="lang-btn continent-btn" onclick="alert('Selected Continent: Australia/Oceania')"><span class="flag-icon">🇦🇺</span> ဩစတြေးလျ / အိုရှန်းနီးယား</button>
         </div>
 
-        <!-- Language Switcher Bar - Compact Single Line (128 Languages) -->
+        <!-- Language Switcher Bar -->
         <div class="lang-bar notranslate">
-            <!-- Major Global Languages -->
             <button class="lang-btn active" onclick="switchLang('en', event)"><span class="flag-icon">🇬🇧</span> EN</button>
             <button class="lang-btn" onclick="switchLang('my', event)"><span class="flag-icon">🇲🇲</span> မြန်မာ</button>
             <button class="lang-btn" onclick="switchLang('ar', event)"><span class="flag-icon">🇸🇦</span> العربية</button>
@@ -478,7 +477,7 @@
                 nav: { home: "Etusivu", services: "Palvelut", workers: "Työntekijät", shops: "Kaupat", blog: "Blogi", about: "Meistä", contact: "Yhteystiedot" }
             },
             no: {
-                title: "SANNHET OG LIKHET", subtitle: "SOSIAL PRENSIP",
+                title: "SANNHET OG LIKHET", subtitle: "SOCIAL PRENSIP",
                 slogan: '" Bare det som aksepteres av hvert enkelt menneske som likt kan sannelig kalles Sannhet. "',
                 secTitle: "KJERNEFILOSOFIEN", equation: "LIKHET = SANNHET",
                 quote: '" Bare det som aksepteres av hvert enkelt menneske som likt kan sannelig kalles Sannhet. "',
@@ -551,9 +550,9 @@
             },
             he: {
                 title: "אמת ושוויוניות", subtitle: "מיזם חברתי",
-                slogan: '" רק מה שמתקבל על ידי כל בן אנוש כאיש שווה יכול להיקרא באמת אמת. "',
+                slogan: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 secTitle: "הפילוסופיה המרכזית", equation: "שוויוניות = אמת",
-                quote: '" רק מה שמתקבל על ידי כל בן אנוש כאיש שווה יכול להיקרא באמת אמת. "',
+                quote: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 font: "'Playfair Display', serif",
                 nav: { home: "בית", services: "שירותים", workers: "עובדים", shops: "חנויות", blog: "בלוג", about: "עלינו", contact: "צור קשר" }
             },
@@ -1019,7 +1018,7 @@
                 secTitle: "ମୌଳିକ ଦର୍ଶନ", equation: "ସମାନତା = ସତ୍ୟ",
                 quote: '" କେବଳ ଯାହା ପ୍ରତ୍ୟେକ ମନୁଷ୍ୟ ଦ୍ୱାରା ସମାନ ଭାବରେ ଗ୍ରହଣ କରାଯାଏ, ତାହାକୁ ହିଁ ପ୍ରକୃତ ସତ୍ୟ କୁହାଯାଇପାରିବ। "',
                 font: "'Playfair Display', serif",
-                nav: { home: "ହୋମ", services: "ସେବା", workers: "କର୍ମଚାରୀ", shops: "ଦୋକାନ", blog: "ବ୍ଲଗ୍", about: "ଆମ ବିଷୟରେ", contact: "ଯୋଗାଯୋଗ" }
+                nav: { home: "ହୋମ", services: "ସେବା", workers: "କର୍ମଚାରী", shops: "ଦୋକାନ", blog: "ବ୍ଲଗ୍", about: "ଆମ ବିଷୟରେ", contact: "ଯୋଗାଯୋଗ" }
             },
             ml: {
                 title: "സത്യവും സമത്വവും", subtitle: "സാമൂഹിക സംരംഭം",
@@ -1205,6 +1204,7 @@
             document.getElementById('nav-about').innerText = data.nav.about;
             document.getElementById('nav-contact').innerText = data.nav.contact;
 
+            // Ensure only the selected language is highlighted and active
             const buttons = document.querySelectorAll('.lang-bar .lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             if (e && e.target) {
