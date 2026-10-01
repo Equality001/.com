@@ -10,10 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
     <header class="top-header">
+        <!-- Pretty Custom Language Dropdown -->
+        <div class="lang-selector-container">
+            <label for="custom_lang_select" class="lang-label">🌐 ဘာသာစကား - </label>
+            <select id="custom_lang_select" class="custom-select" onchange="applyTranslation(this.value)">
+                <option value="">Choose Language</option>
+                <option value="my">🇲🇲 မြန်မာစာ</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="th">🇹🇭 ไทย</option>
+                <option value="zh-CN">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ko">🇰🇷 한국어</option>
+            </select>
+        </div>
+
+        <!-- Hidden Google Translate Element -->
+        <div id="google_translate_element" style="display:none;"></div>
+
         <h1 class="single-line-title">ညီတူညီမျှ (Equality)</h1>
         
         <div class="slogan-container">
@@ -35,5 +52,25 @@
         <h1 style="color: #d4af37;">ကြိုဆိုပါသည်</h1>
         <p>ညီတူညီမျှ လူမှုစီးပွားရေး ပလက်ဖောင်းမှ လှိုက်လှဲစွာ ကြိုဆိုပါသည်။</p>
     </main>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'my',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function applyTranslation(langCode) {
+            if (!langCode) return;
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
