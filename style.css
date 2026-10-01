@@ -13,8 +13,12 @@ body {
     border-bottom: 2px solid #d9381e;
 }
 
-.top-header h1, .top-header h2 {
-    margin: 5px 0;
+.single-line-title {
+    color: #d9381e;
+    font-size: 22px;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin: 10px 0;
 }
 
 .sub-title {
