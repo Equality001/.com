@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&family=Noto+Sans+Khmer:wght@400;500&family=Noto+Sans+Lao:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=40">
+    <link rel="stylesheet" href="style.css?v=41">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Compact Single Line Horizontal Scroll Container */
         .lang-bar, .continent-bar {
             display: flex;
@@ -32,6 +36,9 @@
             background: rgba(10, 9, 7, 0.95);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             padding: 8px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         /* Scaled down button */
@@ -83,13 +90,13 @@
     <header class="top-header">
         <!-- 7 Continents Bar -->
         <div class="continent-bar notranslate">
-            <button class="lang-btn continent-btn" id="cont-asia"><span class="flag-icon">🌏</span> Asia</button>
-            <button class="lang-btn continent-btn" id="cont-africa"><span class="flag-icon">🌍</span> Africa</button>
-            <button class="lang-btn continent-btn" id="cont-na"><span class="flag-icon">🌎</span> North America</button>
-            <button class="lang-btn continent-btn" id="cont-sa"><span class="flag-icon">🌎</span> South America</button>
-            <button class="lang-btn continent-btn" id="cont-ant"><span class="flag-icon">🇦🇶</span> Antarctica</button>
-            <button class="lang-btn continent-btn" id="cont-eu"><span class="flag-icon">🇪🇺</span> Europe</button>
-            <button class="lang-btn continent-btn" id="cont-oc"><span class="flag-icon">🇦🇺</span> Oceania</button>
+            <button class="lang-btn continent-btn" id="cont-asia" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🌏</span> Asia</button>
+            <button class="lang-btn continent-btn" id="cont-africa" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🌍</span> Africa</button>
+            <button class="lang-btn continent-btn" id="cont-na" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🌎</span> North America</button>
+            <button class="lang-btn continent-btn" id="cont-sa" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🌎</span> South America</button>
+            <button class="lang-btn continent-btn" id="cont-ant" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🇦🇶</span> Antarctica</button>
+            <button class="lang-btn continent-btn" id="cont-eu" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🇪🇺</span> Europe</button>
+            <button class="lang-btn continent-btn" id="cont-oc" onclick="jumpToSection('core-philosophy')"><span class="flag-icon">🇦🇺</span> Oceania</button>
         </div>
 
         <!-- Language Switcher Bar -->
@@ -233,7 +240,7 @@
     </header>
 
     <main style="max-width: 850px; margin: 40px auto; padding: 0 20px; text-align: center;">
-        <section class="notranslate" style="background-color: #14120e; border: 1px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+        <section id="core-philosophy" class="notranslate" style="background-color: #14120e; border: 1px solid #d4af37; padding: 40px 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
             <h2 style="color: #d4af37; font-family: 'Cinzel Decorative', serif; font-size: 22px; margin-bottom: 25px; letter-spacing: 1px;" id="sec-title">THE CORE PHILOSOPHY</h2>
             
             <div style="margin-bottom: 20px;">
@@ -267,7 +274,7 @@
                 secTitle: "အဓိက သဘောတရား ရင်းမြစ်", equation: "ညီမျှမှု = အမှန်တရား",
                 quote: '" လူသားတစ်ယောက်မကျန် ညီမျှသည်ဟု လက်ခံသည့် အကြောင်းအရာမှသာလျှင် စစ်မှန်သော အမှန်တရား ဖြစ်သည်။ "',
                 font: "'Padauk', sans-serif",
-                continents: { asia: "အာရှ", africa: "အာဖရိက", na: "မြောက်အမေရိက", sa: "တောင်အမေရိက", ant: "အန္တာတိក", eu: "ဥရောပ", oc: "ဩစတြေးလျ / အိုရှန်းနီးယား" },
+                continents: { asia: "အာရှ", africa: "အာဖရိက", na: "မြောက်အမေရိက", sa: "တောင်အမေရိက", ant: "အန္တာတိက", eu: "ဥရောပ", oc: "ဩစတြေးလျ / အိုရှန်းနီးယား" },
                 nav: { home: "ပင်မစာမျက်နှာ", services: "ဝန်ဆောင်မှုများ", workers: "လုပ်သားများ", shops: "ဆိုင်များ", blog: "ဆောင်းပါးများ", about: "အကြောင်း", contact: "ဆက်သွယ်ရန်" }
             },
             ar: {
@@ -587,7 +594,7 @@
             },
             he: {
                 title: "אמת ושוויוניות", subtitle: "מיזם חברתי",
-                slogan: '" רק מה שמתקבל על ידי כל בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
+                slogan: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 secTitle: "הפילוסופיה המרכזית", equation: "שוויוניות = אמת",
                 quote: '" רק מה שמתקבל על ידי كل בן אנוש كאיש שווה יכול להיקרא באמת אמת. "',
                 font: "'Playfair Display', serif",
@@ -633,7 +640,7 @@
             az: {
                 title: "HƏQİQƏT VƏ BƏRABƏRLİK", subtitle: "SOSİAL MÜƏSSİSƏ",
                 slogan: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
-                secTitle: "ƏSAS FƏLSƏFƏ", equation: "BƏRABƏRLİK = HƏQİQƏT",
+                secTitle: "ƏSAS FƏLSƏFƏ", equation: "BƏRABƏRLİK = HƏQİҚƏT",
                 quote: '" Yalnız hər bir insan tərəfindən bərabər qəbul edilən şey həqiqətən Həqiqət adlandırıla bilər. "',
                 font: "'Playfair Display', serif",
                 continents: { asia: "Asiya", africa: "Afrika", na: "Şimali Amerika", sa: "Cənubi Amerika", ant: "Antarktida", eu: "Avropa", oc: "Okeaniya" },
@@ -645,7 +652,7 @@
                 secTitle: "OINARRIZKO FILOSOFIA", equation: "BERDINTASUNA = EGIA",
                 quote: '" Gizaki bakar bakoitzak berdin gisa onartzen duena bakarrik dei daiteke egiaz egia. "',
                 font: "'Playfair Display', serif",
-                continents: { asia: "Asia", africa: "Afrika", na: "Ipar Amerika", sa: "Hego Amerika", antartika: "Antartika", eu: "Europa", oc: "Ozeania" },
+                continents: { asia: "Asia", africa: "Afrika", na: "Ipar Amerika", sa: "Hego Amerika", ant: "Antartika", eu: "Europa", oc: "Ozeania" },
                 nav: { home: "Hasiera", services: "Zerbitzuak", workers: "Langileak", shops: "Dendak", blog: "Bloga", about: "Guri buruz", contact: "Kontaktua" }
             },
             be: {
@@ -813,7 +820,7 @@
             mk: {
                 title: "ВИСТИНА И ЕДНАКВОСТ", subtitle: "СОЦИЈАЛНО ПРЕТПРИЈАТИЕ",
                 slogan: '" Само ona што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
-                secTitle: "ГЛАВНА ФИЛОСОФИЈА", equation: "ЕДНАКВОСТ = ВИСТИНА",
+                secTitle: "ГЛАВНА ФИЛОЗОФИЈА", equation: "ЕДНАКВОСТ = ВИСТИНА",
                 quote: '" Само ona што е прифатено од секој човек како еднакво може вистински да се нарече Вистина. "',
                 font: "'Playfair Display', serif",
                 continents: { asia: "Азија", africa: "Африка", na: "Северна Америка", sa: "Јужна Америка", ant: "Антарктик", eu: "Европа", oc: "Океанија" },
@@ -1051,7 +1058,7 @@
                 quote: '" Танҳо он чизе, ки аз ҷониби ҳар як инсон ҳамчун баробар қабул мешавад, метавонад воқеан Ҳақиқат номида шавад. "',
                 font: "'Playfair Display', serif",
                 continents: { asia: "Осиё", africa: "Африқо", na: "Amerikada Shimolӣ", sa: "Amerikada Ҷанубӣ", ant: "Антарктида", eu: "Аврупо", oc: "Океания" },
-                nav: { home: "Асосӣ", services: "Хизматрасониҳо", workers: "Коргарон", shops: "Дӯконҳо", blog: "Блог", about: "Дар бораи мо", contact: "Тамос" }
+                nav: { home: "Асосӣ", services: "Хизматрасониҳо", workers: "Kоргарон", shops: "Дӯконҳо", blog: "Блог", about: "Дар бораи мо", contact: "Тамос" }
             },
             te: {
                 title: "సత్యం మరియు సమానత్వం", subtitle: "సామాజిక సంస్థ",
@@ -1082,7 +1089,7 @@
             },
             ti: {
                 title: "ሓቅን ማዕርነትን", subtitle: "ማሕበራዊ ኢንተርፕራይዝ",
-                slogan: '" በብዓይኑ ንዝተፈላለየ ሰብ ማዕረ ኢሉ ዝቕበሎ ጥራሕ እዩ ሓቂ ክበሃል ዝኽእል። "',
+                slogan: '" ብዓይኑ ንዝተፈላለየ ሰብ ማዕረ ኢሉ ዝቕበሎ ጥራሕ እዩ ሓቂ ክበሃል ዝኽእል። "',
                 secTitle: "መሰረታዊ ፍልስፍና", equation: "ማዕርነት = ሓቅ",
                 quote: '" ብዓይኑ ንዝተፈላለየ ሰብ ማዕረ ኢሉ ዝቕበሎ ጥራሕ እዩ ሓቂ ክበሃል ዝኽእል። "',
                 font: "'Playfair Display', serif",
@@ -1100,7 +1107,7 @@
             },
             as: {
                 title: "সত্য আৰু সমতা", subtitle: "সামাজিক প্ৰতিষ্ঠান",
-                slogan: '" কেৱল যিটো প্ৰতিজন মানুহে সমান বুলি গ্ৰহণ কৰে, তাকেইহে প্ৰকৃত সত্য বুলি ক\'ব পাৰি। "',
+                slogan: '" কেৱল যিটো প্ৰতিজন মানুহে সমান বুলি গ্ৰহণ কৰে, তাকেইহে প্ৰকৃত সত্য بুলি ক\'ব পাৰি। "',
                 secTitle: "মূল দৰ্শন", equation: "সমতা = সত্য",
                 quote: '" কেৱল যিটো প্ৰতিজন মানুহে সমান বুলি গ্ৰহণ কৰে, তাকেইহে প্ৰকৃত সত্য বুলি ক\'ব পাৰি। "',
                 font: "'Playfair Display', serif",
@@ -1297,6 +1304,13 @@
                 nav: { home: "היים", services: "דינסטן", workers: "אַרבעטער", shops: "שעפֿער", blog: "בלאָג", about: "וועגן אונדז", contact: "קאָנטאַקט" }
             }
         };
+
+        function jumpToSection(sectionId) {
+            const elem = document.getElementById(sectionId);
+            if (elem) {
+                elem.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
 
         function switchLang(lang, e) {
             const data = translations[lang];
