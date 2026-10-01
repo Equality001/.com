@@ -10,15 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar -->
-        <div class="translate-bar">
-            <span class="translate-label">🌐 Translate:</span>
-            <div id="google_translate_element"></div>
+        <!-- Flag Language Switcher Bar -->
+        <div class="flag-switcher">
+            <span class="flag-btn" onclick="changeLanguage('my')" title="Myanmar">🇲🇲</span>
+            <span class="flag-btn" onclick="changeLanguage('en')" title="English">🇬🇧</span>
+            <span class="flag-btn" onclick="changeLanguage('th')" title="Thai">🇹🇭</span>
+            <span class="flag-btn" onclick="changeLanguage('zh-CN')" title="Chinese">🇨🇳</span>
+            <span class="flag-btn" onclick="changeLanguage('ja')" title="Japanese">🇯🇵</span>
+            <span class="flag-btn" onclick="changeLanguage('ko')" title="Korean">🇰🇷</span>
         </div>
+
+        <!-- Hidden Google Translate Element -->
+        <div id="google_translate_element" style="display:none;"></div>
 
         <h1 class="single-line-title">🇬🇧 Equality 🇲🇲 ညီတူညီမျှ 🇹🇭 ความเท่าเทียม</h1>
         
@@ -49,9 +56,16 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,my,th,zh-CN,ja,ko,fr,de,es,ru,ar',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                autoDisplay: false
             }, 'google_translate_element');
+        }
+
+        function changeLanguage(langCode) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            }
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
