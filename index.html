@@ -12,36 +12,59 @@
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css?v=29">
     <style>
+        /* Single Row Container styling */
+        .lang-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap; /* Prevent wrapping to next line */
+            overflow-x: auto; /* Allow smooth horizontal scroll on very small screens */
+            padding: 5px 0 15px 0;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
         .lang-btn {
             background: transparent;
             border: 1px solid #d4af37;
             color: #d4af37;
-            padding: 5px 12px;
-            margin: 3px;
+            padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 13px;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
+
         .lang-btn:hover, .lang-btn.active {
             background-color: #d4af37;
             color: #0b0a08;
             font-weight: bold;
         }
+
+        /* Hide scrollbar for clean UI */
+        .lang-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .lang-bar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body>
     <header class="top-header">
-        <!-- Language Switcher Bar -->
-        <div style="margin-bottom: 15px; text-align: center;" class="notranslate">
-            <button class="lang-btn active" onclick="switchLang('en')">English</button>
-            <button class="lang-btn" onclick="switchLang('my')">မြန်မာ</button>
-            <button class="lang-btn" onclick="switchLang('ar')">العربية</button>
-            <button class="lang-btn" onclick="switchLang('th')">ไทย</button>
-            <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
-            <button class="lang-btn" onclick="switchLang('zh')">中文</button>
-            <button class="lang-btn" onclick="switchLang('es')">Español</button>
-            <button class="lang-btn" onclick="switchLang('fr')">Français</button>
+        <!-- Language Switcher Bar - Single Line -->
+        <div class="lang-bar notranslate">
+            <button class="lang-btn active" onclick="switchLang('en', event)">English</button>
+            <button class="lang-btn" onclick="switchLang('my', event)">မြန်မာ</button>
+            <button class="lang-btn" onclick="switchLang('ar', event)">العربية</button>
+            <button class="lang-btn" onclick="switchLang('th', event)">ไทย</button>
+            <button class="lang-btn" onclick="switchLang('ja', event)">日本語</button>
+            <button class="lang-btn" onclick="switchLang('zh', event)">中文</button>
+            <button class="lang-btn" onclick="switchLang('es', event)">Español</button>
+            <button class="lang-btn" onclick="switchLang('fr', event)">Français</button>
         </div>
 
         <h1 class="single-line-title" style="font-size: 28px; letter-spacing: 3px;" id="main-title">TRUTH & EQUALITY</h1>
@@ -168,7 +191,7 @@
             }
         };
 
-        function switchLang(lang) {
+        function switchLang(lang, e) {
             const data = translations[lang];
             if (!data) return;
 
@@ -193,7 +216,9 @@
             // Highlight Active Button
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (e && e.target) {
+                e.target.classList.add('active');
+            }
         }
     </script>
 </body>
