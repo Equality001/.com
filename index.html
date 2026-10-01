@@ -7,15 +7,27 @@
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- CSS with version query to clear cache -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
     <header class="top-header">
+        <!-- Language Switcher Bar -->
+        <div class="translate-bar">
+            <span class="translate-label">🌐 Translate:</span>
+            <div id="google_translate_element"></div>
+        </div>
+
         <h1 class="single-line-title">🇬🇧 Equality 🇲🇲 ညီတူညီမျှ 🇹🇭 ความเท่าเทียม</h1>
-        <p class="sub-title">လူတိုင်းရဲ့ တန်ဖိုးကို လေးစားပြီး မတူညီမှုတွေကြားမှာ တန်းတူအခွင့်အရေးနဲ့ အတူတကွ ရှေ့ဆက်ကြမယ်</p>
+        
+        <div class="slogan-container">
+            <p class="slogan-my">" မတူကွဲပြားမှုများစွာ ရှိသော်လည်း၊ လူသားဆန်မှုဖြင့် အတူတကွ ပေါင်းစည်းရင်း — ငြိမ်းချမ်းမှု၊ ဂုဏ်သိက္ခာနှင့် ပျော်ရွှင်မှုတို့ဖြင့် လူတိုင်း ရှင်သန်နိုင်မည့် ကမ္ဘာကြီးကို အတူတကွ ဖန်တီးကြစို့။ "</p>
+            <p class="slogan-en">" Different in who we are, united in what we share — our humanity. Together, let’s build a world where everyone can live with peace, dignity, and happiness. "</p>
+            <p class="slogan-th">" แม้จะแตกต่างในตัวตน แต่หลอมรวมเป็นหนึ่งด้วยความเป็นมนุษย์ มาร่วมกันสร้างโลกที่ทุกคนได้อยู่อย่างมีความสุข มีสันติภาพ และมีศักดิ์ศรี "</p>
+        </div>
+
         <nav>
             <a href="index.html">Home</a> | 
             <a href="services.html">Services</a> | 
@@ -28,8 +40,20 @@
     </header>
 
     <main style="text-align: center; padding: 40px 20px;">
-        <h1 style="color: #d9381e;">Welcome to My Page</h1>
+        <h1 style="color: #d4af37;">Welcome to My Page</h1>
         <p>This is the official Home Page.</p>
     </main>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,my,th,zh-CN,ja,ko,fr,de,es,ru,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
