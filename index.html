@@ -10,14 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
     <header class="top-header">
-        <!-- Full Google Translate Element -->
-        <div class="translate-container">
-            <span class="translate-title">🌐 Translate:</span>
-            <div id="google_translate_element"></div>
+        <!-- Translate Button & Popover Container -->
+        <div class="translate-popup-wrapper">
+            <button class="translate-trigger-btn" onclick="toggleTranslateMenu()">🌐 Translate</button>
+            <div id="custom_translate_menu" class="translate-dropdown-menu">
+                <div id="google_translate_element"></div>
+            </div>
         </div>
 
         <h1 class="single-line-title">ညီတူညီမျှ (Equality)</h1>
@@ -42,7 +44,7 @@
         <p>ညီတူညီမျှ လူမှုစီးပွားရေး ပလက်ဖောင်းမှ လှိုက်လှဲစွာ ကြိုဆိုပါသည်။</p>
     </main>
 
-    <!-- Google Translate Script (Full Languages) -->
+    <!-- Google Translate Script -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -50,6 +52,23 @@
                 autoDisplay: false
             }, 'google_translate_element');
         }
+
+        function toggleTranslateMenu() {
+            var menu = document.getElementById('custom_translate_menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            var wrapper = document.querySelector('.translate-popup-wrapper');
+            if (wrapper && !wrapper.contains(event.target)) {
+                document.getElementById('custom_translate_menu').style.display = 'none';
+            }
+        });
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
