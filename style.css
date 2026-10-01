@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Padauk:wght@400;700&family=Sarabun:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kanya&family=Padauk:wght@700&display=swap');
 
 body {
-    background-color: #0f0d0b;
-    color: #e6d7c3;
-    font-family: 'Padauk', 'Sarabun', serif;
+    background-color: #0b0a08;
+    color: #e5d5c0;
+    font-family: 'Padauk', 'Kanya', serif;
     margin: 0;
     padding: 0;
 }
 
 .top-header {
-    background-color: #1a1612;
+    background-color: #14120e;
     padding: 25px 15px;
     text-align: center;
-    border-bottom: 3px double #c5a059;
+    border-bottom: 3px double #d4af37;
 }
 
 .single-line-title {
-    font-family: 'Cinzel', 'Padauk', 'Sarabun', serif;
-    color: #c5a059;
+    font-family: 'Cinzel Decorative', 'Padauk', 'Kanya', serif;
+    color: #d4af37;
     font-size: 26px;
     font-weight: 700;
     white-space: nowrap;
     overflow-x: auto;
     margin: 10px 0;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px #000000;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px #000000, 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .sub-title {
-    color: #b8a898;
+    color: #c5b59f;
     font-size: 15px;
     margin-top: 10px;
     line-height: 1.8;
@@ -39,15 +39,16 @@ nav {
 }
 
 nav a {
-    color: #d4af37;
+    color: #e6c667;
     text-decoration: none;
     font-weight: bold;
     margin: 0 8px;
     font-size: 16px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
 }
 
 nav a:hover {
     color: #ffffff;
     text-decoration: underline;
+    text-shadow: 0 0 5px #d4af37;
 }
